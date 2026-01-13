@@ -1,5 +1,5 @@
 <script lang="ts">
-    import { Button } from '$lib/index.js'
+    import { Button, Icon } from '$lib/index.js'
 
     let loading = $state(false)
 
@@ -89,33 +89,12 @@
         <section class="space-y-4">
             <h2 class="text-xl font-semibold text-neutral-800 dark:text-neutral-200">With Icons</h2>
             <div class="flex flex-wrap gap-3">
-                <Button>
-                    {#snippet leadingIcon()}
-                        <span class="i-lucide-plus h-4 w-4"></span>
-                    {/snippet}
-                    Add Item
-                </Button>
-
-                <Button variant="outline" color="success">
-                    {#snippet leadingIcon()}
-                        <span class="i-lucide-check h-4 w-4"></span>
-                    {/snippet}
-                    Confirm
-                </Button>
-
-                <Button variant="soft" color="error">
-                    {#snippet leadingIcon()}
-                        <span class="i-lucide-trash-2 h-4 w-4"></span>
-                    {/snippet}
-                    Delete
-                </Button>
-
-                <Button variant="ghost">
-                    Settings
-                    {#snippet trailingIcon()}
-                        <span class="i-lucide-chevron-right h-4 w-4"></span>
-                    {/snippet}
-                </Button>
+                <Button leadingIcon="lucide:plus">Add Item</Button>
+                <Button variant="outline" color="success" leadingIcon="lucide:check">Confirm</Button>
+                <Button variant="soft" color="error" leadingIcon="lucide:trash-2">Delete</Button>
+                <Button variant="ghost" trailingIcon="lucide:chevron-right">Settings</Button>
+                <Button variant="outline" leadingIcon="lucide:download">Download</Button>
+                <Button variant="soft" color="info" leadingIcon="lucide:eye">Preview</Button>
             </div>
         </section>
 
@@ -124,19 +103,19 @@
             <h2 class="text-xl font-semibold text-neutral-800 dark:text-neutral-200">Icon Only</h2>
             <div class="flex flex-wrap items-center gap-3">
                 <Button iconOnly size="xs" variant="ghost" color="neutral">
-                    <span class="i-lucide-x h-3 w-3"></span>
+                    <Icon name="lucide:x" size={12} />
                 </Button>
                 <Button iconOnly size="sm" variant="outline">
-                    <span class="i-lucide-plus h-4 w-4"></span>
+                    <Icon name="lucide:plus" size={14} />
                 </Button>
                 <Button iconOnly size="md">
-                    <span class="i-lucide-heart h-4 w-4"></span>
+                    <Icon name="lucide:heart" size={16} />
                 </Button>
                 <Button iconOnly size="lg" color="error">
-                    <span class="i-lucide-trash-2 h-5 w-5"></span>
+                    <Icon name="lucide:trash-2" size={18} />
                 </Button>
                 <Button iconOnly size="xl" variant="soft" color="success">
-                    <span class="i-lucide-check h-6 w-6"></span>
+                    <Icon name="lucide:check" size={22} />
                 </Button>
             </div>
         </section>
@@ -167,14 +146,39 @@
         <section class="space-y-4">
             <h2 class="text-xl font-semibold text-neutral-800 dark:text-neutral-200">As Link</h2>
             <div class="flex flex-wrap gap-3">
-                <Button href="https://svelte.dev" target="_blank">
+                <Button href="https://svelte.dev" target="_blank" trailingIcon="lucide:external-link">
                     Visit Svelte
-                    {#snippet trailingIcon()}
-                        <span class="i-lucide-external-link h-4 w-4"></span>
-                    {/snippet}
                 </Button>
                 <Button href="/about" variant="outline">Internal Link</Button>
                 <Button href="#top" variant="ghost">Anchor Link</Button>
+            </div>
+        </section>
+
+        <!-- Icon Component Showcase -->
+        <section class="space-y-4">
+            <h2 class="text-xl font-semibold text-neutral-800 dark:text-neutral-200">
+                Icon Component (Iconify)
+            </h2>
+            <p class="text-sm text-neutral-600 dark:text-neutral-400">
+                Supports 200,000+ icons from 150+ icon sets. Format: "collection:icon-name"
+            </p>
+            <div class="flex flex-wrap items-center gap-4 text-neutral-700 dark:text-neutral-300">
+                <Icon name="lucide:home" size={24} />
+                <Icon name="lucide:user" size={24} />
+                <Icon name="lucide:settings" size={24} />
+                <Icon name="lucide:search" size={24} />
+                <Icon name="lucide:heart" size={24} />
+                <Icon name="lucide:star" size={24} />
+                <Icon name="mdi:account" size={24} />
+                <Icon name="mdi:bell" size={24} />
+                <Icon name="tabler:brand-github" size={24} />
+                <Icon name="ph:code-bold" size={24} />
+            </div>
+            <div class="flex flex-wrap items-center gap-4">
+                <span class="text-success-600"><Icon name="lucide:circle-check" size={24} /></span>
+                <span class="text-error-600"><Icon name="lucide:circle-x" size={24} /></span>
+                <span class="text-warning-600"><Icon name="lucide:triangle-alert" size={24} /></span>
+                <span class="text-info-600"><Icon name="lucide:info" size={24} /></span>
             </div>
         </section>
     </div>

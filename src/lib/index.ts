@@ -3,7 +3,9 @@ export {
     Button,
     buttonVariants,
     type ButtonVariants,
-    type ButtonProps
+    type ButtonProps,
+    Icon,
+    type IconProps
 } from './components/index.js'
 
 export {

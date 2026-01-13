@@ -22,10 +22,14 @@
         fullWidth?: boolean
         /** Icon-only mode (square button) */
         iconOnly?: boolean
-        /** Icon to show before content */
-        leadingIcon?: Snippet
-        /** Icon to show after content */
-        trailingIcon?: Snippet
+        /** Leading icon name (e.g., "lucide:plus", "mdi:home") */
+        leadingIcon?: string
+        /** Trailing icon name (e.g., "lucide:chevron-right") */
+        trailingIcon?: string
+        /** Custom leading icon snippet (overrides leadingIcon) */
+        leadingIconSlot?: Snippet
+        /** Custom trailing icon snippet (overrides trailingIcon) */
+        trailingIconSlot?: Snippet
         /** Loading spinner snippet */
         loadingSpinner?: Snippet
         /** Button content */
@@ -54,6 +58,7 @@
 <script lang="ts">
     import { buttonVariants } from './button.variants.js'
     import { getConfigContext } from '../../config/context.svelte.js'
+    import Icon from '../Icon/Icon.svelte'
 
     let {
         color,
@@ -65,6 +70,8 @@
         iconOnly = false,
         leadingIcon,
         trailingIcon,
+        leadingIconSlot,
+        trailingIconSlot,
         loadingSpinner,
         children,
         class: className,
@@ -80,7 +87,18 @@
     const resolvedVariant = $derived(variant ?? defaults?.defaultVariant ?? 'solid')
     const resolvedSize = $derived(size ?? defaults?.defaultSize ?? 'md')
 
-    const loadingIcon = $derived(config.icons?.loading ?? 'i-lucide-loader-2')
+    // Icon sizes based on button size
+    const iconSize = $derived(
+        resolvedSize === 'xs'
+            ? 14
+            : resolvedSize === 'sm'
+              ? 16
+              : resolvedSize === 'lg'
+                ? 20
+                : resolvedSize === 'xl'
+                  ? 22
+                  : 18
+    )
 
     const classes = $derived(
         buttonVariants({
@@ -97,31 +115,41 @@
     const isDisabled = $derived(disabled || loading)
 </script>
 
-{#snippet defaultSpinner()}
-    <span class="{loadingIcon} h-4 w-4 animate-spin" aria-hidden="true"></span>
+{#snippet spinnerIcon()}
+    <Icon name="lucide:loader-2" size={iconSize} class="animate-spin" />
+{/snippet}
+
+{#snippet buttonContent()}
+    {#if loading}
+        {#if loadingSpinner}
+            {@render loadingSpinner()}
+        {:else}
+            {@render spinnerIcon()}
+        {/if}
+    {:else if leadingIconSlot}
+        {@render leadingIconSlot()}
+    {:else if leadingIcon}
+        <Icon name={leadingIcon} size={iconSize} />
+    {/if}
+
+    {#if children && !iconOnly}
+        {@render children()}
+    {:else if children && iconOnly && !loading}
+        {@render children()}
+    {/if}
+
+    {#if !loading}
+        {#if trailingIconSlot}
+            {@render trailingIconSlot()}
+        {:else if trailingIcon}
+            <Icon name={trailingIcon} size={iconSize} />
+        {/if}
+    {/if}
 {/snippet}
 
 {#if href && !isDisabled}
     <a {href} class={classes} {...restProps as HTMLAnchorAttributes}>
-        {#if loading}
-            {#if loadingSpinner}
-                {@render loadingSpinner()}
-            {:else}
-                {@render defaultSpinner()}
-            {/if}
-        {:else if leadingIcon}
-            {@render leadingIcon()}
-        {/if}
-
-        {#if children && !iconOnly}
-            {@render children()}
-        {:else if children && iconOnly && !loading}
-            {@render children()}
-        {/if}
-
-        {#if trailingIcon && !loading}
-            {@render trailingIcon()}
-        {/if}
+        {@render buttonContent()}
     </a>
 {:else}
     <button
@@ -132,24 +160,6 @@
         aria-busy={loading}
         {...restProps as HTMLButtonAttributes}
     >
-        {#if loading}
-            {#if loadingSpinner}
-                {@render loadingSpinner()}
-            {:else}
-                {@render defaultSpinner()}
-            {/if}
-        {:else if leadingIcon}
-            {@render leadingIcon()}
-        {/if}
-
-        {#if children && !iconOnly}
-            {@render children()}
-        {:else if children && iconOnly && !loading}
-            {@render children()}
-        {/if}
-
-        {#if trailingIcon && !loading}
-            {@render trailingIcon()}
-        {/if}
+        {@render buttonContent()}
     </button>
 {/if}
