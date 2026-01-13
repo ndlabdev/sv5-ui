@@ -25,6 +25,3 @@ export {
     useIcon,
     useUIDefaults
 } from './context.svelte.js'
-
-// Vite Plugin
-export { sv5ui, type Sv5UIPluginOptions } from './vite-plugin.js'

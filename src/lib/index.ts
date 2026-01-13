@@ -1,4 +1,10 @@
-export { UIProvider } from './components/index.js'
+export {
+    UIProvider,
+    Button,
+    buttonVariants,
+    type ButtonVariants,
+    type ButtonProps
+} from './components/index.js'
 
 export {
     type AppConfig,

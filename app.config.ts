@@ -1,5 +1,5 @@
-import type { AppConfig } from './src/lib/config/index.ts'
-import { colors } from './src/lib/config/index.ts'
+import type { AppConfig } from './src/lib/config/index.js'
+import { colors } from './src/lib/config/index.js'
 
 /**
  * App Configuration
