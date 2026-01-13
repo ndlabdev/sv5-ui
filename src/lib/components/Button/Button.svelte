@@ -14,45 +14,51 @@
         variant?: ButtonVariant
         /** Button size */
         size?: ButtonSize
+        /** Button label text (alternative to children) */
+        label?: string
         /** Shows loading spinner and disables button */
         loading?: boolean
+        /** Loading icon name (shown when loading) */
+        loadingIcon?: string
         /** Disables the button */
         disabled?: boolean
         /** Makes button take full width */
-        fullWidth?: boolean
-        /** Icon-only mode (square button) */
-        iconOnly?: boolean
+        block?: boolean
+        /** Equal padding on all sides (square button) */
+        square?: boolean
+        /** Truncate label text */
+        truncate?: boolean
+        /** Icon name - renders as icon-only button */
+        icon?: string
         /** Leading icon name (e.g., "lucide:plus", "mdi:home") */
         leadingIcon?: string
         /** Trailing icon name (e.g., "lucide:chevron-right") */
         trailingIcon?: string
-        /** Custom leading icon snippet (overrides leadingIcon) */
-        leadingIconSlot?: Snippet
-        /** Custom trailing icon snippet (overrides trailingIcon) */
-        trailingIconSlot?: Snippet
-        /** Loading spinner snippet */
-        loadingSpinner?: Snippet
+        /** Custom leading content snippet */
+        leading?: Snippet
+        /** Custom trailing content snippet */
+        trailing?: Snippet
         /** Button content */
         children?: Snippet
         /** Additional CSS classes */
         class?: string
     }
 
-    interface ButtonProps
+    interface ButtonElementProps
         extends BaseProps,
             Omit<HTMLButtonAttributes, 'class' | 'disabled' | 'color'> {
         /** Render as link */
-        href?: never
+        href?: undefined
     }
 
-    interface LinkProps
+    interface AnchorElementProps
         extends BaseProps,
             Omit<HTMLAnchorAttributes, 'class' | 'href' | 'color'> {
-        /** Render as link */
+        /** URL to navigate to (renders as anchor) */
         href: string
     }
 
-    export type Props = ButtonProps | LinkProps
+    export type Props = ButtonElementProps | AnchorElementProps
 </script>
 
 <script lang="ts">
@@ -64,18 +70,22 @@
         color,
         variant,
         size,
+        label,
         loading = false,
+        loadingIcon = 'lucide:loader-2',
         disabled = false,
-        fullWidth = false,
-        iconOnly = false,
+        block = false,
+        square = false,
+        truncate = false,
+        icon,
         leadingIcon,
         trailingIcon,
-        leadingIconSlot,
-        trailingIconSlot,
-        loadingSpinner,
+        leading,
+        trailing,
         children,
         class: className,
         href,
+        type = 'button' as const,
         ...restProps
     }: Props = $props()
 
@@ -87,78 +97,82 @@
     const resolvedVariant = $derived(variant ?? defaults?.defaultVariant ?? 'solid')
     const resolvedSize = $derived(size ?? defaults?.defaultSize ?? 'md')
 
-    // Icon sizes based on button size
-    const iconSize = $derived(
-        resolvedSize === 'xs'
-            ? 14
-            : resolvedSize === 'sm'
-              ? 16
-              : resolvedSize === 'lg'
-                ? 20
-                : resolvedSize === 'xl'
-                  ? 22
-                  : 18
-    )
+    // Determine if icon-only mode
+    const isIconOnly = $derived(!!icon || (square && !label && !children))
 
-    const classes = $derived(
+    // Has leading content (for loading animation logic)
+    const hasLeading = $derived(loading || !!leading || !!leadingIcon)
+    const hasTrailing = $derived(!!trailing || !!trailingIcon)
+
+    // Get slot classes from variants
+    const slots = $derived(
         buttonVariants({
             variant: resolvedVariant,
             color: resolvedColor,
             size: resolvedSize,
-            fullWidth,
-            iconOnly,
-            loading,
-            class: className
+            block,
+            square: isIconOnly || square,
+            truncate,
+            loading
         })
     )
+
+    const baseClass = $derived(slots.base({ class: className }))
+    const labelClass = $derived(slots.label())
+    const leadingIconClass = $derived(slots.leadingIcon())
+    const trailingIconClass = $derived(slots.trailingIcon())
 
     const isDisabled = $derived(disabled || loading)
 </script>
 
-{#snippet spinnerIcon()}
-    <Icon name="lucide:loader-2" size={iconSize} class="animate-spin" />
-{/snippet}
-
 {#snippet buttonContent()}
+    <!-- Leading section -->
     {#if loading}
-        {#if loadingSpinner}
-            {@render loadingSpinner()}
-        {:else}
-            {@render spinnerIcon()}
-        {/if}
-    {:else if leadingIconSlot}
-        {@render leadingIconSlot()}
+        <Icon name={loadingIcon} class={leadingIconClass} />
+    {:else if leading}
+        {@render leading()}
     {:else if leadingIcon}
-        <Icon name={leadingIcon} size={iconSize} />
+        <Icon name={leadingIcon} class={leadingIconClass} />
     {/if}
 
-    {#if children && !iconOnly}
-        {@render children()}
-    {:else if children && iconOnly && !loading}
-        {@render children()}
+    <!-- Icon-only mode -->
+    {#if icon && !loading}
+        <Icon name={icon} class={leadingIconClass} />
+    {:else if !isIconOnly}
+        <!-- Label/Content -->
+        {#if label}
+            <span class={labelClass}>{label}</span>
+        {:else if children}
+            <span class={labelClass}>{@render children()}</span>
+        {/if}
     {/if}
 
+    <!-- Trailing section -->
     {#if !loading}
-        {#if trailingIconSlot}
-            {@render trailingIconSlot()}
+        {#if trailing}
+            {@render trailing()}
         {:else if trailingIcon}
-            <Icon name={trailingIcon} size={iconSize} />
+            <Icon name={trailingIcon} class={trailingIconClass} />
         {/if}
     {/if}
 {/snippet}
 
-{#if href && !isDisabled}
-    <a {href} class={classes} {...restProps as HTMLAnchorAttributes}>
+{#if href}
+    <a
+        {href}
+        class={baseClass}
+        aria-disabled={isDisabled}
+        {...restProps as Omit<HTMLAnchorAttributes, 'class' | 'href' | 'color'>}
+    >
         {@render buttonContent()}
     </a>
 {:else}
     <button
-        type="button"
-        class={classes}
+        type={type as HTMLButtonAttributes['type']}
+        class={baseClass}
         disabled={isDisabled}
-        aria-disabled={isDisabled}
         aria-busy={loading}
-        {...restProps as HTMLButtonAttributes}
+        {...restProps as Omit<HTMLButtonAttributes, 'class' | 'disabled' | 'color'>}
     >
         {@render buttonContent()}
     </button>

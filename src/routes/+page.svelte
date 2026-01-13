@@ -21,8 +21,9 @@
             <div class="flex flex-wrap gap-3">
                 <Button variant="solid">Solid</Button>
                 <Button variant="outline">Outline</Button>
-                <Button variant="ghost">Ghost</Button>
                 <Button variant="soft">Soft</Button>
+                <Button variant="subtle">Subtle</Button>
+                <Button variant="ghost">Ghost</Button>
                 <Button variant="link">Link</Button>
             </div>
         </section>
@@ -85,6 +86,22 @@
             </div>
         </section>
 
+        <!-- Subtle Colors -->
+        <section class="space-y-4">
+            <h2 class="text-xl font-semibold text-neutral-800 dark:text-neutral-200">
+                Subtle Variant Colors
+            </h2>
+            <div class="flex flex-wrap gap-3">
+                <Button variant="subtle" color="primary">Primary</Button>
+                <Button variant="subtle" color="secondary">Secondary</Button>
+                <Button variant="subtle" color="success">Success</Button>
+                <Button variant="subtle" color="warning">Warning</Button>
+                <Button variant="subtle" color="error">Error</Button>
+                <Button variant="subtle" color="info">Info</Button>
+                <Button variant="subtle" color="neutral">Neutral</Button>
+            </div>
+        </section>
+
         <!-- With Icons -->
         <section class="space-y-4">
             <h2 class="text-xl font-semibold text-neutral-800 dark:text-neutral-200">With Icons</h2>
@@ -98,25 +115,55 @@
             </div>
         </section>
 
-        <!-- Icon Only -->
+        <!-- Icon Only (using icon prop) -->
         <section class="space-y-4">
-            <h2 class="text-xl font-semibold text-neutral-800 dark:text-neutral-200">Icon Only</h2>
+            <h2 class="text-xl font-semibold text-neutral-800 dark:text-neutral-200">
+                Icon Only (icon prop)
+            </h2>
             <div class="flex flex-wrap items-center gap-3">
-                <Button iconOnly size="xs" variant="ghost" color="neutral">
+                <Button icon="lucide:x" size="xs" variant="ghost" color="neutral" />
+                <Button icon="lucide:plus" size="sm" variant="outline" />
+                <Button icon="lucide:heart" size="md" />
+                <Button icon="lucide:trash-2" size="lg" color="error" />
+                <Button icon="lucide:check" size="xl" variant="soft" color="success" />
+            </div>
+        </section>
+
+        <!-- Square Buttons -->
+        <section class="space-y-4">
+            <h2 class="text-xl font-semibold text-neutral-800 dark:text-neutral-200">
+                Square Buttons (square prop)
+            </h2>
+            <div class="flex flex-wrap items-center gap-3">
+                <Button square size="xs" variant="ghost" color="neutral">
                     <Icon name="lucide:x" size={12} />
                 </Button>
-                <Button iconOnly size="sm" variant="outline">
+                <Button square size="sm" variant="outline">
                     <Icon name="lucide:plus" size={14} />
                 </Button>
-                <Button iconOnly size="md">
+                <Button square size="md">
                     <Icon name="lucide:heart" size={16} />
                 </Button>
-                <Button iconOnly size="lg" color="error">
+                <Button square size="lg" color="error">
                     <Icon name="lucide:trash-2" size={18} />
                 </Button>
-                <Button iconOnly size="xl" variant="soft" color="success">
+                <Button square size="xl" variant="soft" color="success">
                     <Icon name="lucide:check" size={22} />
                 </Button>
+            </div>
+        </section>
+
+        <!-- Label prop -->
+        <section class="space-y-4">
+            <h2 class="text-xl font-semibold text-neutral-800 dark:text-neutral-200">
+                Label Prop (Nuxt UI style)
+            </h2>
+            <div class="flex flex-wrap gap-3">
+                <Button label="Save" color="primary" />
+                <Button label="Cancel" variant="outline" color="neutral" />
+                <Button label="Delete" variant="soft" color="error" />
+                <Button label="Submit" leadingIcon="lucide:send" />
+                <Button label="Next" trailingIcon="lucide:arrow-right" variant="subtle" />
             </div>
         </section>
 
@@ -130,15 +177,26 @@
                     {loading ? 'Loading...' : 'Click to Load'}
                 </Button>
                 <Button loading>Always Loading</Button>
+                <Button loading loadingIcon="lucide:refresh-cw">Custom Loader</Button>
             </div>
         </section>
 
-        <!-- Full Width -->
+        <!-- Block (Full Width) -->
         <section class="space-y-4">
-            <h2 class="text-xl font-semibold text-neutral-800 dark:text-neutral-200">Full Width</h2>
+            <h2 class="text-xl font-semibold text-neutral-800 dark:text-neutral-200">
+                Block (Full Width)
+            </h2>
             <div class="max-w-md space-y-3">
-                <Button fullWidth>Full Width Button</Button>
-                <Button fullWidth variant="outline" color="secondary">Full Width Outline</Button>
+                <Button block>Full Width Button</Button>
+                <Button block variant="outline" color="secondary">Full Width Outline</Button>
+            </div>
+        </section>
+
+        <!-- Truncate -->
+        <section class="space-y-4">
+            <h2 class="text-xl font-semibold text-neutral-800 dark:text-neutral-200">Truncate</h2>
+            <div class="max-w-xs">
+                <Button block truncate label="This is a very long button label that should be truncated" />
             </div>
         </section>
 

@@ -1,240 +1,405 @@
 import { tv, type VariantProps } from 'tailwind-variants'
 
 export const buttonVariants = tv({
-    base: [
-        'inline-flex items-center justify-center gap-2',
-        'font-medium whitespace-nowrap',
-        'transition-all duration-200',
-        'focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-offset-2',
-        'disabled:pointer-events-none disabled:opacity-50',
-        'select-none'
-    ],
+    slots: {
+        base: [
+            'inline-flex items-center justify-center font-medium',
+            'transition-colors duration-200',
+            'focus:outline-none focus-visible:outline-2 focus-visible:outline-offset-2',
+            'disabled:cursor-not-allowed disabled:opacity-50',
+            'aria-disabled:cursor-not-allowed aria-disabled:opacity-50',
+            'select-none whitespace-nowrap'
+        ],
+        label: '',
+        leadingIcon: 'shrink-0',
+        trailingIcon: 'shrink-0'
+    },
     variants: {
         variant: {
-            solid: '',
-            outline: 'border-2 bg-transparent',
-            ghost: 'bg-transparent',
-            soft: '',
-            link: 'bg-transparent underline-offset-4 hover:underline'
+            solid: {},
+            outline: {},
+            soft: {},
+            subtle: {},
+            ghost: {},
+            link: {}
         },
         color: {
-            primary: '',
-            secondary: '',
-            success: '',
-            warning: '',
-            error: '',
-            info: '',
-            neutral: ''
+            primary: {},
+            secondary: {},
+            success: {},
+            warning: {},
+            error: {},
+            info: {},
+            neutral: {}
         },
         size: {
-            xs: 'h-7 px-2.5 text-xs rounded-md',
-            sm: 'h-8 px-3 text-sm rounded-md',
-            md: 'h-9 px-4 text-sm rounded-lg',
-            lg: 'h-10 px-5 text-base rounded-lg',
-            xl: 'h-12 px-6 text-lg rounded-xl'
+            xs: {
+                base: 'h-7 px-2 text-xs gap-1 rounded-md',
+                leadingIcon: 'size-3.5',
+                trailingIcon: 'size-3.5'
+            },
+            sm: {
+                base: 'h-8 px-2.5 text-xs gap-1.5 rounded-md',
+                leadingIcon: 'size-4',
+                trailingIcon: 'size-4'
+            },
+            md: {
+                base: 'h-9 px-3 text-sm gap-1.5 rounded-lg',
+                leadingIcon: 'size-4',
+                trailingIcon: 'size-4'
+            },
+            lg: {
+                base: 'h-10 px-4 text-sm gap-2 rounded-lg',
+                leadingIcon: 'size-5',
+                trailingIcon: 'size-5'
+            },
+            xl: {
+                base: 'h-12 px-5 text-base gap-2 rounded-xl',
+                leadingIcon: 'size-5',
+                trailingIcon: 'size-5'
+            }
         },
-        fullWidth: {
-            true: 'w-full'
+        block: {
+            true: {
+                base: 'w-full',
+                trailingIcon: 'ms-auto'
+            }
         },
-        iconOnly: {
-            true: ''
+        square: {
+            true: {}
+        },
+        truncate: {
+            true: {
+                label: 'truncate'
+            }
         },
         loading: {
-            true: 'cursor-wait'
+            true: {
+                base: 'cursor-wait'
+            }
         }
     },
     compoundVariants: [
-        // Solid variants
+        // ========== SOLID VARIANTS ==========
         {
             variant: 'solid',
             color: 'primary',
-            class: 'bg-primary-600 text-white hover:bg-primary-700 active:bg-primary-800 focus-visible:ring-primary-500'
+            class: {
+                base: 'bg-primary-600 text-white hover:bg-primary-500 active:bg-primary-700 focus-visible:outline-primary-500'
+            }
         },
         {
             variant: 'solid',
             color: 'secondary',
-            class: 'bg-secondary-600 text-white hover:bg-secondary-700 active:bg-secondary-800 focus-visible:ring-secondary-500'
+            class: {
+                base: 'bg-secondary-600 text-white hover:bg-secondary-500 active:bg-secondary-700 focus-visible:outline-secondary-500'
+            }
         },
         {
             variant: 'solid',
             color: 'success',
-            class: 'bg-success-600 text-white hover:bg-success-700 active:bg-success-800 focus-visible:ring-success-500'
+            class: {
+                base: 'bg-success-600 text-white hover:bg-success-500 active:bg-success-700 focus-visible:outline-success-500'
+            }
         },
         {
             variant: 'solid',
             color: 'warning',
-            class: 'bg-warning-500 text-white hover:bg-warning-600 active:bg-warning-700 focus-visible:ring-warning-500'
+            class: {
+                base: 'bg-warning-500 text-white hover:bg-warning-400 active:bg-warning-600 focus-visible:outline-warning-500'
+            }
         },
         {
             variant: 'solid',
             color: 'error',
-            class: 'bg-error-600 text-white hover:bg-error-700 active:bg-error-800 focus-visible:ring-error-500'
+            class: {
+                base: 'bg-error-600 text-white hover:bg-error-500 active:bg-error-700 focus-visible:outline-error-500'
+            }
         },
         {
             variant: 'solid',
             color: 'info',
-            class: 'bg-info-600 text-white hover:bg-info-700 active:bg-info-800 focus-visible:ring-info-500'
+            class: {
+                base: 'bg-info-600 text-white hover:bg-info-500 active:bg-info-700 focus-visible:outline-info-500'
+            }
         },
         {
             variant: 'solid',
             color: 'neutral',
-            class: 'bg-neutral-800 text-white hover:bg-neutral-900 active:bg-neutral-950 focus-visible:ring-neutral-500 dark:bg-neutral-200 dark:text-neutral-900 dark:hover:bg-neutral-100'
+            class: {
+                base: 'bg-neutral-900 text-white hover:bg-neutral-800 active:bg-neutral-950 focus-visible:outline-neutral-500 dark:bg-neutral-100 dark:text-neutral-900 dark:hover:bg-neutral-200'
+            }
         },
 
-        // Outline variants
+        // ========== OUTLINE VARIANTS (using ring) ==========
         {
             variant: 'outline',
             color: 'primary',
-            class: 'border-primary-600 text-primary-600 hover:bg-primary-50 active:bg-primary-100 focus-visible:ring-primary-500 dark:hover:bg-primary-950'
+            class: {
+                base: 'ring-1 ring-inset ring-primary-500/50 text-primary-600 hover:bg-primary-500/10 active:bg-primary-500/15 focus-visible:ring-2 focus-visible:ring-primary-500 dark:text-primary-400'
+            }
         },
         {
             variant: 'outline',
             color: 'secondary',
-            class: 'border-secondary-600 text-secondary-600 hover:bg-secondary-50 active:bg-secondary-100 focus-visible:ring-secondary-500 dark:hover:bg-secondary-950'
+            class: {
+                base: 'ring-1 ring-inset ring-secondary-500/50 text-secondary-600 hover:bg-secondary-500/10 active:bg-secondary-500/15 focus-visible:ring-2 focus-visible:ring-secondary-500 dark:text-secondary-400'
+            }
         },
         {
             variant: 'outline',
             color: 'success',
-            class: 'border-success-600 text-success-600 hover:bg-success-50 active:bg-success-100 focus-visible:ring-success-500 dark:hover:bg-success-950'
+            class: {
+                base: 'ring-1 ring-inset ring-success-500/50 text-success-600 hover:bg-success-500/10 active:bg-success-500/15 focus-visible:ring-2 focus-visible:ring-success-500 dark:text-success-400'
+            }
         },
         {
             variant: 'outline',
             color: 'warning',
-            class: 'border-warning-500 text-warning-600 hover:bg-warning-50 active:bg-warning-100 focus-visible:ring-warning-500 dark:hover:bg-warning-950'
+            class: {
+                base: 'ring-1 ring-inset ring-warning-500/50 text-warning-600 hover:bg-warning-500/10 active:bg-warning-500/15 focus-visible:ring-2 focus-visible:ring-warning-500 dark:text-warning-400'
+            }
         },
         {
             variant: 'outline',
             color: 'error',
-            class: 'border-error-600 text-error-600 hover:bg-error-50 active:bg-error-100 focus-visible:ring-error-500 dark:hover:bg-error-950'
+            class: {
+                base: 'ring-1 ring-inset ring-error-500/50 text-error-600 hover:bg-error-500/10 active:bg-error-500/15 focus-visible:ring-2 focus-visible:ring-error-500 dark:text-error-400'
+            }
         },
         {
             variant: 'outline',
             color: 'info',
-            class: 'border-info-600 text-info-600 hover:bg-info-50 active:bg-info-100 focus-visible:ring-info-500 dark:hover:bg-info-950'
+            class: {
+                base: 'ring-1 ring-inset ring-info-500/50 text-info-600 hover:bg-info-500/10 active:bg-info-500/15 focus-visible:ring-2 focus-visible:ring-info-500 dark:text-info-400'
+            }
         },
         {
             variant: 'outline',
             color: 'neutral',
-            class: 'border-neutral-300 text-neutral-700 hover:bg-neutral-50 active:bg-neutral-100 focus-visible:ring-neutral-500 dark:border-neutral-600 dark:text-neutral-300 dark:hover:bg-neutral-800'
+            class: {
+                base: 'ring-1 ring-inset ring-neutral-300 text-neutral-700 hover:bg-neutral-500/10 active:bg-neutral-500/15 focus-visible:ring-2 focus-visible:ring-neutral-400 dark:ring-neutral-700 dark:text-neutral-300'
+            }
         },
 
-        // Ghost variants
-        {
-            variant: 'ghost',
-            color: 'primary',
-            class: 'text-primary-600 hover:bg-primary-50 active:bg-primary-100 focus-visible:ring-primary-500 dark:hover:bg-primary-950'
-        },
-        {
-            variant: 'ghost',
-            color: 'secondary',
-            class: 'text-secondary-600 hover:bg-secondary-50 active:bg-secondary-100 focus-visible:ring-secondary-500 dark:hover:bg-secondary-950'
-        },
-        {
-            variant: 'ghost',
-            color: 'success',
-            class: 'text-success-600 hover:bg-success-50 active:bg-success-100 focus-visible:ring-success-500 dark:hover:bg-success-950'
-        },
-        {
-            variant: 'ghost',
-            color: 'warning',
-            class: 'text-warning-600 hover:bg-warning-50 active:bg-warning-100 focus-visible:ring-warning-500 dark:hover:bg-warning-950'
-        },
-        {
-            variant: 'ghost',
-            color: 'error',
-            class: 'text-error-600 hover:bg-error-50 active:bg-error-100 focus-visible:ring-error-500 dark:hover:bg-error-950'
-        },
-        {
-            variant: 'ghost',
-            color: 'info',
-            class: 'text-info-600 hover:bg-info-50 active:bg-info-100 focus-visible:ring-info-500 dark:hover:bg-info-950'
-        },
-        {
-            variant: 'ghost',
-            color: 'neutral',
-            class: 'text-neutral-700 hover:bg-neutral-100 active:bg-neutral-200 focus-visible:ring-neutral-500 dark:text-neutral-300 dark:hover:bg-neutral-800'
-        },
-
-        // Soft variants
+        // ========== SOFT VARIANTS ==========
         {
             variant: 'soft',
             color: 'primary',
-            class: 'bg-primary-100 text-primary-700 hover:bg-primary-200 active:bg-primary-300 focus-visible:ring-primary-500 dark:bg-primary-900 dark:text-primary-300 dark:hover:bg-primary-800'
+            class: {
+                base: 'bg-primary-500/15 text-primary-700 hover:bg-primary-500/25 active:bg-primary-500/30 focus-visible:outline-primary-500 dark:text-primary-300'
+            }
         },
         {
             variant: 'soft',
             color: 'secondary',
-            class: 'bg-secondary-100 text-secondary-700 hover:bg-secondary-200 active:bg-secondary-300 focus-visible:ring-secondary-500 dark:bg-secondary-900 dark:text-secondary-300 dark:hover:bg-secondary-800'
+            class: {
+                base: 'bg-secondary-500/15 text-secondary-700 hover:bg-secondary-500/25 active:bg-secondary-500/30 focus-visible:outline-secondary-500 dark:text-secondary-300'
+            }
         },
         {
             variant: 'soft',
             color: 'success',
-            class: 'bg-success-100 text-success-700 hover:bg-success-200 active:bg-success-300 focus-visible:ring-success-500 dark:bg-success-900 dark:text-success-300 dark:hover:bg-success-800'
+            class: {
+                base: 'bg-success-500/15 text-success-700 hover:bg-success-500/25 active:bg-success-500/30 focus-visible:outline-success-500 dark:text-success-300'
+            }
         },
         {
             variant: 'soft',
             color: 'warning',
-            class: 'bg-warning-100 text-warning-700 hover:bg-warning-200 active:bg-warning-300 focus-visible:ring-warning-500 dark:bg-warning-900 dark:text-warning-300 dark:hover:bg-warning-800'
+            class: {
+                base: 'bg-warning-500/15 text-warning-700 hover:bg-warning-500/25 active:bg-warning-500/30 focus-visible:outline-warning-500 dark:text-warning-300'
+            }
         },
         {
             variant: 'soft',
             color: 'error',
-            class: 'bg-error-100 text-error-700 hover:bg-error-200 active:bg-error-300 focus-visible:ring-error-500 dark:bg-error-900 dark:text-error-300 dark:hover:bg-error-800'
+            class: {
+                base: 'bg-error-500/15 text-error-700 hover:bg-error-500/25 active:bg-error-500/30 focus-visible:outline-error-500 dark:text-error-300'
+            }
         },
         {
             variant: 'soft',
             color: 'info',
-            class: 'bg-info-100 text-info-700 hover:bg-info-200 active:bg-info-300 focus-visible:ring-info-500 dark:bg-info-900 dark:text-info-300 dark:hover:bg-info-800'
+            class: {
+                base: 'bg-info-500/15 text-info-700 hover:bg-info-500/25 active:bg-info-500/30 focus-visible:outline-info-500 dark:text-info-300'
+            }
         },
         {
             variant: 'soft',
             color: 'neutral',
-            class: 'bg-neutral-100 text-neutral-700 hover:bg-neutral-200 active:bg-neutral-300 focus-visible:ring-neutral-500 dark:bg-neutral-800 dark:text-neutral-300 dark:hover:bg-neutral-700'
+            class: {
+                base: 'bg-neutral-500/10 text-neutral-700 hover:bg-neutral-500/20 active:bg-neutral-500/25 focus-visible:outline-neutral-500 dark:text-neutral-300'
+            }
         },
 
-        // Link variants
+        // ========== SUBTLE VARIANTS (soft + ring) ==========
+        {
+            variant: 'subtle',
+            color: 'primary',
+            class: {
+                base: 'ring-1 ring-inset ring-primary-500/25 bg-primary-500/10 text-primary-600 hover:bg-primary-500/20 active:bg-primary-500/25 focus-visible:ring-2 focus-visible:ring-primary-500 dark:text-primary-400'
+            }
+        },
+        {
+            variant: 'subtle',
+            color: 'secondary',
+            class: {
+                base: 'ring-1 ring-inset ring-secondary-500/25 bg-secondary-500/10 text-secondary-600 hover:bg-secondary-500/20 active:bg-secondary-500/25 focus-visible:ring-2 focus-visible:ring-secondary-500 dark:text-secondary-400'
+            }
+        },
+        {
+            variant: 'subtle',
+            color: 'success',
+            class: {
+                base: 'ring-1 ring-inset ring-success-500/25 bg-success-500/10 text-success-600 hover:bg-success-500/20 active:bg-success-500/25 focus-visible:ring-2 focus-visible:ring-success-500 dark:text-success-400'
+            }
+        },
+        {
+            variant: 'subtle',
+            color: 'warning',
+            class: {
+                base: 'ring-1 ring-inset ring-warning-500/25 bg-warning-500/10 text-warning-600 hover:bg-warning-500/20 active:bg-warning-500/25 focus-visible:ring-2 focus-visible:ring-warning-500 dark:text-warning-400'
+            }
+        },
+        {
+            variant: 'subtle',
+            color: 'error',
+            class: {
+                base: 'ring-1 ring-inset ring-error-500/25 bg-error-500/10 text-error-600 hover:bg-error-500/20 active:bg-error-500/25 focus-visible:ring-2 focus-visible:ring-error-500 dark:text-error-400'
+            }
+        },
+        {
+            variant: 'subtle',
+            color: 'info',
+            class: {
+                base: 'ring-1 ring-inset ring-info-500/25 bg-info-500/10 text-info-600 hover:bg-info-500/20 active:bg-info-500/25 focus-visible:ring-2 focus-visible:ring-info-500 dark:text-info-400'
+            }
+        },
+        {
+            variant: 'subtle',
+            color: 'neutral',
+            class: {
+                base: 'ring-1 ring-inset ring-neutral-500/20 bg-neutral-500/5 text-neutral-700 hover:bg-neutral-500/15 active:bg-neutral-500/20 focus-visible:ring-2 focus-visible:ring-neutral-400 dark:text-neutral-300'
+            }
+        },
+
+        // ========== GHOST VARIANTS ==========
+        {
+            variant: 'ghost',
+            color: 'primary',
+            class: {
+                base: 'text-primary-600 hover:bg-primary-500/10 active:bg-primary-500/15 focus-visible:bg-primary-500/10 dark:text-primary-400'
+            }
+        },
+        {
+            variant: 'ghost',
+            color: 'secondary',
+            class: {
+                base: 'text-secondary-600 hover:bg-secondary-500/10 active:bg-secondary-500/15 focus-visible:bg-secondary-500/10 dark:text-secondary-400'
+            }
+        },
+        {
+            variant: 'ghost',
+            color: 'success',
+            class: {
+                base: 'text-success-600 hover:bg-success-500/10 active:bg-success-500/15 focus-visible:bg-success-500/10 dark:text-success-400'
+            }
+        },
+        {
+            variant: 'ghost',
+            color: 'warning',
+            class: {
+                base: 'text-warning-600 hover:bg-warning-500/10 active:bg-warning-500/15 focus-visible:bg-warning-500/10 dark:text-warning-400'
+            }
+        },
+        {
+            variant: 'ghost',
+            color: 'error',
+            class: {
+                base: 'text-error-600 hover:bg-error-500/10 active:bg-error-500/15 focus-visible:bg-error-500/10 dark:text-error-400'
+            }
+        },
+        {
+            variant: 'ghost',
+            color: 'info',
+            class: {
+                base: 'text-info-600 hover:bg-info-500/10 active:bg-info-500/15 focus-visible:bg-info-500/10 dark:text-info-400'
+            }
+        },
+        {
+            variant: 'ghost',
+            color: 'neutral',
+            class: {
+                base: 'text-neutral-700 hover:bg-neutral-500/10 active:bg-neutral-500/15 focus-visible:bg-neutral-500/10 dark:text-neutral-300'
+            }
+        },
+
+        // ========== LINK VARIANTS ==========
         {
             variant: 'link',
             color: 'primary',
-            class: 'text-primary-600 hover:text-primary-700 focus-visible:ring-primary-500'
+            class: {
+                base: 'text-primary-600 underline-offset-4 hover:underline hover:text-primary-500 focus-visible:ring-2 focus-visible:ring-inset focus-visible:ring-primary-500 dark:text-primary-400'
+            }
         },
         {
             variant: 'link',
             color: 'secondary',
-            class: 'text-secondary-600 hover:text-secondary-700 focus-visible:ring-secondary-500'
+            class: {
+                base: 'text-secondary-600 underline-offset-4 hover:underline hover:text-secondary-500 focus-visible:ring-2 focus-visible:ring-inset focus-visible:ring-secondary-500 dark:text-secondary-400'
+            }
         },
         {
             variant: 'link',
             color: 'success',
-            class: 'text-success-600 hover:text-success-700 focus-visible:ring-success-500'
+            class: {
+                base: 'text-success-600 underline-offset-4 hover:underline hover:text-success-500 focus-visible:ring-2 focus-visible:ring-inset focus-visible:ring-success-500 dark:text-success-400'
+            }
         },
         {
             variant: 'link',
             color: 'warning',
-            class: 'text-warning-600 hover:text-warning-700 focus-visible:ring-warning-500'
+            class: {
+                base: 'text-warning-600 underline-offset-4 hover:underline hover:text-warning-500 focus-visible:ring-2 focus-visible:ring-inset focus-visible:ring-warning-500 dark:text-warning-400'
+            }
         },
         {
             variant: 'link',
             color: 'error',
-            class: 'text-error-600 hover:text-error-700 focus-visible:ring-error-500'
+            class: {
+                base: 'text-error-600 underline-offset-4 hover:underline hover:text-error-500 focus-visible:ring-2 focus-visible:ring-inset focus-visible:ring-error-500 dark:text-error-400'
+            }
         },
         {
             variant: 'link',
             color: 'info',
-            class: 'text-info-600 hover:text-info-700 focus-visible:ring-info-500'
+            class: {
+                base: 'text-info-600 underline-offset-4 hover:underline hover:text-info-500 focus-visible:ring-2 focus-visible:ring-inset focus-visible:ring-info-500 dark:text-info-400'
+            }
         },
         {
             variant: 'link',
             color: 'neutral',
-            class: 'text-neutral-600 hover:text-neutral-900 focus-visible:ring-neutral-500 dark:text-neutral-400 dark:hover:text-neutral-100'
+            class: {
+                base: 'text-neutral-600 underline-offset-4 hover:underline hover:text-neutral-900 focus-visible:ring-2 focus-visible:ring-inset focus-visible:ring-neutral-400 dark:text-neutral-400 dark:hover:text-neutral-100'
+            }
         },
 
-        // Icon-only size adjustments
-        { iconOnly: true, size: 'xs', class: 'w-7 px-0' },
-        { iconOnly: true, size: 'sm', class: 'w-8 px-0' },
-        { iconOnly: true, size: 'md', class: 'w-9 px-0' },
-        { iconOnly: true, size: 'lg', class: 'w-10 px-0' },
-        { iconOnly: true, size: 'xl', class: 'w-12 px-0' }
+        // ========== SQUARE SIZE ADJUSTMENTS ==========
+        { square: true, size: 'xs', class: { base: 'size-7 p-0' } },
+        { square: true, size: 'sm', class: { base: 'size-8 p-0' } },
+        { square: true, size: 'md', class: { base: 'size-9 p-0' } },
+        { square: true, size: 'lg', class: { base: 'size-10 p-0' } },
+        { square: true, size: 'xl', class: { base: 'size-12 p-0' } },
+
+        // ========== LOADING ICON ANIMATION ==========
+        {
+            loading: true,
+            class: {
+                leadingIcon: 'animate-spin'
+            }
+        }
     ],
     defaultVariants: {
         variant: 'solid',
@@ -244,3 +409,4 @@ export const buttonVariants = tv({
 })
 
 export type ButtonVariants = VariantProps<typeof buttonVariants>
+export type ButtonSlots = keyof ReturnType<typeof buttonVariants>
