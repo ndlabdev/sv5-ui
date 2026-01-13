@@ -1,8 +1,7 @@
-import type { ColorShade } from './types.ts'
+import type { ColorShade } from './types.js'
 import tailwindColors from 'tailwindcss/colors'
 
-// Filter only color palettes with shades (exclude single values like 'inherit', 'current', 'transparent', 'black', 'white')
-const colorPalettes = [
+const COLOR_PALETTES = [
     'slate',
     'gray',
     'zinc',
@@ -27,20 +26,8 @@ const colorPalettes = [
     'rose'
 ] as const
 
-type ColorPaletteName = (typeof colorPalettes)[number];
+export type ColorName = (typeof COLOR_PALETTES)[number]
 
-// Extract only the color palettes from Tailwind colors
-export const colors = colorPalettes.reduce(
-    (acc, name) => {
-        acc[name] = tailwindColors[name] as ColorShade
-        return acc
-    },
-	{} as Record<ColorPaletteName, ColorShade>
-)
-
-export type ColorName = ColorPaletteName;
-
-// Get a color palette by name
-export function getColor(name: ColorName): ColorShade {
-    return colors[name]
-}
+export const colors: Record<ColorName, ColorShade> = Object.fromEntries(
+    COLOR_PALETTES.map((name) => [name, tailwindColors[name] as ColorShade])
+) as Record<ColorName, ColorShade>

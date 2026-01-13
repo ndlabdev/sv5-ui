@@ -1,1 +1,1 @@
-export { default as UIProvider } from './UIProvider.svelte';
+export { default as UIProvider } from './UIProvider.svelte'
