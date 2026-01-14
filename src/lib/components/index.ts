@@ -22,6 +22,18 @@ export {
     type AvatarGroupUI
 } from './AvatarGroup/index.js'
 
+// Chip
+export {
+    Chip,
+    chipVariants,
+    type ChipProps,
+    type ChipVariants,
+    type ChipSlots,
+    type ChipSize,
+    type ChipPosition,
+    type ChipUI
+} from './Chip/index.js'
+
 // Re-export mode-watcher utilities for convenience
 export {
     mode,

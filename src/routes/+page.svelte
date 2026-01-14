@@ -1,5 +1,5 @@
 <script lang="ts">
-    import { Button, Icon, ThemeToggle, Avatar, AvatarGroup, mode, setMode } from '$lib/index.js'
+    import { Button, Icon, ThemeToggle, Avatar, AvatarGroup, Chip, mode, setMode } from '$lib/index.js'
 
     let loading = $state(false)
 
@@ -756,6 +756,204 @@
                         { alt: 'Diana Evans' }
                     ]}
                 />
+            </div>
+        </section>
+
+        <!-- Chip Component -->
+        <section class="space-y-4">
+            <h2 class="text-xl font-semibold text-neutral-800 dark:text-neutral-200">
+                Chip Component
+            </h2>
+            <p class="text-sm text-neutral-600 dark:text-neutral-400">
+                A small indicator that can be placed on other components
+            </p>
+
+            <!-- Basic Chip -->
+            <div class="space-y-2">
+                <h3 class="text-sm font-medium text-neutral-600 dark:text-neutral-400">Basic Chip</h3>
+                <div class="flex flex-wrap items-center gap-6">
+                    <Chip>
+                        <Button icon="lucide:bell" variant="outline" color="neutral" />
+                    </Chip>
+                    <Chip>
+                        <Button icon="lucide:mail" variant="outline" color="neutral" />
+                    </Chip>
+                    <Chip>
+                        <Avatar src="https://i.pravatar.cc/150?img=1" alt="User" size="lg" />
+                    </Chip>
+                </div>
+            </div>
+
+            <!-- Chip Colors -->
+            <div class="space-y-2">
+                <h3 class="text-sm font-medium text-neutral-600 dark:text-neutral-400">Colors</h3>
+                <div class="flex flex-wrap items-center gap-6">
+                    <Chip color="primary">
+                        <Avatar alt="P" size="lg" />
+                    </Chip>
+                    <Chip color="secondary">
+                        <Avatar alt="S" size="lg" />
+                    </Chip>
+                    <Chip color="success">
+                        <Avatar alt="S" size="lg" />
+                    </Chip>
+                    <Chip color="warning">
+                        <Avatar alt="W" size="lg" />
+                    </Chip>
+                    <Chip color="error">
+                        <Avatar alt="E" size="lg" />
+                    </Chip>
+                    <Chip color="info">
+                        <Avatar alt="I" size="lg" />
+                    </Chip>
+                    <Chip color="neutral">
+                        <Avatar alt="N" size="lg" />
+                    </Chip>
+                </div>
+            </div>
+
+            <!-- Chip Sizes -->
+            <div class="space-y-2">
+                <h3 class="text-sm font-medium text-neutral-600 dark:text-neutral-400">Sizes</h3>
+                <div class="flex flex-wrap items-center gap-6">
+                    <Chip size="3xs">
+                        <Avatar alt="U" size="lg" />
+                    </Chip>
+                    <Chip size="2xs">
+                        <Avatar alt="U" size="lg" />
+                    </Chip>
+                    <Chip size="xs">
+                        <Avatar alt="U" size="lg" />
+                    </Chip>
+                    <Chip size="sm">
+                        <Avatar alt="U" size="lg" />
+                    </Chip>
+                    <Chip size="md">
+                        <Avatar alt="U" size="lg" />
+                    </Chip>
+                    <Chip size="lg">
+                        <Avatar alt="U" size="lg" />
+                    </Chip>
+                    <Chip size="xl">
+                        <Avatar alt="U" size="lg" />
+                    </Chip>
+                    <Chip size="2xl">
+                        <Avatar alt="U" size="lg" />
+                    </Chip>
+                    <Chip size="3xl">
+                        <Avatar alt="U" size="lg" />
+                    </Chip>
+                </div>
+            </div>
+
+            <!-- Chip Positions -->
+            <div class="space-y-2">
+                <h3 class="text-sm font-medium text-neutral-600 dark:text-neutral-400">Positions</h3>
+                <div class="flex flex-wrap items-center gap-6">
+                    <div class="text-center">
+                        <Chip position="top-right">
+                            <Avatar alt="TR" size="xl" />
+                        </Chip>
+                        <p class="text-xs text-neutral-500 mt-2">top-right</p>
+                    </div>
+                    <div class="text-center">
+                        <Chip position="top-left">
+                            <Avatar alt="TL" size="xl" />
+                        </Chip>
+                        <p class="text-xs text-neutral-500 mt-2">top-left</p>
+                    </div>
+                    <div class="text-center">
+                        <Chip position="bottom-right">
+                            <Avatar alt="BR" size="xl" />
+                        </Chip>
+                        <p class="text-xs text-neutral-500 mt-2">bottom-right</p>
+                    </div>
+                    <div class="text-center">
+                        <Chip position="bottom-left">
+                            <Avatar alt="BL" size="xl" />
+                        </Chip>
+                        <p class="text-xs text-neutral-500 mt-2">bottom-left</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Chip with Text -->
+            <div class="space-y-2">
+                <h3 class="text-sm font-medium text-neutral-600 dark:text-neutral-400">With Text/Number</h3>
+                <div class="flex flex-wrap items-center gap-6">
+                    <Chip text={5} size="md">
+                        <Button icon="lucide:bell" variant="outline" color="neutral" />
+                    </Chip>
+                    <Chip text={12} size="lg" color="error">
+                        <Button icon="lucide:mail" variant="outline" color="neutral" />
+                    </Chip>
+                    <Chip text="99+" size="xl" color="primary">
+                        <Button icon="lucide:message-circle" variant="outline" color="neutral" />
+                    </Chip>
+                    <Chip text={3} size="lg" color="success">
+                        <Avatar src="https://i.pravatar.cc/150?img=5" alt="User" size="xl" />
+                    </Chip>
+                </div>
+            </div>
+
+            <!-- Chip Inset -->
+            <div class="space-y-2">
+                <h3 class="text-sm font-medium text-neutral-600 dark:text-neutral-400">Inset (inside bounds)</h3>
+                <div class="flex flex-wrap items-center gap-6">
+                    <div class="text-center">
+                        <Chip inset={false}>
+                            <Avatar alt="N" size="xl" />
+                        </Chip>
+                        <p class="text-xs text-neutral-500 mt-2">inset=false</p>
+                    </div>
+                    <div class="text-center">
+                        <Chip inset={true}>
+                            <Avatar alt="I" size="xl" />
+                        </Chip>
+                        <p class="text-xs text-neutral-500 mt-2">inset=true</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Chip Show/Hide -->
+            <div class="space-y-2">
+                <h3 class="text-sm font-medium text-neutral-600 dark:text-neutral-400">Show/Hide</h3>
+                <div class="flex flex-wrap items-center gap-6">
+                    <Chip show={true}>
+                        <Avatar alt="V" size="lg" />
+                    </Chip>
+                    <Chip show={false}>
+                        <Avatar alt="H" size="lg" />
+                    </Chip>
+                </div>
+            </div>
+
+            <!-- Chip Standalone -->
+            <div class="space-y-2">
+                <h3 class="text-sm font-medium text-neutral-600 dark:text-neutral-400">Standalone</h3>
+                <div class="flex flex-wrap items-center gap-3">
+                    <Chip standalone size="md" color="primary" />
+                    <Chip standalone size="md" color="success" />
+                    <Chip standalone size="md" color="error" />
+                    <Chip standalone size="lg" color="warning" text={5} />
+                    <Chip standalone size="xl" color="info" text="New" />
+                </div>
+            </div>
+
+            <!-- Chip on Buttons -->
+            <div class="space-y-2">
+                <h3 class="text-sm font-medium text-neutral-600 dark:text-neutral-400">On Buttons</h3>
+                <div class="flex flex-wrap items-center gap-6">
+                    <Chip text={3} size="lg" color="error">
+                        <Button leadingIcon="lucide:inbox">Inbox</Button>
+                    </Chip>
+                    <Chip size="md" color="success">
+                        <Button variant="outline">Online</Button>
+                    </Chip>
+                    <Chip text="!" size="lg" color="warning">
+                        <Button variant="soft" color="neutral">Warnings</Button>
+                    </Chip>
+                </div>
             </div>
         </section>
     </div>
