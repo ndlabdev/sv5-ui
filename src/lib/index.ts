@@ -5,7 +5,17 @@ export {
     type ButtonVariants,
     type ButtonProps,
     Icon,
-    type IconProps
+    type IconProps,
+    ThemeToggle,
+    type ThemeToggleProps,
+    // mode-watcher re-exports
+    mode,
+    toggleMode,
+    setMode,
+    resetMode,
+    userPrefersMode,
+    systemPrefersMode,
+    ModeWatcher
 } from './components/index.js'
 
 export {

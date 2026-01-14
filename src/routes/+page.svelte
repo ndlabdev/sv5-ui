@@ -1,5 +1,5 @@
 <script lang="ts">
-    import { Button, Icon } from '$lib/index.js'
+    import { Button, Icon, ThemeToggle, mode, setMode } from '$lib/index.js'
 
     let loading = $state(false)
 
@@ -9,11 +9,63 @@
             loading = false
         }, 2000)
     }
+
+    const currentMode = $derived(mode.current ?? 'light')
 </script>
 
 <div class="min-h-screen bg-neutral-50 p-8 dark:bg-neutral-900">
     <div class="mx-auto max-w-4xl space-y-12">
-        <h1 class="text-3xl font-bold text-neutral-900 dark:text-white">Button Component Demo</h1>
+        <!-- Header with Theme Toggle -->
+        <header class="flex items-center justify-between">
+            <h1 class="text-3xl font-bold text-neutral-900 dark:text-white">
+                Button Component Demo
+            </h1>
+            <div class="flex items-center gap-2">
+                <ThemeToggle />
+            </div>
+        </header>
+
+        <!-- Dark Mode Section -->
+        <section class="space-y-4">
+            <h2 class="text-xl font-semibold text-neutral-800 dark:text-neutral-200">
+                Dark Mode (mode-watcher)
+            </h2>
+            <p class="text-sm text-neutral-600 dark:text-neutral-400">
+                Current mode: <strong class="text-neutral-900 dark:text-white">{currentMode}</strong>
+            </p>
+            <div class="flex flex-wrap items-center gap-3">
+                <ThemeToggle size="sm" />
+                <ThemeToggle size="md" variant="outline" />
+                <ThemeToggle size="lg" variant="soft" color="primary" />
+
+                <div class="ml-4 flex gap-2">
+                    <Button
+                        size="sm"
+                        variant={currentMode === 'light' ? 'solid' : 'outline'}
+                        onclick={() => setMode('light')}
+                        leadingIcon="lucide:sun"
+                    >
+                        Light
+                    </Button>
+                    <Button
+                        size="sm"
+                        variant={currentMode === 'dark' ? 'solid' : 'outline'}
+                        onclick={() => setMode('dark')}
+                        leadingIcon="lucide:moon"
+                    >
+                        Dark
+                    </Button>
+                    <Button
+                        size="sm"
+                        variant="ghost"
+                        onclick={() => setMode('system')}
+                        leadingIcon="lucide:monitor"
+                    >
+                        System
+                    </Button>
+                </div>
+            </div>
+        </section>
 
         <!-- Variants -->
         <section class="space-y-4">
@@ -136,19 +188,19 @@
             </h2>
             <div class="flex flex-wrap items-center gap-3">
                 <Button square size="xs" variant="ghost" color="neutral">
-                    <Icon name="lucide:x" size={12} />
+                    <Icon name="lucide:x" />
                 </Button>
                 <Button square size="sm" variant="outline">
-                    <Icon name="lucide:plus" size={14} />
+                    <Icon name="lucide:plus" />
                 </Button>
                 <Button square size="md">
-                    <Icon name="lucide:heart" size={16} />
+                    <Icon name="lucide:heart" />
                 </Button>
                 <Button square size="lg" color="error">
-                    <Icon name="lucide:trash-2" size={18} />
+                    <Icon name="lucide:trash-2" />
                 </Button>
                 <Button square size="xl" variant="soft" color="success">
-                    <Icon name="lucide:check" size={22} />
+                    <Icon name="lucide:check" />
                 </Button>
             </div>
         </section>
