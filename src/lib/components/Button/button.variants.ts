@@ -12,6 +12,7 @@ export const buttonVariants = tv({
         ],
         label: '',
         leadingIcon: 'shrink-0',
+        leadingAvatar: 'shrink-0',
         trailingIcon: 'shrink-0'
     },
     variants: {
@@ -36,26 +37,31 @@ export const buttonVariants = tv({
             xs: {
                 base: 'h-7 px-2 text-xs gap-1 rounded-md',
                 leadingIcon: 'size-3.5',
+                leadingAvatar: 'size-4',
                 trailingIcon: 'size-3.5'
             },
             sm: {
                 base: 'h-8 px-2.5 text-xs gap-1.5 rounded-md',
                 leadingIcon: 'size-4',
+                leadingAvatar: 'size-5',
                 trailingIcon: 'size-4'
             },
             md: {
                 base: 'h-9 px-3 text-sm gap-1.5 rounded-lg',
                 leadingIcon: 'size-4',
+                leadingAvatar: 'size-5',
                 trailingIcon: 'size-4'
             },
             lg: {
-                base: 'h-10 px-4 text-sm gap-2 rounded-lg',
+                base: 'h-10 px-3 text-sm gap-2 rounded-lg',
                 leadingIcon: 'size-5',
+                leadingAvatar: 'size-6',
                 trailingIcon: 'size-5'
             },
             xl: {
-                base: 'h-12 px-5 text-base gap-2 rounded-xl',
+                base: 'h-12 px-3 text-base gap-2 rounded-xl',
                 leadingIcon: 'size-5',
+                leadingAvatar: 'size-7',
                 trailingIcon: 'size-5'
             }
         },

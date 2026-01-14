@@ -2,6 +2,7 @@ import type { Snippet } from 'svelte'
 import type { VariantProps } from 'tailwind-variants'
 import type { SemanticColor } from '../../config/types.js'
 import type { buttonVariants } from './button.variants.js'
+import type { AvatarProps } from '../Avatar/avatar.types.js'
 
 // Variant-derived types
 export type ButtonVariants = VariantProps<typeof buttonVariants>
@@ -43,6 +44,8 @@ export interface ButtonBaseProps {
     leadingIcon?: string
     /** Trailing icon name (e.g., "lucide:chevron-right") */
     trailingIcon?: string
+    /** Avatar to display on the left side of the button */
+    avatar?: AvatarProps
     /** Custom leading content snippet */
     leading?: Snippet
     /** Custom trailing content snippet */

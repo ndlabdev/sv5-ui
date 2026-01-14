@@ -1,5 +1,5 @@
 <script lang="ts">
-    import { Button, Icon, ThemeToggle, mode, setMode } from '$lib/index.js'
+    import { Button, Icon, ThemeToggle, Avatar, mode, setMode } from '$lib/index.js'
 
     let loading = $state(false)
 
@@ -326,6 +326,79 @@
             </div>
         </section>
 
+        <!-- Button with Avatar -->
+        <section class="space-y-4">
+            <h2 class="text-xl font-semibold text-neutral-800 dark:text-neutral-200">
+                Button with Avatar
+            </h2>
+            <p class="text-sm text-neutral-600 dark:text-neutral-400">
+                Display avatar on the left side of the button using the avatar prop
+            </p>
+            <div class="flex flex-wrap items-center gap-3">
+                <Button
+                    avatar={{ src: 'https://i.pravatar.cc/150?img=1', alt: 'John Doe' }}
+                    label="John Doe"
+                />
+                <Button
+                    avatar={{ src: 'https://i.pravatar.cc/150?img=2', alt: 'Jane Smith' }}
+                    label="Jane Smith"
+                    variant="outline"
+                />
+                <Button
+                    avatar={{ alt: 'Bob Wilson' }}
+                    label="Bob Wilson"
+                    variant="soft"
+                />
+                <Button
+                    avatar={{ icon: 'lucide:user' }}
+                    label="Guest User"
+                    variant="ghost"
+                />
+            </div>
+            <div class="flex flex-wrap items-center gap-3">
+                <Button
+                    avatar={{ src: 'https://i.pravatar.cc/150?img=3', alt: 'User' }}
+                    label="XS Size"
+                    size="xs"
+                />
+                <Button
+                    avatar={{ src: 'https://i.pravatar.cc/150?img=4', alt: 'User' }}
+                    label="SM Size"
+                    size="sm"
+                />
+                <Button
+                    avatar={{ src: 'https://i.pravatar.cc/150?img=5', alt: 'User' }}
+                    label="MD Size"
+                    size="md"
+                />
+                <Button
+                    avatar={{ src: 'https://i.pravatar.cc/150?img=6', alt: 'User' }}
+                    label="LG Size"
+                    size="lg"
+                />
+                <Button
+                    avatar={{ src: 'https://i.pravatar.cc/150?img=7', alt: 'User' }}
+                    label="XL Size"
+                    size="xl"
+                />
+            </div>
+            <div class="flex flex-wrap items-center gap-3">
+                <Button
+                    avatar={{ src: 'https://i.pravatar.cc/150?img=8', alt: 'Admin' }}
+                    label="With Trailing Icon"
+                    trailingIcon="lucide:chevron-down"
+                    variant="outline"
+                />
+                <Button
+                    avatar={{ alt: 'Team' }}
+                    label="Dropdown"
+                    trailingIcon="lucide:chevron-down"
+                    color="neutral"
+                    variant="soft"
+                />
+            </div>
+        </section>
+
         <!-- Icon Component Showcase -->
         <section class="space-y-4">
             <h2 class="text-xl font-semibold text-neutral-800 dark:text-neutral-200">
@@ -351,6 +424,137 @@
                 <span class="text-error-600"><Icon name="lucide:circle-x" size={24} /></span>
                 <span class="text-warning-600"><Icon name="lucide:triangle-alert" size={24} /></span>
                 <span class="text-info-600"><Icon name="lucide:info" size={24} /></span>
+            </div>
+        </section>
+
+        <!-- Avatar Component -->
+        <section class="space-y-4">
+            <h2 class="text-xl font-semibold text-neutral-800 dark:text-neutral-200">
+                Avatar Component
+            </h2>
+
+            <!-- Avatar Sizes -->
+            <div class="space-y-2">
+                <h3 class="text-sm font-medium text-neutral-600 dark:text-neutral-400">Sizes</h3>
+                <div class="flex flex-wrap items-end gap-3">
+                    <Avatar size="3xs" alt="John Doe" />
+                    <Avatar size="2xs" alt="John Doe" />
+                    <Avatar size="xs" alt="John Doe" />
+                    <Avatar size="sm" alt="John Doe" />
+                    <Avatar size="md" alt="John Doe" />
+                    <Avatar size="lg" alt="John Doe" />
+                    <Avatar size="xl" alt="John Doe" />
+                    <Avatar size="2xl" alt="John Doe" />
+                    <Avatar size="3xl" alt="John Doe" />
+                </div>
+            </div>
+
+            <!-- Avatar with Images -->
+            <div class="space-y-2">
+                <h3 class="text-sm font-medium text-neutral-600 dark:text-neutral-400">With Images</h3>
+                <div class="flex flex-wrap items-center gap-3">
+                    <Avatar
+                        src="https://i.pravatar.cc/150?img=1"
+                        alt="User 1"
+                        size="lg"
+                    />
+                    <Avatar
+                        src="https://i.pravatar.cc/150?img=2"
+                        alt="User 2"
+                        size="lg"
+                    />
+                    <Avatar
+                        src="https://i.pravatar.cc/150?img=3"
+                        alt="User 3"
+                        size="lg"
+                    />
+                    <Avatar
+                        src="https://i.pravatar.cc/150?img=4"
+                        alt="User 4"
+                        size="lg"
+                    />
+                </div>
+            </div>
+
+            <!-- Avatar with Initials -->
+            <div class="space-y-2">
+                <h3 class="text-sm font-medium text-neutral-600 dark:text-neutral-400">With Initials (from alt)</h3>
+                <div class="flex flex-wrap items-center gap-3">
+                    <Avatar alt="John Doe" size="lg" />
+                    <Avatar alt="Jane Smith" size="lg" />
+                    <Avatar alt="Bob Wilson" size="lg" />
+                    <Avatar alt="Alice" size="lg" />
+                </div>
+            </div>
+
+            <!-- Avatar with Custom Text -->
+            <div class="space-y-2">
+                <h3 class="text-sm font-medium text-neutral-600 dark:text-neutral-400">With Custom Text</h3>
+                <div class="flex flex-wrap items-center gap-3">
+                    <Avatar text="A" size="lg" />
+                    <Avatar text="BC" size="lg" />
+                    <Avatar text="+5" size="lg" />
+                </div>
+            </div>
+
+            <!-- Avatar with Icon Fallback -->
+            <div class="space-y-2">
+                <h3 class="text-sm font-medium text-neutral-600 dark:text-neutral-400">With Icon Fallback</h3>
+                <div class="flex flex-wrap items-center gap-3">
+                    <Avatar icon="lucide:user" size="lg" />
+                    <Avatar icon="lucide:users" size="lg" />
+                    <Avatar icon="lucide:building" size="lg" />
+                </div>
+            </div>
+
+            <!-- Avatar with Broken Image (shows fallback) -->
+            <div class="space-y-2">
+                <h3 class="text-sm font-medium text-neutral-600 dark:text-neutral-400">With Broken Image (fallback)</h3>
+                <div class="flex flex-wrap items-center gap-3">
+                    <Avatar
+                        src="https://invalid-url.com/broken.jpg"
+                        alt="Fallback User"
+                        size="lg"
+                    />
+                    <Avatar
+                        src="https://invalid-url.com/broken.jpg"
+                        icon="lucide:user"
+                        size="lg"
+                    />
+                    <Avatar
+                        src="https://invalid-url.com/broken.jpg"
+                        text="FB"
+                        size="lg"
+                    />
+                </div>
+            </div>
+
+            <!-- Avatar with UI Prop -->
+            <div class="space-y-2">
+                <h3 class="text-sm font-medium text-neutral-600 dark:text-neutral-400">Custom Styles (ui prop)</h3>
+                <div class="flex flex-wrap items-center gap-3">
+                    <Avatar
+                        alt="Custom BG"
+                        size="lg"
+                        ui={{ root: 'bg-primary-100 dark:bg-primary-900', fallback: 'text-primary-600 dark:text-primary-400' }}
+                    />
+                    <Avatar
+                        icon="lucide:star"
+                        size="lg"
+                        ui={{ root: 'bg-warning-100 dark:bg-warning-900', icon: 'text-warning-600' }}
+                    />
+                    <Avatar
+                        src="https://i.pravatar.cc/150?img=5"
+                        alt="Bordered"
+                        size="lg"
+                        ui={{ root: 'ring-2 ring-primary-500' }}
+                    />
+                    <Avatar
+                        alt="Square"
+                        size="lg"
+                        ui={{ root: 'rounded-lg' }}
+                    />
+                </div>
             </div>
         </section>
     </div>

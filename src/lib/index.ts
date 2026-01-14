@@ -8,6 +8,11 @@ export {
     type IconProps,
     ThemeToggle,
     type ThemeToggleProps,
+    Avatar,
+    avatarVariants,
+    type AvatarProps,
+    type AvatarVariants,
+    type AvatarSize,
     // mode-watcher re-exports
     mode,
     toggleMode,

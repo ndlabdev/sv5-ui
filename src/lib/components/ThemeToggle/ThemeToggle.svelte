@@ -1,7 +1,7 @@
 <script lang="ts" module>
     import type { Snippet } from 'svelte'
     import type { SemanticColor } from '../../config/types.js'
-    import type { ButtonVariants } from '../Button/button.variants.js'
+    import type { ButtonVariants } from '../Button/button.types.js'
 
     type ButtonSize = NonNullable<ButtonVariants['size']>
     type ButtonVariant = NonNullable<ButtonVariants['variant']>

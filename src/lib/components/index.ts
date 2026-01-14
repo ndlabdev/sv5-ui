@@ -9,6 +9,9 @@ export { Icon, type IconProps } from './Icon/index.js'
 // ThemeToggle
 export { ThemeToggle, type ThemeToggleProps } from './ThemeToggle/index.js'
 
+// Avatar
+export { Avatar, avatarVariants, type AvatarProps, type AvatarVariants, type AvatarSize } from './Avatar/index.js'
+
 // Re-export mode-watcher utilities for convenience
 export {
     mode,

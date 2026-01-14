@@ -8,6 +8,7 @@
     import { buttonVariants } from './button.variants.js'
     import { getConfigContext } from '../../config/context.svelte.js'
     import Icon from '../Icon/Icon.svelte'
+    import Avatar from '../Avatar/Avatar.svelte'
 
     let {
         as = 'button',
@@ -25,6 +26,7 @@
         icon,
         leadingIcon,
         trailingIcon,
+        avatar,
         leading,
         trailing,
         children,
@@ -61,6 +63,7 @@
     const baseClass = $derived(slots.base({ class: [className, ui?.base] }))
     const labelClass = $derived(slots.label({ class: ui?.label }))
     const leadingIconClass = $derived(slots.leadingIcon({ class: ui?.leadingIcon }))
+    const leadingAvatarClass = $derived(slots.leadingAvatar({ class: ui?.leadingAvatar }))
     const trailingIconClass = $derived(slots.trailingIcon({ class: ui?.trailingIcon }))
 
     const isDisabled = $derived(disabled || loading)
@@ -72,6 +75,8 @@
         <Icon name={loadingIcon} class={leadingIconClass} />
     {:else if leading}
         {@render leading()}
+    {:else if avatar}
+        <Avatar {...avatar} class={leadingAvatarClass} />
     {:else if leadingIcon}
         <Icon name={leadingIcon} class={leadingIconClass} />
     {/if}
