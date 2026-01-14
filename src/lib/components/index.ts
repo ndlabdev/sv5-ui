@@ -12,6 +12,16 @@ export { ThemeToggle, type ThemeToggleProps } from './ThemeToggle/index.js'
 // Avatar
 export { Avatar, avatarVariants, type AvatarProps, type AvatarVariants, type AvatarSize } from './Avatar/index.js'
 
+// AvatarGroup
+export {
+    AvatarGroup,
+    avatarGroupVariants,
+    type AvatarGroupProps,
+    type AvatarGroupVariants,
+    type AvatarGroupSlots,
+    type AvatarGroupUI
+} from './AvatarGroup/index.js'
+
 // Re-export mode-watcher utilities for convenience
 export {
     mode,

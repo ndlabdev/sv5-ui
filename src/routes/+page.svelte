@@ -1,5 +1,5 @@
 <script lang="ts">
-    import { Button, Icon, ThemeToggle, Avatar, mode, setMode } from '$lib/index.js'
+    import { Button, Icon, ThemeToggle, Avatar, AvatarGroup, mode, setMode } from '$lib/index.js'
 
     let loading = $state(false)
 
@@ -555,6 +555,207 @@
                         ui={{ root: 'rounded-lg' }}
                     />
                 </div>
+            </div>
+        </section>
+
+        <!-- AvatarGroup Component -->
+        <section class="space-y-4">
+            <h2 class="text-xl font-semibold text-neutral-800 dark:text-neutral-200">
+                AvatarGroup Component
+            </h2>
+
+            <!-- Basic AvatarGroup -->
+            <div class="space-y-2">
+                <h3 class="text-sm font-medium text-neutral-600 dark:text-neutral-400">Basic Group</h3>
+                <AvatarGroup>
+                    <Avatar src="https://i.pravatar.cc/150?img=1" alt="User 1" />
+                    <Avatar src="https://i.pravatar.cc/150?img=2" alt="User 2" />
+                    <Avatar src="https://i.pravatar.cc/150?img=3" alt="User 3" />
+                    <Avatar src="https://i.pravatar.cc/150?img=4" alt="User 4" />
+                </AvatarGroup>
+            </div>
+
+            <!-- AvatarGroup Sizes -->
+            <div class="space-y-2">
+                <h3 class="text-sm font-medium text-neutral-600 dark:text-neutral-400">Sizes</h3>
+                <div class="flex flex-wrap items-end gap-6">
+                    <div class="text-center">
+                        <AvatarGroup size="xs">
+                            <Avatar src="https://i.pravatar.cc/150?img=10" alt="User" />
+                            <Avatar src="https://i.pravatar.cc/150?img=11" alt="User" />
+                            <Avatar src="https://i.pravatar.cc/150?img=12" alt="User" />
+                        </AvatarGroup>
+                        <p class="text-xs text-neutral-500 mt-1">xs</p>
+                    </div>
+                    <div class="text-center">
+                        <AvatarGroup size="sm">
+                            <Avatar src="https://i.pravatar.cc/150?img=10" alt="User" />
+                            <Avatar src="https://i.pravatar.cc/150?img=11" alt="User" />
+                            <Avatar src="https://i.pravatar.cc/150?img=12" alt="User" />
+                        </AvatarGroup>
+                        <p class="text-xs text-neutral-500 mt-1">sm</p>
+                    </div>
+                    <div class="text-center">
+                        <AvatarGroup size="md">
+                            <Avatar src="https://i.pravatar.cc/150?img=10" alt="User" />
+                            <Avatar src="https://i.pravatar.cc/150?img=11" alt="User" />
+                            <Avatar src="https://i.pravatar.cc/150?img=12" alt="User" />
+                        </AvatarGroup>
+                        <p class="text-xs text-neutral-500 mt-1">md</p>
+                    </div>
+                    <div class="text-center">
+                        <AvatarGroup size="lg">
+                            <Avatar src="https://i.pravatar.cc/150?img=10" alt="User" />
+                            <Avatar src="https://i.pravatar.cc/150?img=11" alt="User" />
+                            <Avatar src="https://i.pravatar.cc/150?img=12" alt="User" />
+                        </AvatarGroup>
+                        <p class="text-xs text-neutral-500 mt-1">lg</p>
+                    </div>
+                    <div class="text-center">
+                        <AvatarGroup size="xl">
+                            <Avatar src="https://i.pravatar.cc/150?img=10" alt="User" />
+                            <Avatar src="https://i.pravatar.cc/150?img=11" alt="User" />
+                            <Avatar src="https://i.pravatar.cc/150?img=12" alt="User" />
+                        </AvatarGroup>
+                        <p class="text-xs text-neutral-500 mt-1">xl</p>
+                    </div>
+                    <div class="text-center">
+                        <AvatarGroup size="2xl">
+                            <Avatar src="https://i.pravatar.cc/150?img=10" alt="User" />
+                            <Avatar src="https://i.pravatar.cc/150?img=11" alt="User" />
+                            <Avatar src="https://i.pravatar.cc/150?img=12" alt="User" />
+                        </AvatarGroup>
+                        <p class="text-xs text-neutral-500 mt-1">2xl</p>
+                    </div>
+                    <div class="text-center">
+                        <AvatarGroup size="3xl">
+                            <Avatar src="https://i.pravatar.cc/150?img=10" alt="User" />
+                            <Avatar src="https://i.pravatar.cc/150?img=11" alt="User" />
+                            <Avatar src="https://i.pravatar.cc/150?img=12" alt="User" />
+                        </AvatarGroup>
+                        <p class="text-xs text-neutral-500 mt-1">3xl</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- AvatarGroup with Initials -->
+            <div class="space-y-2">
+                <h3 class="text-sm font-medium text-neutral-600 dark:text-neutral-400">With Initials</h3>
+                <AvatarGroup size="lg">
+                    <Avatar alt="John Doe" />
+                    <Avatar alt="Jane Smith" />
+                    <Avatar alt="Bob Wilson" />
+                    <Avatar alt="Alice Brown" />
+                    <Avatar alt="Charlie Davis" />
+                </AvatarGroup>
+            </div>
+
+            <!-- AvatarGroup with Mixed Content -->
+            <div class="space-y-2">
+                <h3 class="text-sm font-medium text-neutral-600 dark:text-neutral-400">Mixed Content</h3>
+                <AvatarGroup size="lg">
+                    <Avatar src="https://i.pravatar.cc/150?img=20" alt="User 1" />
+                    <Avatar src="https://i.pravatar.cc/150?img=21" alt="User 2" />
+                    <Avatar alt="John Doe" />
+                    <Avatar icon="lucide:user" />
+                    <Avatar text="+3" />
+                </AvatarGroup>
+            </div>
+
+            <!-- AvatarGroup with Custom Styles -->
+            <div class="space-y-2">
+                <h3 class="text-sm font-medium text-neutral-600 dark:text-neutral-400">Custom Styles (ui prop)</h3>
+                <AvatarGroup size="lg" ui={{ base: 'ring-primary-500' }}>
+                    <Avatar src="https://i.pravatar.cc/150?img=30" alt="User 1" />
+                    <Avatar src="https://i.pravatar.cc/150?img=31" alt="User 2" />
+                    <Avatar src="https://i.pravatar.cc/150?img=32" alt="User 3" />
+                    <Avatar src="https://i.pravatar.cc/150?img=33" alt="User 4" />
+                </AvatarGroup>
+            </div>
+
+            <!-- AvatarGroup with Max -->
+            <div class="space-y-2">
+                <h3 class="text-sm font-medium text-neutral-600 dark:text-neutral-400">With Max (avatars prop)</h3>
+                <p class="text-xs text-neutral-500 dark:text-neutral-500">max=3 (showing 3 of 7 avatars)</p>
+                <AvatarGroup
+                    size="lg"
+                    max={3}
+                    avatars={[
+                        { src: 'https://i.pravatar.cc/150?img=40', alt: 'User 1' },
+                        { src: 'https://i.pravatar.cc/150?img=41', alt: 'User 2' },
+                        { src: 'https://i.pravatar.cc/150?img=42', alt: 'User 3' },
+                        { src: 'https://i.pravatar.cc/150?img=43', alt: 'User 4' },
+                        { src: 'https://i.pravatar.cc/150?img=44', alt: 'User 5' },
+                        { src: 'https://i.pravatar.cc/150?img=45', alt: 'User 6' },
+                        { src: 'https://i.pravatar.cc/150?img=46', alt: 'User 7' }
+                    ]}
+                />
+            </div>
+
+            <!-- AvatarGroup with Max - Different sizes -->
+            <div class="space-y-2">
+                <h3 class="text-sm font-medium text-neutral-600 dark:text-neutral-400">Max with Different Sizes</h3>
+                <div class="flex flex-wrap items-end gap-6">
+                    <div class="text-center">
+                        <AvatarGroup
+                            size="sm"
+                            max={2}
+                            avatars={[
+                                { src: 'https://i.pravatar.cc/150?img=50', alt: 'User 1' },
+                                { src: 'https://i.pravatar.cc/150?img=51', alt: 'User 2' },
+                                { src: 'https://i.pravatar.cc/150?img=52', alt: 'User 3' },
+                                { src: 'https://i.pravatar.cc/150?img=53', alt: 'User 4' },
+                                { src: 'https://i.pravatar.cc/150?img=54', alt: 'User 5' }
+                            ]}
+                        />
+                        <p class="text-xs text-neutral-500 mt-1">sm, max=2</p>
+                    </div>
+                    <div class="text-center">
+                        <AvatarGroup
+                            size="md"
+                            max={3}
+                            avatars={[
+                                { src: 'https://i.pravatar.cc/150?img=50', alt: 'User 1' },
+                                { src: 'https://i.pravatar.cc/150?img=51', alt: 'User 2' },
+                                { src: 'https://i.pravatar.cc/150?img=52', alt: 'User 3' },
+                                { src: 'https://i.pravatar.cc/150?img=53', alt: 'User 4' },
+                                { src: 'https://i.pravatar.cc/150?img=54', alt: 'User 5' }
+                            ]}
+                        />
+                        <p class="text-xs text-neutral-500 mt-1">md, max=3</p>
+                    </div>
+                    <div class="text-center">
+                        <AvatarGroup
+                            size="xl"
+                            max={4}
+                            avatars={[
+                                { src: 'https://i.pravatar.cc/150?img=50', alt: 'User 1' },
+                                { src: 'https://i.pravatar.cc/150?img=51', alt: 'User 2' },
+                                { src: 'https://i.pravatar.cc/150?img=52', alt: 'User 3' },
+                                { src: 'https://i.pravatar.cc/150?img=53', alt: 'User 4' },
+                                { src: 'https://i.pravatar.cc/150?img=54', alt: 'User 5' }
+                            ]}
+                        />
+                        <p class="text-xs text-neutral-500 mt-1">xl, max=4</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- AvatarGroup with Max - Initials -->
+            <div class="space-y-2">
+                <h3 class="text-sm font-medium text-neutral-600 dark:text-neutral-400">Max with Initials</h3>
+                <AvatarGroup
+                    size="lg"
+                    max={4}
+                    avatars={[
+                        { alt: 'John Doe' },
+                        { alt: 'Jane Smith' },
+                        { alt: 'Bob Wilson' },
+                        { alt: 'Alice Brown' },
+                        { alt: 'Charlie Davis' },
+                        { alt: 'Diana Evans' }
+                    ]}
+                />
             </div>
         </section>
     </div>

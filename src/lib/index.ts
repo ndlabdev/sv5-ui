@@ -13,6 +13,12 @@ export {
     type AvatarProps,
     type AvatarVariants,
     type AvatarSize,
+    AvatarGroup,
+    avatarGroupVariants,
+    type AvatarGroupProps,
+    type AvatarGroupVariants,
+    type AvatarGroupSlots,
+    type AvatarGroupUI,
     // mode-watcher re-exports
     mode,
     toggleMode,

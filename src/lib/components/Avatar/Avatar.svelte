@@ -6,6 +6,7 @@
 
 <script lang="ts">
     import { avatarVariants } from './avatar.variants.js'
+    import { getContext } from 'svelte'
     import Icon from '../Icon/Icon.svelte'
 
     let {
@@ -21,8 +22,14 @@
         ...restProps
     }: Props = $props()
 
+    // Get context from AvatarGroup if available
+    const groupContext = getContext<{ size: string; baseClass: string } | undefined>('avatarGroup')
+
     // Track image load error
     let imageError = $state(false)
+
+    // Use group size if available, otherwise use prop
+    const resolvedSize = $derived(size ?? groupContext?.size ?? 'md')
 
     // Generate initials from alt text
     const initials = $derived.by(() => {
@@ -40,9 +47,10 @@
     const fallbackText = $derived(text || initials)
 
     // Get slot classes from variants
-    const slots = $derived(avatarVariants({ size }))
+    const slots = $derived(avatarVariants({ size: resolvedSize }))
 
-    const rootClass = $derived(slots.root({ class: [className, ui?.root] }))
+    // Merge group base class with avatar root class
+    const rootClass = $derived(slots.root({ class: [groupContext?.baseClass, className, ui?.root] }))
     const imageClass = $derived(slots.image({ class: ui?.image }))
     const fallbackClass = $derived(slots.fallback({ class: ui?.fallback }))
     const iconClass = $derived(slots.icon({ class: ui?.icon }))
