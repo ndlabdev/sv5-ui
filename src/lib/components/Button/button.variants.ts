@@ -1,4 +1,4 @@
-import { tv, type VariantProps } from 'tailwind-variants'
+import { tv } from 'tailwind-variants'
 
 export const buttonVariants = tv({
     slots: {
@@ -16,21 +16,21 @@ export const buttonVariants = tv({
     },
     variants: {
         variant: {
-            solid: {},
-            outline: {},
-            soft: {},
-            subtle: {},
-            ghost: {},
-            link: {}
+            solid: '',
+            outline: '',
+            soft: '',
+            subtle: '',
+            ghost: '',
+            link: ''
         },
         color: {
-            primary: {},
-            secondary: {},
-            success: {},
-            warning: {},
-            error: {},
-            info: {},
-            neutral: {}
+            primary: '',
+            secondary: '',
+            success: '',
+            warning: '',
+            error: '',
+            info: '',
+            neutral: ''
         },
         size: {
             xs: {
@@ -66,7 +66,7 @@ export const buttonVariants = tv({
             }
         },
         square: {
-            true: {}
+            true: ''
         },
         truncate: {
             true: {
@@ -408,5 +408,3 @@ export const buttonVariants = tv({
     }
 })
 
-export type ButtonVariants = VariantProps<typeof buttonVariants>
-export type ButtonSlots = keyof ReturnType<typeof buttonVariants>

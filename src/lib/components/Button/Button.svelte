@@ -1,64 +1,7 @@
 <script lang="ts" module>
-    import type { Snippet } from 'svelte'
-    import type { HTMLButtonAttributes, HTMLAnchorAttributes } from 'svelte/elements'
-    import type { SemanticColor } from '../../config/types.js'
-    import type { ButtonVariants } from './button.variants.js'
+    import type { ButtonBaseProps } from './button.types.js'
 
-    type ButtonSize = NonNullable<ButtonVariants['size']>
-    type ButtonVariant = NonNullable<ButtonVariants['variant']>
-
-    interface BaseProps {
-        /** Button color theme */
-        color?: SemanticColor
-        /** Button visual style */
-        variant?: ButtonVariant
-        /** Button size */
-        size?: ButtonSize
-        /** Button label text (alternative to children) */
-        label?: string
-        /** Shows loading spinner and disables button */
-        loading?: boolean
-        /** Loading icon name (shown when loading) */
-        loadingIcon?: string
-        /** Disables the button */
-        disabled?: boolean
-        /** Makes button take full width */
-        block?: boolean
-        /** Equal padding on all sides (square button) */
-        square?: boolean
-        /** Truncate label text */
-        truncate?: boolean
-        /** Icon name - renders as icon-only button */
-        icon?: string
-        /** Leading icon name (e.g., "lucide:plus", "mdi:home") */
-        leadingIcon?: string
-        /** Trailing icon name (e.g., "lucide:chevron-right") */
-        trailingIcon?: string
-        /** Custom leading content snippet */
-        leading?: Snippet
-        /** Custom trailing content snippet */
-        trailing?: Snippet
-        /** Button content */
-        children?: Snippet
-        /** Additional CSS classes */
-        class?: string
-    }
-
-    interface ButtonElementProps
-        extends BaseProps,
-            Omit<HTMLButtonAttributes, 'class' | 'disabled' | 'color'> {
-        /** Render as link */
-        href?: undefined
-    }
-
-    interface AnchorElementProps
-        extends BaseProps,
-            Omit<HTMLAnchorAttributes, 'class' | 'href' | 'color'> {
-        /** URL to navigate to (renders as anchor) */
-        href: string
-    }
-
-    export type Props = ButtonElementProps | AnchorElementProps
+    export type Props = ButtonBaseProps
 </script>
 
 <script lang="ts">
@@ -67,6 +10,8 @@
     import Icon from '../Icon/Icon.svelte'
 
     let {
+        as = 'button',
+        ui,
         color,
         variant,
         size,
@@ -100,10 +45,6 @@
     // Determine if icon-only mode
     const isIconOnly = $derived(!!icon || (square && !label && !children))
 
-    // Has leading content (for loading animation logic)
-    const hasLeading = $derived(loading || !!leading || !!leadingIcon)
-    const hasTrailing = $derived(!!trailing || !!trailingIcon)
-
     // Get slot classes from variants
     const slots = $derived(
         buttonVariants({
@@ -117,10 +58,10 @@
         })
     )
 
-    const baseClass = $derived(slots.base({ class: className }))
-    const labelClass = $derived(slots.label())
-    const leadingIconClass = $derived(slots.leadingIcon())
-    const trailingIconClass = $derived(slots.trailingIcon())
+    const baseClass = $derived(slots.base({ class: [className, ui?.base] }))
+    const labelClass = $derived(slots.label({ class: ui?.label }))
+    const leadingIconClass = $derived(slots.leadingIcon({ class: ui?.leadingIcon }))
+    const trailingIconClass = $derived(slots.trailingIcon({ class: ui?.trailingIcon }))
 
     const isDisabled = $derived(disabled || loading)
 </script>
@@ -159,21 +100,32 @@
 
 {#if href}
     <a
-        {href}
+        href={isDisabled ? undefined : href}
         class={baseClass}
-        aria-disabled={isDisabled}
-        {...restProps as Omit<HTMLAnchorAttributes, 'class' | 'href' | 'color'>}
+        aria-disabled={isDisabled || undefined}
+        aria-busy={loading || undefined}
+        {...restProps}
     >
         {@render buttonContent()}
     </a>
-{:else}
+{:else if as === 'button'}
     <button
-        type={type as HTMLButtonAttributes['type']}
-        class={baseClass}
+        {type}
         disabled={isDisabled}
-        aria-busy={loading}
-        {...restProps as Omit<HTMLButtonAttributes, 'class' | 'disabled' | 'color'>}
+        class={baseClass}
+        aria-busy={loading || undefined}
+        {...restProps}
     >
         {@render buttonContent()}
     </button>
+{:else}
+    <svelte:element
+        this={as}
+        class={baseClass}
+        aria-disabled={isDisabled || undefined}
+        aria-busy={loading || undefined}
+        {...restProps}
+    >
+        {@render buttonContent()}
+    </svelte:element>
 {/if}

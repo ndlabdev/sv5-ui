@@ -256,11 +256,73 @@
         <section class="space-y-4">
             <h2 class="text-xl font-semibold text-neutral-800 dark:text-neutral-200">As Link</h2>
             <div class="flex flex-wrap gap-3">
-                <Button href="https://svelte.dev" target="_blank" trailingIcon="lucide:external-link">
+                <Button href="https://svelte.dev" disabled target="_blank" trailingIcon="lucide:external-link">
                     Visit Svelte
                 </Button>
-                <Button href="/about" variant="outline">Internal Link</Button>
-                <Button href="#top" variant="ghost">Anchor Link</Button>
+                <Button disabled href="/about" variant="outline">Internal Link</Button>
+                <Button disabled href="#top" variant="ghost">Anchor Link</Button>
+            </div>
+        </section>
+
+        <!-- As Prop (Render as different element) -->
+        <section class="space-y-4">
+            <h2 class="text-xl font-semibold text-neutral-800 dark:text-neutral-200">
+                As Prop (Render as different element)
+            </h2>
+            <p class="text-sm text-neutral-600 dark:text-neutral-400">
+                Render button as any element: button (default), div, span, section, etc.
+            </p>
+            <div class="flex flex-wrap gap-3">
+                <Button as="button" label="as='button' (default)" />
+                <Button as="div" label="as='div'" variant="outline" />
+                <Button as="span" label="as='span'" variant="soft" />
+                <Button as="section" label="as='section'" variant="subtle" />
+            </div>
+        </section>
+
+        <!-- UI Prop (Custom Slot Styles) -->
+        <section class="space-y-4">
+            <h2 class="text-xl font-semibold text-neutral-800 dark:text-neutral-200">
+                UI Prop (Custom Slot Styles)
+            </h2>
+            <p class="text-sm text-neutral-600 dark:text-neutral-400">
+                Override styles for specific slots: base, label, leadingIcon, trailingIcon
+            </p>
+            <div class="flex flex-wrap gap-3">
+                <Button
+                    leadingIcon="lucide:rocket"
+                    color="neutral"
+                    variant="outline"
+                    ui={{ leadingIcon: 'text-primary-500' }}
+                >
+                    Custom Icon Color
+                </Button>
+                <Button
+                    label="Shadow Button"
+                    ui={{ base: 'shadow-lg hover:shadow-xl' }}
+                />
+                <Button
+                    label="Bold Label"
+                    variant="soft"
+                    ui={{ label: 'font-bold uppercase tracking-wider' }}
+                />
+                <Button
+                    leadingIcon="lucide:star"
+                    trailingIcon="lucide:arrow-right"
+                    ui={{
+                        base: 'rounded-full',
+                        leadingIcon: 'text-yellow-500',
+                        trailingIcon: 'text-green-500'
+                    }}
+                >
+                    Multi-slot Override
+                </Button>
+                <Button
+                    icon="lucide:heart"
+                    variant="ghost"
+                    color="neutral"
+                    ui={{ base: 'hover:bg-error-100 dark:hover:bg-error-900', leadingIcon: 'text-error-500' }}
+                />
             </div>
         </section>
 
