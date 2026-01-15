@@ -70,6 +70,30 @@ export {
     type UserUI
 } from './User/index.js'
 
+// Separator
+export {
+    Separator,
+    separatorVariants,
+    type SeparatorProps,
+    type SeparatorVariants,
+    type SeparatorSlots,
+    type SeparatorSize,
+    type SeparatorType,
+    type SeparatorOrientation,
+    type SeparatorUI
+} from './Separator/index.js'
+
+// Kbd
+export {
+    Kbd,
+    kbdVariants,
+    kbdKeyMap,
+    type KbdProps,
+    type KbdVariants,
+    type KbdSize,
+    type KbdVariant
+} from './Kbd/index.js'
+
 // Re-export mode-watcher utilities for convenience
 export {
     mode,

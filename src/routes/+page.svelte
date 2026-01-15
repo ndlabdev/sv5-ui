@@ -1,5 +1,5 @@
 <script lang="ts">
-    import { Button, Icon, ThemeToggle, Avatar, AvatarGroup, Chip, Card, Badge, User, mode, setMode } from '$lib/index.js'
+    import { Button, Icon, ThemeToggle, Avatar, AvatarGroup, Chip, Card, Badge, User, Separator, Kbd, mode, setMode } from '$lib/index.js'
 
     let loading = $state(false)
 
@@ -1471,6 +1471,356 @@
                         </div>
                     </Card>
                 </div>
+            </div>
+        </section>
+
+        <!-- Separator Component -->
+        <section class="space-y-4">
+            <h2 class="text-xl font-semibold text-neutral-800 dark:text-neutral-200">
+                Separator Component
+            </h2>
+            <p class="text-sm text-neutral-600 dark:text-neutral-400">
+                A visual divider to separate content with optional label, icon, or avatar
+            </p>
+
+            <!-- Basic Separator -->
+            <div class="space-y-2">
+                <h3 class="text-sm font-medium text-neutral-600 dark:text-neutral-400">Basic</h3>
+                <div class="space-y-4">
+                    <Separator />
+                    <p class="text-sm text-neutral-600 dark:text-neutral-400">Content above and below the separator</p>
+                    <Separator />
+                </div>
+            </div>
+
+            <!-- Separator with Label -->
+            <div class="space-y-2">
+                <h3 class="text-sm font-medium text-neutral-600 dark:text-neutral-400">With Label</h3>
+                <div class="space-y-4">
+                    <Separator label="OR" />
+                    <Separator label="Section Title" />
+                    <Separator label="Continue with" />
+                </div>
+            </div>
+
+            <!-- Separator with Icon -->
+            <div class="space-y-2">
+                <h3 class="text-sm font-medium text-neutral-600 dark:text-neutral-400">With Icon</h3>
+                <div class="space-y-4">
+                    <Separator icon="lucide:star" />
+                    <Separator icon="lucide:heart" color="error" />
+                    <Separator icon="lucide:zap" color="warning" />
+                </div>
+            </div>
+
+            <!-- Separator with Avatar -->
+            <div class="space-y-2">
+                <h3 class="text-sm font-medium text-neutral-600 dark:text-neutral-400">With Avatar</h3>
+                <div class="space-y-4">
+                    <Separator avatar={{ src: 'https://i.pravatar.cc/150?img=1', alt: 'User' }} />
+                    <Separator avatar={{ alt: 'John Doe' }} />
+                    <Separator avatar={{ icon: 'lucide:user' }} />
+                </div>
+            </div>
+
+            <!-- Separator Colors -->
+            <div class="space-y-2">
+                <h3 class="text-sm font-medium text-neutral-600 dark:text-neutral-400">Colors</h3>
+                <div class="space-y-4">
+                    <Separator color="primary" label="Primary" />
+                    <Separator color="secondary" label="Secondary" />
+                    <Separator color="success" label="Success" />
+                    <Separator color="warning" label="Warning" />
+                    <Separator color="error" label="Error" />
+                    <Separator color="info" label="Info" />
+                    <Separator color="neutral" label="Neutral" />
+                </div>
+            </div>
+
+            <!-- Separator Sizes -->
+            <div class="space-y-2">
+                <h3 class="text-sm font-medium text-neutral-600 dark:text-neutral-400">Sizes (Border Thickness)</h3>
+                <div class="space-y-4">
+                    <Separator size="xs" label="Extra Small (xs)" />
+                    <Separator size="sm" label="Small (sm)" />
+                    <Separator size="md" label="Medium (md)" />
+                    <Separator size="lg" label="Large (lg)" />
+                    <Separator size="xl" label="Extra Large (xl)" />
+                </div>
+            </div>
+
+            <!-- Separator Types -->
+            <div class="space-y-2">
+                <h3 class="text-sm font-medium text-neutral-600 dark:text-neutral-400">Types (Border Style)</h3>
+                <div class="space-y-4">
+                    <Separator type="solid" label="Solid" size="sm" />
+                    <Separator type="dashed" label="Dashed" size="sm" />
+                    <Separator type="dotted" label="Dotted" size="sm" />
+                </div>
+            </div>
+
+            <!-- Separator Vertical Orientation -->
+            <div class="space-y-2">
+                <h3 class="text-sm font-medium text-neutral-600 dark:text-neutral-400">Vertical Orientation</h3>
+                <div class="flex items-center gap-4 h-24">
+                    <span class="text-sm text-neutral-600 dark:text-neutral-400">Left</span>
+                    <Separator orientation="vertical" />
+                    <span class="text-sm text-neutral-600 dark:text-neutral-400">Middle</span>
+                    <Separator orientation="vertical" color="primary" />
+                    <span class="text-sm text-neutral-600 dark:text-neutral-400">Right</span>
+                </div>
+                <div class="flex items-center gap-4 h-32">
+                    <span class="text-sm text-neutral-600 dark:text-neutral-400">Item 1</span>
+                    <Separator orientation="vertical" label="VS" size="sm" />
+                    <span class="text-sm text-neutral-600 dark:text-neutral-400">Item 2</span>
+                    <Separator orientation="vertical" icon="lucide:minus" size="sm" />
+                    <span class="text-sm text-neutral-600 dark:text-neutral-400">Item 3</span>
+                </div>
+            </div>
+
+            <!-- Separator with Custom Content -->
+            <div class="space-y-2">
+                <h3 class="text-sm font-medium text-neutral-600 dark:text-neutral-400">With Custom Content (children)</h3>
+                <div class="space-y-4">
+                    <Separator>
+                        <Badge label="NEW" color="primary" size="sm" />
+                    </Separator>
+                    <Separator>
+                        <Button size="xs" variant="soft">Load More</Button>
+                    </Separator>
+                    <Separator color="success">
+                        <span class="flex items-center gap-1 text-success-500 text-sm">
+                            <Icon name="lucide:check-circle" size={16} />
+                            Completed
+                        </span>
+                    </Separator>
+                </div>
+            </div>
+
+            <!-- Separator Use Cases -->
+            <div class="space-y-2">
+                <h3 class="text-sm font-medium text-neutral-600 dark:text-neutral-400">Common Use Cases</h3>
+                <Card>
+                    <div class="space-y-4">
+                        <div class="flex items-center justify-between">
+                            <span class="font-medium">Login with email</span>
+                        </div>
+                        <div class="h-10 bg-neutral-100 dark:bg-neutral-800 rounded flex items-center px-3 text-sm text-neutral-500">
+                            email@example.com
+                        </div>
+                        <Separator label="OR" />
+                        <div class="flex gap-2">
+                            <Button variant="outline" color="neutral" block leadingIcon="lucide:github">
+                                GitHub
+                            </Button>
+                            <Button variant="outline" color="neutral" block leadingIcon="lucide:mail">
+                                Google
+                            </Button>
+                        </div>
+                    </div>
+                </Card>
+            </div>
+        </section>
+
+        <!-- Kbd Component -->
+        <section class="space-y-4">
+            <h2 class="text-xl font-semibold text-neutral-800 dark:text-neutral-200">
+                Kbd Component
+            </h2>
+            <p class="text-sm text-neutral-600 dark:text-neutral-400">
+                Display keyboard keys and shortcuts with platform-aware symbols
+            </p>
+
+            <!-- Basic Kbd -->
+            <div class="space-y-2">
+                <h3 class="text-sm font-medium text-neutral-600 dark:text-neutral-400">Basic</h3>
+                <div class="flex flex-wrap items-center gap-2">
+                    <Kbd>K</Kbd>
+                    <Kbd>A</Kbd>
+                    <Kbd>B</Kbd>
+                    <Kbd>C</Kbd>
+                </div>
+            </div>
+
+            <!-- Kbd with value prop -->
+            <div class="space-y-2">
+                <h3 class="text-sm font-medium text-neutral-600 dark:text-neutral-400">With value prop</h3>
+                <div class="flex flex-wrap items-center gap-2">
+                    <Kbd value="K" />
+                    <Kbd value="Enter" />
+                    <Kbd value="Esc" />
+                </div>
+            </div>
+
+            <!-- Special Keys (Platform Aware) -->
+            <div class="space-y-2">
+                <h3 class="text-sm font-medium text-neutral-600 dark:text-neutral-400">Special Keys (Platform Aware)</h3>
+                <p class="text-xs text-neutral-500 dark:text-neutral-500">These keys display differently on Mac vs Windows/Linux</p>
+                <div class="flex flex-wrap items-center gap-2">
+                    <Kbd value="meta" />
+                    <Kbd value="ctrl" />
+                    <Kbd value="alt" />
+                    <Kbd value="shift" />
+                    <Kbd value="enter" />
+                    <Kbd value="delete" />
+                    <Kbd value="tab" />
+                    <Kbd value="escape" />
+                    <Kbd value="space" />
+                </div>
+            </div>
+
+            <!-- Arrow Keys -->
+            <div class="space-y-2">
+                <h3 class="text-sm font-medium text-neutral-600 dark:text-neutral-400">Arrow Keys</h3>
+                <div class="flex flex-wrap items-center gap-2">
+                    <Kbd value="up" />
+                    <Kbd value="down" />
+                    <Kbd value="left" />
+                    <Kbd value="right" />
+                </div>
+            </div>
+
+            <!-- Kbd Sizes -->
+            <div class="space-y-2">
+                <h3 class="text-sm font-medium text-neutral-600 dark:text-neutral-400">Sizes</h3>
+                <div class="flex flex-wrap items-center gap-3">
+                    <div class="text-center">
+                        <Kbd size="sm">K</Kbd>
+                        <p class="text-xs text-neutral-500 mt-1">sm</p>
+                    </div>
+                    <div class="text-center">
+                        <Kbd size="md">K</Kbd>
+                        <p class="text-xs text-neutral-500 mt-1">md</p>
+                    </div>
+                    <div class="text-center">
+                        <Kbd size="lg">K</Kbd>
+                        <p class="text-xs text-neutral-500 mt-1">lg</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Kbd Variants -->
+            <div class="space-y-2">
+                <h3 class="text-sm font-medium text-neutral-600 dark:text-neutral-400">Variants</h3>
+                <div class="flex flex-wrap items-center gap-3">
+                    <div class="text-center">
+                        <Kbd variant="outline">K</Kbd>
+                        <p class="text-xs text-neutral-500 mt-1">outline</p>
+                    </div>
+                    <div class="text-center">
+                        <Kbd variant="solid">K</Kbd>
+                        <p class="text-xs text-neutral-500 mt-1">solid</p>
+                    </div>
+                    <div class="text-center">
+                        <Kbd variant="soft">K</Kbd>
+                        <p class="text-xs text-neutral-500 mt-1">soft</p>
+                    </div>
+                    <div class="text-center">
+                        <Kbd variant="subtle">K</Kbd>
+                        <p class="text-xs text-neutral-500 mt-1">subtle</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Kbd Colors -->
+            <div class="space-y-2">
+                <h3 class="text-sm font-medium text-neutral-600 dark:text-neutral-400">Colors</h3>
+                <div class="flex flex-wrap items-center gap-2">
+                    <Kbd color="primary">P</Kbd>
+                    <Kbd color="secondary">S</Kbd>
+                    <Kbd color="success">S</Kbd>
+                    <Kbd color="warning">W</Kbd>
+                    <Kbd color="error">E</Kbd>
+                    <Kbd color="info">I</Kbd>
+                    <Kbd color="neutral">N</Kbd>
+                </div>
+            </div>
+
+            <!-- Kbd Colors with Soft Variant -->
+            <div class="space-y-2">
+                <h3 class="text-sm font-medium text-neutral-600 dark:text-neutral-400">Colors (Soft Variant)</h3>
+                <div class="flex flex-wrap items-center gap-2">
+                    <Kbd color="primary" variant="soft">P</Kbd>
+                    <Kbd color="secondary" variant="soft">S</Kbd>
+                    <Kbd color="success" variant="soft">S</Kbd>
+                    <Kbd color="warning" variant="soft">W</Kbd>
+                    <Kbd color="error" variant="soft">E</Kbd>
+                    <Kbd color="info" variant="soft">I</Kbd>
+                    <Kbd color="neutral" variant="soft">N</Kbd>
+                </div>
+            </div>
+
+            <!-- Kbd Colors with Solid Variant -->
+            <div class="space-y-2">
+                <h3 class="text-sm font-medium text-neutral-600 dark:text-neutral-400">Colors (Solid Variant)</h3>
+                <div class="flex flex-wrap items-center gap-2">
+                    <Kbd color="primary" variant="solid">P</Kbd>
+                    <Kbd color="secondary" variant="solid">S</Kbd>
+                    <Kbd color="success" variant="solid">S</Kbd>
+                    <Kbd color="warning" variant="solid">W</Kbd>
+                    <Kbd color="error" variant="solid">E</Kbd>
+                    <Kbd color="info" variant="solid">I</Kbd>
+                    <Kbd color="neutral" variant="solid">N</Kbd>
+                </div>
+            </div>
+
+            <!-- Keyboard Shortcuts -->
+            <div class="space-y-2">
+                <h3 class="text-sm font-medium text-neutral-600 dark:text-neutral-400">Keyboard Shortcuts</h3>
+                <div class="space-y-3">
+                    <div class="flex items-center justify-between p-2 rounded bg-neutral-100 dark:bg-neutral-800">
+                        <span class="text-sm text-neutral-700 dark:text-neutral-300">Save</span>
+                        <div class="flex items-center gap-1">
+                            <Kbd value="meta" size="sm" />
+                            <span class="text-neutral-400">+</span>
+                            <Kbd size="sm">S</Kbd>
+                        </div>
+                    </div>
+                    <div class="flex items-center justify-between p-2 rounded bg-neutral-100 dark:bg-neutral-800">
+                        <span class="text-sm text-neutral-700 dark:text-neutral-300">Copy</span>
+                        <div class="flex items-center gap-1">
+                            <Kbd value="meta" size="sm" />
+                            <span class="text-neutral-400">+</span>
+                            <Kbd size="sm">C</Kbd>
+                        </div>
+                    </div>
+                    <div class="flex items-center justify-between p-2 rounded bg-neutral-100 dark:bg-neutral-800">
+                        <span class="text-sm text-neutral-700 dark:text-neutral-300">Paste</span>
+                        <div class="flex items-center gap-1">
+                            <Kbd value="meta" size="sm" />
+                            <span class="text-neutral-400">+</span>
+                            <Kbd size="sm">V</Kbd>
+                        </div>
+                    </div>
+                    <div class="flex items-center justify-between p-2 rounded bg-neutral-100 dark:bg-neutral-800">
+                        <span class="text-sm text-neutral-700 dark:text-neutral-300">Undo</span>
+                        <div class="flex items-center gap-1">
+                            <Kbd value="meta" size="sm" />
+                            <span class="text-neutral-400">+</span>
+                            <Kbd size="sm">Z</Kbd>
+                        </div>
+                    </div>
+                    <div class="flex items-center justify-between p-2 rounded bg-neutral-100 dark:bg-neutral-800">
+                        <span class="text-sm text-neutral-700 dark:text-neutral-300">Search</span>
+                        <div class="flex items-center gap-1">
+                            <Kbd value="meta" size="sm" />
+                            <span class="text-neutral-400">+</span>
+                            <Kbd size="sm">K</Kbd>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Kbd in Context -->
+            <div class="space-y-2">
+                <h3 class="text-sm font-medium text-neutral-600 dark:text-neutral-400">In Context</h3>
+                <Card variant="soft">
+                    <div class="text-sm text-neutral-600 dark:text-neutral-400">
+                        Press <Kbd value="meta" /> + <Kbd>K</Kbd> to open the command palette.
+                        Use <Kbd value="up" /> and <Kbd value="down" /> to navigate,
+                        and <Kbd value="enter" /> to select.
+                    </div>
+                </Card>
             </div>
         </section>
     </div>

@@ -42,6 +42,8 @@ export {
     type BadgeSize,
     type BadgeVariant,
     type BadgeUI,
+    Separator,
+    Kbd,
     User,
     userVariants,
     avatarSizeMap,
