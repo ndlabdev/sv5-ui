@@ -45,6 +45,18 @@ export {
     type CardUI
 } from './Card/index.js'
 
+// Badge
+export {
+    Badge,
+    badgeVariants,
+    type BadgeProps,
+    type BadgeVariants,
+    type BadgeSlots,
+    type BadgeSize,
+    type BadgeVariant,
+    type BadgeUI
+} from './Badge/index.js'
+
 // Re-export mode-watcher utilities for convenience
 export {
     mode,

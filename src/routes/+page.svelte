@@ -1,5 +1,5 @@
 <script lang="ts">
-    import { Button, Icon, ThemeToggle, Avatar, AvatarGroup, Chip, Card, mode, setMode } from '$lib/index.js'
+    import { Button, Icon, ThemeToggle, Avatar, AvatarGroup, Chip, Card, Badge, mode, setMode } from '$lib/index.js'
 
     let loading = $state(false)
 
@@ -1112,6 +1112,147 @@
                             Extra rounded corners and shadow.
                         </p>
                     </Card>
+                </div>
+            </div>
+        </section>
+
+        <!-- Badge Component -->
+        <section class="space-y-4">
+            <h2 class="text-xl font-semibold text-neutral-800 dark:text-neutral-200">
+                Badge Component
+            </h2>
+            <p class="text-sm text-neutral-600 dark:text-neutral-400">
+                A short text to represent a status or a category
+            </p>
+
+            <!-- Badge Variants -->
+            <div class="space-y-2">
+                <h3 class="text-sm font-medium text-neutral-600 dark:text-neutral-400">Variants</h3>
+                <div class="flex flex-wrap items-center gap-3">
+                    <Badge variant="solid" label="Solid" />
+                    <Badge variant="outline" label="Outline" />
+                    <Badge variant="soft" label="Soft" />
+                    <Badge variant="subtle" label="Subtle" />
+                </div>
+            </div>
+
+            <!-- Badge Colors -->
+            <div class="space-y-2">
+                <h3 class="text-sm font-medium text-neutral-600 dark:text-neutral-400">Colors</h3>
+                <div class="flex flex-wrap items-center gap-3">
+                    <Badge color="primary" label="Primary" />
+                    <Badge color="secondary" label="Secondary" />
+                    <Badge color="success" label="Success" />
+                    <Badge color="warning" label="Warning" />
+                    <Badge color="error" label="Error" />
+                    <Badge color="info" label="Info" />
+                    <Badge color="neutral" label="Neutral" />
+                </div>
+            </div>
+
+            <!-- Badge Sizes -->
+            <div class="space-y-2">
+                <h3 class="text-sm font-medium text-neutral-600 dark:text-neutral-400">Sizes</h3>
+                <div class="flex flex-wrap items-center gap-3">
+                    <Badge size="xs" label="Extra Small" />
+                    <Badge size="sm" label="Small" />
+                    <Badge size="md" label="Medium" />
+                    <Badge size="lg" label="Large" />
+                    <Badge size="xl" label="Extra Large" />
+                </div>
+            </div>
+
+            <!-- Badge with Outline Colors -->
+            <div class="space-y-2">
+                <h3 class="text-sm font-medium text-neutral-600 dark:text-neutral-400">Outline Colors</h3>
+                <div class="flex flex-wrap items-center gap-3">
+                    <Badge variant="outline" color="primary" label="Primary" />
+                    <Badge variant="outline" color="secondary" label="Secondary" />
+                    <Badge variant="outline" color="success" label="Success" />
+                    <Badge variant="outline" color="warning" label="Warning" />
+                    <Badge variant="outline" color="error" label="Error" />
+                    <Badge variant="outline" color="info" label="Info" />
+                    <Badge variant="outline" color="neutral" label="Neutral" />
+                </div>
+            </div>
+
+            <!-- Badge with Soft Colors -->
+            <div class="space-y-2">
+                <h3 class="text-sm font-medium text-neutral-600 dark:text-neutral-400">Soft Colors</h3>
+                <div class="flex flex-wrap items-center gap-3">
+                    <Badge variant="soft" color="primary" label="Primary" />
+                    <Badge variant="soft" color="secondary" label="Secondary" />
+                    <Badge variant="soft" color="success" label="Success" />
+                    <Badge variant="soft" color="warning" label="Warning" />
+                    <Badge variant="soft" color="error" label="Error" />
+                    <Badge variant="soft" color="info" label="Info" />
+                    <Badge variant="soft" color="neutral" label="Neutral" />
+                </div>
+            </div>
+
+            <!-- Badge with Icons -->
+            <div class="space-y-2">
+                <h3 class="text-sm font-medium text-neutral-600 dark:text-neutral-400">With Icons</h3>
+                <div class="flex flex-wrap items-center gap-3">
+                    <Badge leadingIcon="lucide:check" color="success" label="Verified" />
+                    <Badge leadingIcon="lucide:star" color="warning" label="Featured" />
+                    <Badge trailingIcon="lucide:arrow-right" color="primary" label="New" />
+                    <Badge leadingIcon="lucide:clock" trailingIcon="lucide:x" color="neutral" variant="outline" label="Pending" />
+                </div>
+            </div>
+
+            <!-- Badge Icon Only -->
+            <div class="space-y-2">
+                <h3 class="text-sm font-medium text-neutral-600 dark:text-neutral-400">Icon Only</h3>
+                <div class="flex flex-wrap items-center gap-3">
+                    <Badge icon="lucide:check" color="success" size="xs" />
+                    <Badge icon="lucide:check" color="success" size="sm" />
+                    <Badge icon="lucide:check" color="success" size="md" />
+                    <Badge icon="lucide:check" color="success" size="lg" />
+                    <Badge icon="lucide:check" color="success" size="xl" />
+                </div>
+                <div class="flex flex-wrap items-center gap-3">
+                    <Badge icon="lucide:x" color="error" variant="soft" />
+                    <Badge icon="lucide:alert-triangle" color="warning" variant="outline" />
+                    <Badge icon="lucide:info" color="info" variant="subtle" />
+                </div>
+            </div>
+
+            <!-- Badge with Avatar -->
+            <div class="space-y-2">
+                <h3 class="text-sm font-medium text-neutral-600 dark:text-neutral-400">With Avatar</h3>
+                <div class="flex flex-wrap items-center gap-3">
+                    <Badge
+                        avatar={{ src: 'https://i.pravatar.cc/150?img=1', alt: 'User' }}
+                        label="John Doe"
+                        variant="outline"
+                        color="neutral"
+                    />
+                    <Badge
+                        avatar={{ alt: 'Jane' }}
+                        label="Jane Smith"
+                        variant="soft"
+                        color="primary"
+                    />
+                    <Badge
+                        avatar={{ icon: 'lucide:user' }}
+                        label="Guest"
+                        variant="subtle"
+                        color="neutral"
+                    />
+                </div>
+            </div>
+
+            <!-- Badge Use Cases -->
+            <div class="space-y-2">
+                <h3 class="text-sm font-medium text-neutral-600 dark:text-neutral-400">Common Use Cases</h3>
+                <div class="flex flex-wrap items-center gap-3">
+                    <Badge color="success" variant="soft" leadingIcon="lucide:circle" label="Online" />
+                    <Badge color="error" variant="soft" leadingIcon="lucide:circle" label="Offline" />
+                    <Badge color="warning" variant="soft" leadingIcon="lucide:circle" label="Away" />
+                    <Badge color="neutral" variant="outline" label="v1.0.0" />
+                    <Badge color="primary" label="PRO" />
+                    <Badge color="secondary" variant="soft" label="Beta" />
                 </div>
             </div>
         </section>
