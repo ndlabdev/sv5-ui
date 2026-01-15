@@ -1,63 +1,127 @@
 import type { Snippet } from 'svelte'
 import type { VariantProps } from 'tailwind-variants'
-import type { SemanticColor } from '../../config/types.js'
+import type { Button } from 'bits-ui'
 import type { buttonVariants } from './button.variants.js'
 import type { AvatarProps } from '../Avatar/avatar.types.js'
+import type { ClassNameValue } from 'tailwind-merge'
 
 // Variant-derived types
 export type ButtonVariants = VariantProps<typeof buttonVariants>
 export type ButtonSlots = keyof ReturnType<typeof buttonVariants>
 export type ButtonSize = NonNullable<ButtonVariants['size']>
+export type ButtonColor = NonNullable<ButtonVariants['color']>
 export type ButtonVariant = NonNullable<ButtonVariants['variant']>
 
 /** Custom styles for each button slot */
-export type ButtonUI = Partial<Record<ButtonSlots, string>>
+export type ButtonUI = Partial<Record<ButtonSlots, ClassNameValue>>
 
-export interface ButtonBaseProps {
-    /** The element this component should render as when not a link. Default: 'button' */
-    as?: string
-    /** Custom styles for each slot (base, label, leadingIcon, trailingIcon) */
-    ui?: ButtonUI
-    /** Button color theme */
-    color?: SemanticColor
-    /** Button visual style */
+/**
+ * Button component props.
+ * Extends bits-ui Button.RootProps with additional styling and content options.
+ */
+export type ButtonProps = Button.RootProps & {
+    /**
+     * The color theme of the button.
+     * @default 'primary'
+     */
+    color?: ButtonColor
+
+    /**
+     * The visual style variant of the button.
+     * @default 'solid'
+     */
     variant?: ButtonVariant
-    /** Button size */
+
+    /**
+     * The size of the button.
+     * @default 'md'
+     */
     size?: ButtonSize
-    /** Button label text (alternative to children) */
+
+    /**
+     * Text label to display inside the button.
+     * Alternative to using children slot.
+     */
     label?: string
-    /** Shows loading spinner and disables button */
+
+    /**
+     * Whether the button is in a loading state.
+     * When true, displays a loading spinner and disables interaction.
+     * @default false
+     */
     loading?: boolean
-    /** Loading icon name (shown when loading) */
+
+    /**
+     * The icon to display when loading.
+     * Accepts any Iconify icon name.
+     * @default 'lucide:loader-2'
+     */
     loadingIcon?: string
-    /** Disables the button */
-    disabled?: boolean
-    /** Makes button take full width */
+
+    /**
+     * Whether the button should take full width of its container.
+     * @default false
+     */
     block?: boolean
-    /** Equal padding on all sides (square button) */
+
+    /**
+     * Whether the button should have equal width and height.
+     * Useful for icon-only buttons.
+     * @default false
+     */
     square?: boolean
-    /** Truncate label text */
+
+    /**
+     * Whether to truncate text with ellipsis when it overflows.
+     * @default false
+     */
     truncate?: boolean
-    /** Icon name - renders as icon-only button */
+
+    /**
+     * Icon to display in icon-only mode.
+     * When set, the button renders only this icon without label.
+     * Accepts any Iconify icon name.
+     */
     icon?: string
-    /** Leading icon name (e.g., "lucide:plus", "mdi:home") */
+
+    /**
+     * Icon to display before the label/children.
+     * Accepts any Iconify icon name.
+     */
     leadingIcon?: string
-    /** Trailing icon name (e.g., "lucide:chevron-right") */
+
+    /**
+     * Icon to display after the label/children.
+     * Accepts any Iconify icon name.
+     */
     trailingIcon?: string
-    /** Avatar to display on the left side of the button */
+
+    /**
+     * Avatar to display before the label/children.
+     * Takes precedence over leadingIcon when both are provided.
+     */
     avatar?: AvatarProps
-    /** Custom leading content snippet */
+
+    /**
+     * Custom content to render before the label.
+     * Takes precedence over avatar and leadingIcon.
+     */
     leading?: Snippet
-    /** Custom trailing content snippet */
+
+    /**
+     * Custom content to render after the label.
+     * Takes precedence over trailingIcon.
+     */
     trailing?: Snippet
-    /** Button content */
-    children?: Snippet
-    /** Additional CSS classes */
-    class?: string
-    /** URL to navigate to (renders as anchor) */
-    href?: string
-    /** Button type attribute (only applies when as='button') */
-    type?: 'button' | 'submit' | 'reset'
-    /** Allows any other HTML attributes */
-    [key: string]: unknown
+
+    /**
+     * Additional CSS classes to apply to the button.
+     */
+    class?: ClassNameValue
+
+    /**
+     * Custom styles for individual button slots.
+     * Allows overriding styles for: base, label, leadingIcon, leadingAvatar, trailingIcon.
+     */
+    ui?: ButtonUI
 }

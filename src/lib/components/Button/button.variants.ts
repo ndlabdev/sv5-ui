@@ -6,8 +6,8 @@ export const buttonVariants = tv({
             'inline-flex items-center justify-center font-medium',
             'transition-colors duration-200',
             'focus:outline-none focus-visible:outline-2 focus-visible:outline-offset-2',
-            'disabled:cursor-not-allowed disabled:opacity-50',
-            'aria-disabled:cursor-not-allowed aria-disabled:opacity-50',
+            'disabled:cursor-not-allowed disabled:opacity-50 disabled:pointer-events-none',
+            'aria-disabled:cursor-not-allowed aria-disabled:opacity-50 aria-disabled:pointer-events-none',
             'select-none whitespace-nowrap'
         ],
         label: '',

@@ -256,27 +256,11 @@
         <section class="space-y-4">
             <h2 class="text-xl font-semibold text-neutral-800 dark:text-neutral-200">As Link</h2>
             <div class="flex flex-wrap gap-3">
-                <Button href="https://svelte.dev" disabled target="_blank" trailingIcon="lucide:external-link">
+                <Button href="https://svelte.dev" target="_blank" trailingIcon="lucide:external-link">
                     Visit Svelte
                 </Button>
-                <Button disabled href="/about" variant="outline">Internal Link</Button>
-                <Button disabled href="#top" variant="ghost">Anchor Link</Button>
-            </div>
-        </section>
-
-        <!-- As Prop (Render as different element) -->
-        <section class="space-y-4">
-            <h2 class="text-xl font-semibold text-neutral-800 dark:text-neutral-200">
-                As Prop (Render as different element)
-            </h2>
-            <p class="text-sm text-neutral-600 dark:text-neutral-400">
-                Render button as any element: button (default), div, span, section, etc.
-            </p>
-            <div class="flex flex-wrap gap-3">
-                <Button as="button" label="as='button' (default)" />
-                <Button as="div" label="as='div'" variant="outline" />
-                <Button as="span" label="as='span'" variant="soft" />
-                <Button as="section" label="as='section'" variant="subtle" />
+                <Button href="/about" variant="outline">Internal Link</Button>
+                <Button href="#top" variant="ghost">Anchor Link</Button>
             </div>
         </section>
 

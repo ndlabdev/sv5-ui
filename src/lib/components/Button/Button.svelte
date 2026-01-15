@@ -1,17 +1,18 @@
 <script lang="ts" module>
-    import type { ButtonBaseProps } from './button.types.js'
+    import type { ButtonProps } from './button.types.js'
 
-    export type Props = ButtonBaseProps
+    export type Props = ButtonProps
 </script>
 
 <script lang="ts">
+    import { Button } from 'bits-ui'
     import { buttonVariants } from './button.variants.js'
     import { getConfigContext } from '../../config/context.svelte.js'
     import Icon from '../Icon/Icon.svelte'
     import Avatar from '../Avatar/Avatar.svelte'
 
     let {
-        as = 'button',
+        ref = $bindable(null),
         ui,
         color,
         variant,
@@ -31,8 +32,6 @@
         trailing,
         children,
         class: className,
-        href,
-        type = 'button' as const,
         ...restProps
     }: Props = $props()
 
@@ -66,11 +65,11 @@
     const leadingAvatarClass = $derived(slots.leadingAvatar({ class: ui?.leadingAvatar }))
     const trailingIconClass = $derived(slots.trailingIcon({ class: ui?.trailingIcon }))
 
+    // bits-ui Button handles disabled state internally
     const isDisabled = $derived(disabled || loading)
 </script>
 
 {#snippet buttonContent()}
-    <!-- Leading section -->
     {#if loading}
         <Icon name={loadingIcon} class={leadingIconClass} />
     {:else if leading}
@@ -81,11 +80,9 @@
         <Icon name={leadingIcon} class={leadingIconClass} />
     {/if}
 
-    <!-- Icon-only mode -->
     {#if icon && !loading}
         <Icon name={icon} class={leadingIconClass} />
     {:else if !isIconOnly}
-        <!-- Label/Content -->
         {#if label}
             <span class={labelClass}>{label}</span>
         {:else if children}
@@ -93,7 +90,6 @@
         {/if}
     {/if}
 
-    <!-- Trailing section -->
     {#if !loading}
         {#if trailing}
             {@render trailing()}
@@ -103,34 +99,11 @@
     {/if}
 {/snippet}
 
-{#if href}
-    <a
-        href={isDisabled ? undefined : href}
-        class={baseClass}
-        aria-disabled={isDisabled || undefined}
-        aria-busy={loading || undefined}
-        {...restProps}
-    >
-        {@render buttonContent()}
-    </a>
-{:else if as === 'button'}
-    <button
-        {type}
-        disabled={isDisabled}
-        class={baseClass}
-        aria-busy={loading || undefined}
-        {...restProps}
-    >
-        {@render buttonContent()}
-    </button>
-{:else}
-    <svelte:element
-        this={as}
-        class={baseClass}
-        aria-disabled={isDisabled || undefined}
-        aria-busy={loading || undefined}
-        {...restProps}
-    >
-        {@render buttonContent()}
-    </svelte:element>
-{/if}
+<Button.Root
+    bind:ref
+    class={baseClass}
+    disabled={isDisabled}
+    {...restProps}
+>
+    {@render buttonContent()}
+</Button.Root>
