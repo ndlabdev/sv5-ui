@@ -1,5 +1,5 @@
 <script lang="ts">
-    import { Button, Icon, ThemeToggle, Avatar, AvatarGroup, Chip, mode, setMode } from '$lib/index.js'
+    import { Button, Icon, ThemeToggle, Avatar, AvatarGroup, Chip, Card, mode, setMode } from '$lib/index.js'
 
     let loading = $state(false)
 
@@ -953,6 +953,165 @@
                     <Chip text="!" size="lg" color="warning">
                         <Button variant="soft" color="neutral">Warnings</Button>
                     </Chip>
+                </div>
+            </div>
+        </section>
+
+        <!-- Card Component -->
+        <section class="space-y-4">
+            <h2 class="text-xl font-semibold text-neutral-800 dark:text-neutral-200">
+                Card Component
+            </h2>
+            <p class="text-sm text-neutral-600 dark:text-neutral-400">
+                A flexible container with header, body, and footer sections
+            </p>
+
+            <!-- Card Variants -->
+            <div class="space-y-2">
+                <h3 class="text-sm font-medium text-neutral-600 dark:text-neutral-400">Variants</h3>
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+                    {#snippet cardHeader()}
+                        <h3 class="font-semibold">Outline Card</h3>
+                    {/snippet}
+                    {#snippet cardFooter()}
+                        <div class="flex justify-end gap-2">
+                            <Button size="sm" variant="ghost" color="neutral">Cancel</Button>
+                            <Button size="sm">Save</Button>
+                        </div>
+                    {/snippet}
+                    <Card variant="outline" header={cardHeader} footer={cardFooter}>
+                        <p class="text-sm text-neutral-600 dark:text-neutral-400">
+                            This is the default outline variant with a ring border.
+                        </p>
+                    </Card>
+
+                    {#snippet solidHeader()}
+                        <h3 class="font-semibold">Solid Card</h3>
+                    {/snippet}
+                    {#snippet solidFooter()}
+                        <div class="flex justify-end gap-2">
+                            <Button size="sm" variant="soft" color="error">Cancel</Button>
+                            <Button size="sm" variant="solid">Save</Button>
+                        </div>
+                    {/snippet}
+                    <Card variant="solid" header={solidHeader} footer={solidFooter}>
+                        <p class="text-sm opacity-80">
+                            This is the solid variant with inverted colors.
+                        </p>
+                    </Card>
+
+                    {#snippet softHeader()}
+                        <h3 class="font-semibold">Soft Card</h3>
+                    {/snippet}
+                    {#snippet softFooter()}
+                        <div class="flex justify-end gap-2">
+                            <Button size="sm" variant="ghost" color="neutral">Cancel</Button>
+                            <Button size="sm">Save</Button>
+                        </div>
+                    {/snippet}
+                    <Card variant="soft" header={softHeader} footer={softFooter}>
+                        <p class="text-sm text-neutral-600 dark:text-neutral-400">
+                            This is the soft variant with a subtle background.
+                        </p>
+                    </Card>
+
+                    {#snippet subtleHeader()}
+                        <h3 class="font-semibold">Subtle Card</h3>
+                    {/snippet}
+                    {#snippet subtleFooter()}
+                        <div class="flex justify-end gap-2">
+                            <Button size="sm" variant="ghost" color="neutral">Cancel</Button>
+                            <Button size="sm">Save</Button>
+                        </div>
+                    {/snippet}
+                    <Card variant="subtle" header={subtleHeader} footer={subtleFooter}>
+                        <p class="text-sm text-neutral-600 dark:text-neutral-400">
+                            This is the subtle variant with background and ring.
+                        </p>
+                    </Card>
+                </div>
+            </div>
+
+            <!-- Card Body Only -->
+            <div class="space-y-2">
+                <h3 class="text-sm font-medium text-neutral-600 dark:text-neutral-400">Body Only</h3>
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+                    <Card>
+                        <p class="text-neutral-700 dark:text-neutral-300">
+                            A simple card with only body content. No header or footer.
+                        </p>
+                    </Card>
+                    <Card variant="soft">
+                        <div class="flex items-center gap-3">
+                            <Avatar src="https://i.pravatar.cc/150?img=10" alt="User" size="lg" />
+                            <div>
+                                <p class="font-medium text-neutral-900 dark:text-white">John Doe</p>
+                                <p class="text-sm text-neutral-500">Software Engineer</p>
+                            </div>
+                        </div>
+                    </Card>
+                </div>
+            </div>
+
+            <!-- Card with Header Only -->
+            <div class="space-y-2">
+                <h3 class="text-sm font-medium text-neutral-600 dark:text-neutral-400">Header + Body</h3>
+                {#snippet statsHeader()}
+                    <div class="flex items-center justify-between">
+                        <h3 class="font-semibold">Statistics</h3>
+                        <Button size="xs" variant="ghost" icon="lucide:more-horizontal" />
+                    </div>
+                {/snippet}
+                <Card header={statsHeader}>
+                    <div class="grid grid-cols-3 gap-4 text-center">
+                        <div>
+                            <p class="text-2xl font-bold text-primary-600">1,234</p>
+                            <p class="text-xs text-neutral-500">Users</p>
+                        </div>
+                        <div>
+                            <p class="text-2xl font-bold text-success-600">567</p>
+                            <p class="text-xs text-neutral-500">Orders</p>
+                        </div>
+                        <div>
+                            <p class="text-2xl font-bold text-warning-600">89%</p>
+                            <p class="text-xs text-neutral-500">Growth</p>
+                        </div>
+                    </div>
+                </Card>
+            </div>
+
+            <!-- Card with Custom Styles -->
+            <div class="space-y-2">
+                <h3 class="text-sm font-medium text-neutral-600 dark:text-neutral-400">Custom Styles (ui prop)</h3>
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+                    {#snippet customHeader()}
+                        <h3 class="font-semibold text-primary-600">Custom Header</h3>
+                    {/snippet}
+                    <Card
+                        header={customHeader}
+                        ui={{
+                            root: 'shadow-lg',
+                            header: 'bg-primary-50 dark:bg-primary-900/20',
+                            body: 'bg-gradient-to-b from-transparent to-primary-50/50 dark:to-primary-900/10'
+                        }}
+                    >
+                        <p class="text-sm text-neutral-600 dark:text-neutral-400">
+                            Card with custom gradient and colored header.
+                        </p>
+                    </Card>
+
+                    {#snippet roundedHeader()}
+                        <h3 class="font-semibold">Rounded Card</h3>
+                    {/snippet}
+                    <Card
+                        header={roundedHeader}
+                        ui={{ root: 'rounded-2xl shadow-xl' }}
+                        variant="soft"
+                    >
+                        <p class="text-sm text-neutral-600 dark:text-neutral-400">
+                            Extra rounded corners and shadow.
+                        </p>
+                    </Card>
                 </div>
             </div>
         </section>

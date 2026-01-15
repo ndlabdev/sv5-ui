@@ -34,6 +34,17 @@ export {
     type ChipUI
 } from './Chip/index.js'
 
+// Card
+export {
+    Card,
+    cardVariants,
+    type CardProps,
+    type CardVariants,
+    type CardSlots,
+    type CardVariant,
+    type CardUI
+} from './Card/index.js'
+
 // Re-export mode-watcher utilities for convenience
 export {
     mode,

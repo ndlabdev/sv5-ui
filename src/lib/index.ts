@@ -27,6 +27,13 @@ export {
     type ChipSize,
     type ChipPosition,
     type ChipUI,
+    Card,
+    cardVariants,
+    type CardProps,
+    type CardVariants,
+    type CardSlots,
+    type CardVariant,
+    type CardUI,
     // mode-watcher re-exports
     mode,
     toggleMode,
