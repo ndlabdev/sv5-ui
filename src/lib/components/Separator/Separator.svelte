@@ -5,36 +5,42 @@
 </script>
 
 <script lang="ts">
+    import { Separator } from 'bits-ui'
     import { separatorVariants } from './separator.variants.js'
     import Icon from '../Icon/Icon.svelte'
     import Avatar from '../Avatar/Avatar.svelte'
 
     let {
-        as = 'div',
+        ref = $bindable(null),
         ui,
         label,
         icon,
         avatar,
-        color = 'neutral',
-        size = 'xs',
-        type = 'solid',
-        orientation = 'horizontal',
+        color,
+        size,
+        type,
+        orientation,
         decorative = false,
         class: className,
-        children,
+        content,
         ...restProps
     }: Props = $props()
 
-    // Check if separator has content (label, icon, avatar, or children)
-    const hasContent = $derived(!!label || !!icon || !!avatar || !!children)
+    const resolvedColor = $derived(color ?? 'neutral')
+    const resolvedSize = $derived(size ?? 'xs')
+    const resolvedType = $derived(type ?? 'solid')
+    const resolvedOrientation = $derived(orientation ?? 'horizontal')
+
+    // Check if separator has content (label, icon, avatar, or content snippet)
+    const hasContent = $derived(!!label || !!icon || !!avatar || !!content)
 
     // Get slot classes from variants
     const slots = $derived(
         separatorVariants({
-            color,
-            size,
-            type,
-            orientation
+            color: resolvedColor,
+            size: resolvedSize,
+            type: resolvedType,
+            orientation: resolvedOrientation
         })
     )
 
@@ -43,24 +49,21 @@
     const containerClass = $derived(slots.container({ class: ui?.container }))
     const iconClass = $derived(slots.icon({ class: ui?.icon }))
     const labelClass = $derived(slots.label({ class: ui?.label }))
-
-    // Accessibility attributes
-    const a11yProps = $derived(
-        decorative
-            ? { role: 'none' as const, 'aria-hidden': true as const }
-            : { role: 'separator' as const, 'aria-orientation': orientation as 'horizontal' | 'vertical' }
-    )
 </script>
 
-<svelte:element this={as} class={rootClass} {...a11yProps} {...restProps}>
-    <!-- First border line -->
+<Separator.Root
+    bind:ref
+    class={rootClass}
+    orientation={resolvedOrientation}
+    {decorative}
+    {...restProps}
+>
     <div class={borderClass}></div>
 
-    <!-- Content in the center (if any) -->
     {#if hasContent}
         <div class={containerClass}>
-            {#if children}
-                {@render children()}
+            {#if content}
+                {@render content()}
             {:else if avatar}
                 <Avatar {...avatar} />
             {:else if icon}
@@ -70,7 +73,6 @@
             {/if}
         </div>
 
-        <!-- Second border line (only when content exists) -->
         <div class={borderClass}></div>
     {/if}
-</svelte:element>
+</Separator.Root>

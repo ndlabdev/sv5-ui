@@ -1,5 +1,7 @@
 import type { Snippet } from 'svelte'
 import type { VariantProps } from 'tailwind-variants'
+import type { ClassNameValue } from 'tailwind-merge'
+import type { Separator } from 'bits-ui'
 import type { SemanticColor } from '../../config/types.js'
 import type { separatorVariants } from './separator.variants.js'
 import type { AvatarProps } from '../Avatar/avatar.types.js'
@@ -12,33 +14,61 @@ export type SeparatorType = NonNullable<SeparatorVariants['type']>
 export type SeparatorOrientation = NonNullable<SeparatorVariants['orientation']>
 
 /** Custom styles for each separator slot */
-export type SeparatorUI = Partial<Record<SeparatorSlots, string>>
+export type SeparatorUI = Partial<Record<SeparatorSlots, ClassNameValue>>
 
-export interface SeparatorProps {
-    /** The element this component should render as. Default: 'div' */
-    as?: string
-    /** Custom styles for each slot (root, border, container, icon, label) */
-    ui?: SeparatorUI
-    /** Label text to display in the center */
-    label?: string
-    /** Icon name to display in the center */
-    icon?: string
-    /** Avatar to display in the center */
-    avatar?: AvatarProps
-    /** Separator color */
+/**
+ * Separator component props.
+ * Extends bits-ui Separator.RootProps with additional styling and content options.
+ */
+export type SeparatorProps = Separator.RootProps & {
+    /**
+     * The color theme of the separator.
+     * @default 'neutral'
+     */
     color?: SemanticColor
-    /** Border thickness */
+
+    /**
+     * The thickness of the separator border.
+     * @default 'xs'
+     */
     size?: SeparatorSize
-    /** Border style */
+
+    /**
+     * The border style of the separator.
+     * @default 'solid'
+     */
     type?: SeparatorType
-    /** Layout orientation */
-    orientation?: SeparatorOrientation
-    /** When true, removes separator from accessibility tree */
-    decorative?: boolean
-    /** Additional CSS classes */
-    class?: string
-    /** Content to display in the center */
-    children?: Snippet
-    /** Allows any other HTML attributes */
-    [key: string]: unknown
+
+    /**
+     * Text label to display in the center of the separator.
+     */
+    label?: string
+
+    /**
+     * Icon to display in the center of the separator.
+     * Accepts any Iconify icon name.
+     */
+    icon?: string
+
+    /**
+     * Avatar to display in the center of the separator.
+     */
+    avatar?: AvatarProps
+
+    /**
+     * Additional CSS classes to apply to the separator.
+     */
+    class?: ClassNameValue
+
+    /**
+     * Custom styles for individual separator slots.
+     * Allows overriding styles for: root, border, container, icon, label.
+     */
+    ui?: SeparatorUI
+
+    /**
+     * Custom content to render in the center of the separator.
+     * Takes precedence over label, icon, and avatar.
+     */
+    content?: Snippet
 }
