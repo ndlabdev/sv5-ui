@@ -57,6 +57,19 @@ export {
     type BadgeUI
 } from './Badge/index.js'
 
+// User
+export {
+    User,
+    userVariants,
+    avatarSizeMap,
+    type UserProps,
+    type UserVariants,
+    type UserSlots,
+    type UserSize,
+    type UserOrientation,
+    type UserUI
+} from './User/index.js'
+
 // Re-export mode-watcher utilities for convenience
 export {
     mode,

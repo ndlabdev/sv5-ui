@@ -1,5 +1,5 @@
 <script lang="ts">
-    import { Button, Icon, ThemeToggle, Avatar, AvatarGroup, Chip, Card, Badge, mode, setMode } from '$lib/index.js'
+    import { Button, Icon, ThemeToggle, Avatar, AvatarGroup, Chip, Card, Badge, User, mode, setMode } from '$lib/index.js'
 
     let loading = $state(false)
 
@@ -1253,6 +1253,223 @@
                     <Badge color="neutral" variant="outline" label="v1.0.0" />
                     <Badge color="primary" label="PRO" />
                     <Badge color="secondary" variant="soft" label="Beta" />
+                </div>
+            </div>
+        </section>
+
+        <!-- User Component -->
+        <section class="space-y-4">
+            <h2 class="text-xl font-semibold text-neutral-800 dark:text-neutral-200">
+                User Component
+            </h2>
+            <p class="text-sm text-neutral-600 dark:text-neutral-400">
+                Display user information with avatar, name, and description
+            </p>
+
+            <!-- Basic User -->
+            <div class="space-y-2">
+                <h3 class="text-sm font-medium text-neutral-600 dark:text-neutral-400">Basic</h3>
+                <div class="flex flex-wrap items-start gap-6">
+                    <User
+                        name="John Doe"
+                        description="Software Engineer"
+                        avatar={{ src: 'https://i.pravatar.cc/150?img=1', alt: 'John Doe' }}
+                    />
+                    <User
+                        name="Jane Smith"
+                        description="Product Designer"
+                        avatar={{ src: 'https://i.pravatar.cc/150?img=2', alt: 'Jane Smith' }}
+                    />
+                    <User
+                        name="Bob Wilson"
+                        description="DevOps Engineer"
+                        avatar={{ alt: 'Bob Wilson' }}
+                    />
+                </div>
+            </div>
+
+            <!-- User Sizes -->
+            <div class="space-y-2">
+                <h3 class="text-sm font-medium text-neutral-600 dark:text-neutral-400">Sizes</h3>
+                <div class="flex flex-wrap items-start gap-6">
+                    <User
+                        size="xs"
+                        name="Extra Small"
+                        description="xs size"
+                        avatar={{ src: 'https://i.pravatar.cc/150?img=10', alt: 'User' }}
+                    />
+                    <User
+                        size="sm"
+                        name="Small"
+                        description="sm size"
+                        avatar={{ src: 'https://i.pravatar.cc/150?img=11', alt: 'User' }}
+                    />
+                    <User
+                        size="md"
+                        name="Medium"
+                        description="md size (default)"
+                        avatar={{ src: 'https://i.pravatar.cc/150?img=12', alt: 'User' }}
+                    />
+                    <User
+                        size="lg"
+                        name="Large"
+                        description="lg size"
+                        avatar={{ src: 'https://i.pravatar.cc/150?img=13', alt: 'User' }}
+                    />
+                    <User
+                        size="xl"
+                        name="Extra Large"
+                        description="xl size"
+                        avatar={{ src: 'https://i.pravatar.cc/150?img=14', alt: 'User' }}
+                    />
+                </div>
+            </div>
+
+            <!-- User with Chip -->
+            <div class="space-y-2">
+                <h3 class="text-sm font-medium text-neutral-600 dark:text-neutral-400">With Status Chip</h3>
+                <div class="flex flex-wrap items-start gap-6">
+                    <User
+                        name="Online User"
+                        description="Available"
+                        avatar={{ src: 'https://i.pravatar.cc/150?img=20', alt: 'User' }}
+                        chip={{ color: 'success' }}
+                    />
+                    <User
+                        name="Busy User"
+                        description="In a meeting"
+                        avatar={{ src: 'https://i.pravatar.cc/150?img=21', alt: 'User' }}
+                        chip={{ color: 'error' }}
+                    />
+                    <User
+                        name="Away User"
+                        description="Back in 5 min"
+                        avatar={{ src: 'https://i.pravatar.cc/150?img=22', alt: 'User' }}
+                        chip={{ color: 'warning' }}
+                    />
+                </div>
+            </div>
+
+            <!-- User Vertical Orientation -->
+            <div class="space-y-2">
+                <h3 class="text-sm font-medium text-neutral-600 dark:text-neutral-400">Vertical Orientation</h3>
+                <div class="flex flex-wrap items-start gap-8">
+                    <User
+                        orientation="vertical"
+                        name="Alice Brown"
+                        description="Team Lead"
+                        avatar={{ src: 'https://i.pravatar.cc/150?img=30', alt: 'Alice' }}
+                        size="lg"
+                    />
+                    <User
+                        orientation="vertical"
+                        name="Charlie Davis"
+                        description="Senior Developer"
+                        avatar={{ src: 'https://i.pravatar.cc/150?img=31', alt: 'Charlie' }}
+                        size="lg"
+                    />
+                    <User
+                        orientation="vertical"
+                        name="Diana Evans"
+                        description="UX Designer"
+                        avatar={{ src: 'https://i.pravatar.cc/150?img=32', alt: 'Diana' }}
+                        size="lg"
+                        chip={{ color: 'success' }}
+                    />
+                </div>
+            </div>
+
+            <!-- Clickable User (with href) -->
+            <div class="space-y-2">
+                <h3 class="text-sm font-medium text-neutral-600 dark:text-neutral-400">Clickable (Link)</h3>
+                <div class="flex flex-wrap items-start gap-6">
+                    <User
+                        name="View Profile"
+                        description="Click to open"
+                        avatar={{ src: 'https://i.pravatar.cc/150?img=40', alt: 'User' }}
+                        href="#user-profile"
+                    />
+                    <User
+                        name="External Link"
+                        description="Opens in new tab"
+                        avatar={{ icon: 'lucide:external-link' }}
+                        href="https://github.com"
+                        target="_blank"
+                    />
+                </div>
+            </div>
+
+            <!-- User with Icon Avatar -->
+            <div class="space-y-2">
+                <h3 class="text-sm font-medium text-neutral-600 dark:text-neutral-400">With Icon Avatar</h3>
+                <div class="flex flex-wrap items-start gap-6">
+                    <User
+                        name="System"
+                        description="Automated message"
+                        avatar={{ icon: 'lucide:bot' }}
+                    />
+                    <User
+                        name="Support"
+                        description="Help desk"
+                        avatar={{ icon: 'lucide:headphones' }}
+                    />
+                    <User
+                        name="Admin"
+                        description="Administrator"
+                        avatar={{ icon: 'lucide:shield' }}
+                    />
+                </div>
+            </div>
+
+            <!-- User in Card -->
+            <div class="space-y-2">
+                <h3 class="text-sm font-medium text-neutral-600 dark:text-neutral-400">In Card Context</h3>
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+                    {#snippet teamHeader()}
+                        <h3 class="font-semibold">Team Members</h3>
+                    {/snippet}
+                    <Card header={teamHeader}>
+                        <div class="space-y-4">
+                            <User
+                                name="John Doe"
+                                description="Team Lead"
+                                avatar={{ src: 'https://i.pravatar.cc/150?img=50', alt: 'John' }}
+                                chip={{ color: 'success' }}
+                            />
+                            <User
+                                name="Jane Smith"
+                                description="Developer"
+                                avatar={{ src: 'https://i.pravatar.cc/150?img=51', alt: 'Jane' }}
+                                chip={{ color: 'success' }}
+                            />
+                            <User
+                                name="Bob Wilson"
+                                description="Designer"
+                                avatar={{ src: 'https://i.pravatar.cc/150?img=52', alt: 'Bob' }}
+                                chip={{ color: 'warning' }}
+                            />
+                        </div>
+                    </Card>
+
+                    {#snippet profileHeader()}
+                        <h3 class="font-semibold">Profile</h3>
+                    {/snippet}
+                    <Card header={profileHeader} variant="soft">
+                        <div class="flex flex-col items-center">
+                            <User
+                                orientation="vertical"
+                                size="xl"
+                                name="Alex Johnson"
+                                description="Full Stack Developer"
+                                avatar={{ src: 'https://i.pravatar.cc/150?img=55', alt: 'Alex' }}
+                                chip={{ color: 'success' }}
+                            />
+                            <div class="flex gap-2 mt-4">
+                                <Button size="sm" variant="outline">Message</Button>
+                                <Button size="sm">Follow</Button>
+                            </div>
+                        </div>
+                    </Card>
                 </div>
             </div>
         </section>
