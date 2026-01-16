@@ -96,7 +96,6 @@ export const progressVariants = tv({
         }
     },
     compoundVariants: [
-        // Horizontal size variants
         { orientation: 'horizontal', size: '2xs', class: { base: 'h-px' } },
         { orientation: 'horizontal', size: 'xs', class: { base: 'h-0.5' } },
         { orientation: 'horizontal', size: 'sm', class: { base: 'h-1' } },
@@ -104,7 +103,6 @@ export const progressVariants = tv({
         { orientation: 'horizontal', size: 'lg', class: { base: 'h-3' } },
         { orientation: 'horizontal', size: 'xl', class: { base: 'h-4' } },
         { orientation: 'horizontal', size: '2xl', class: { base: 'h-5' } },
-        // Vertical size variants
         { orientation: 'vertical', size: '2xs', class: { base: 'w-px' } },
         { orientation: 'vertical', size: 'xs', class: { base: 'w-0.5' } },
         { orientation: 'vertical', size: 'sm', class: { base: 'w-1' } },
@@ -112,7 +110,6 @@ export const progressVariants = tv({
         { orientation: 'vertical', size: 'lg', class: { base: 'w-3' } },
         { orientation: 'vertical', size: 'xl', class: { base: 'w-4' } },
         { orientation: 'vertical', size: '2xl', class: { base: 'w-5' } },
-        // Horizontal animation variants (indeterminate state)
         {
             orientation: 'horizontal',
             animation: 'carousel',
@@ -145,7 +142,6 @@ export const progressVariants = tv({
                     'data-[state=indeterminate]:animate-[elastic_2s_ease-in-out_infinite] data-[state=indeterminate]:-translate-x-full'
             }
         },
-        // Vertical animation variants (indeterminate state)
         {
             orientation: 'vertical',
             animation: 'carousel',
@@ -178,7 +174,6 @@ export const progressVariants = tv({
                     'data-[state=indeterminate]:animate-[elastic-vertical_2s_ease-in-out_infinite] data-[state=indeterminate]:-translate-y-full'
             }
         },
-        // Vertical inverted
         {
             orientation: 'vertical',
             inverted: true,

@@ -41,10 +41,15 @@
     // Compute the transform style for the indicator
     const indicatorStyle = $derived.by(() => {
         if (isIndeterminate) return ''
+        const remaining = 100 - (percent ?? 0)
         if (orientation === 'horizontal') {
-            return `transform: translateX(-${100 - (percent ?? 0)}%);`
+            return inverted
+                ? `transform: translateX(${remaining}%);`
+                : `transform: translateX(-${remaining}%);`
         }
-        return `transform: translateY(-${100 - (percent ?? 0)}%);`
+        return inverted
+            ? `transform: translateY(${remaining}%);`
+            : `transform: translateY(-${remaining}%);`
     })
 
     // Generate slot classes
