@@ -1,6 +1,10 @@
 <script lang="ts">
-    import { Button, Icon, ThemeToggle, Avatar, AvatarGroup, Chip, Card, Badge, User, Separator, Kbd, Timeline, mode, setMode } from '$lib/index.js'
+    import { Button, Icon, ThemeToggle, Avatar, AvatarGroup, Chip, Card, Badge, User, Separator, Kbd, Timeline, Alert, mode, setMode } from '$lib/index.js'
     import type { TimelineItem } from '$lib/index.js'
+
+    let showAlert1 = $state(true)
+    let showAlert2 = $state(true)
+    let showAlert3 = $state(true)
 
     const timelineItems: TimelineItem[] = [
         { value: 1, date: 'Jan 1, 2024', title: 'Project Started', description: 'Initial project setup and planning phase', icon: 'lucide:rocket' },
@@ -2159,6 +2163,206 @@
                         </Timeline>
                     </Card>
                 </div>
+            </div>
+        </section>
+
+        <!-- Alert Component -->
+        <section class="space-y-4">
+            <h2 class="text-xl font-semibold text-neutral-800 dark:text-neutral-200">
+                Alert Component
+            </h2>
+            <p class="text-sm text-neutral-600 dark:text-neutral-400">
+                A callout component to draw user's attention with customizable styling and interactive elements
+            </p>
+
+            <!-- Basic Alert -->
+            <div class="space-y-2">
+                <h3 class="text-sm font-medium text-neutral-600 dark:text-neutral-400">Basic</h3>
+                <Alert
+                    title="Heads up!"
+                    description="You can add components to your app using the CLI."
+                />
+            </div>
+
+            <!-- Alert Variants -->
+            <div class="space-y-2">
+                <h3 class="text-sm font-medium text-neutral-600 dark:text-neutral-400">Variants</h3>
+                <div class="space-y-3">
+                    <Alert variant="soft" title="Soft Variant" description="This is a soft alert with a light background." />
+                    <Alert variant="solid" title="Solid Variant" description="This is a solid alert with a filled background." />
+                    <Alert variant="outline" title="Outline Variant" description="This is an outline alert with a border." />
+                    <Alert variant="subtle" title="Subtle Variant" description="This is a subtle alert with both background and border." />
+                </div>
+            </div>
+
+            <!-- Alert Colors -->
+            <div class="space-y-2">
+                <h3 class="text-sm font-medium text-neutral-600 dark:text-neutral-400">Colors</h3>
+                <div class="space-y-3">
+                    <Alert color="primary" icon="lucide:info" title="Primary" description="This is a primary alert message." />
+                    <Alert color="secondary" icon="lucide:star" title="Secondary" description="This is a secondary alert message." />
+                    <Alert color="success" icon="lucide:check-circle" title="Success" description="Your operation completed successfully!" />
+                    <Alert color="warning" icon="lucide:alert-triangle" title="Warning" description="Please review this important information." />
+                    <Alert color="error" icon="lucide:x-circle" title="Error" description="Something went wrong. Please try again." />
+                    <Alert color="info" icon="lucide:info" title="Info" description="Here's some helpful information for you." />
+                    <Alert color="neutral" icon="lucide:bell" title="Neutral" description="This is a neutral alert message." />
+                </div>
+            </div>
+
+            <!-- Alert with Icon -->
+            <div class="space-y-2">
+                <h3 class="text-sm font-medium text-neutral-600 dark:text-neutral-400">With Icon</h3>
+                <Alert
+                    icon="lucide:rocket"
+                    title="New Feature Available"
+                    description="Check out the latest updates and improvements we've made."
+                    color="primary"
+                />
+            </div>
+
+            <!-- Alert with Avatar -->
+            <div class="space-y-2">
+                <h3 class="text-sm font-medium text-neutral-600 dark:text-neutral-400">With Avatar</h3>
+                <Alert
+                    avatar={{ src: 'https://i.pravatar.cc/150?img=5', alt: 'User' }}
+                    title="New Message"
+                    description="You have a new message from John Doe."
+                    color="info"
+                />
+            </div>
+
+            <!-- Alert with Close Button -->
+            <div class="space-y-2">
+                <h3 class="text-sm font-medium text-neutral-600 dark:text-neutral-400">With Close Button</h3>
+                {#if showAlert1}
+                    <Alert
+                        icon="lucide:bell"
+                        title="Notification"
+                        description="You have 3 new notifications. Click to view."
+                        color="primary"
+                        close
+                        onClose={() => showAlert1 = false}
+                    />
+                {:else}
+                    <Button size="sm" variant="outline" onclick={() => showAlert1 = true}>Show Alert</Button>
+                {/if}
+            </div>
+
+            <!-- Alert with Actions -->
+            <div class="space-y-2">
+                <h3 class="text-sm font-medium text-neutral-600 dark:text-neutral-400">With Actions</h3>
+                <Alert
+                    icon="lucide:download"
+                    title="Update Available"
+                    description="A new version is available. Would you like to update now?"
+                    color="info"
+                    actions={[
+                        { label: 'Update', variant: 'solid' },
+                        { label: 'Later', variant: 'outline' }
+                    ]}
+                />
+            </div>
+
+            <!-- Alert with Close and Actions -->
+            <div class="space-y-2">
+                <h3 class="text-sm font-medium text-neutral-600 dark:text-neutral-400">With Close and Actions</h3>
+                {#if showAlert2}
+                    <Alert
+                        icon="lucide:gift"
+                        title="Special Offer"
+                        description="Get 20% off on your next purchase. Limited time only!"
+                        color="success"
+                        close
+                        onClose={() => showAlert2 = false}
+                        actions={[
+                            { label: 'Claim Offer', variant: 'solid' },
+                            { label: 'Learn More', variant: 'ghost' }
+                        ]}
+                    />
+                {:else}
+                    <Button size="sm" variant="outline" onclick={() => showAlert2 = true}>Show Alert</Button>
+                {/if}
+            </div>
+
+            <!-- Vertical Orientation -->
+            <div class="space-y-2">
+                <h3 class="text-sm font-medium text-neutral-600 dark:text-neutral-400">Vertical Orientation</h3>
+                <div class="max-w-md">
+                    <Alert
+                        orientation="vertical"
+                        icon="lucide:mail"
+                        title="Subscribe to Newsletter"
+                        description="Stay updated with our latest news and exclusive offers. Join our mailing list today!"
+                        color="primary"
+                        variant="subtle"
+                        actions={[
+                            { label: 'Subscribe', variant: 'solid' },
+                            { label: 'No Thanks', variant: 'ghost' }
+                        ]}
+                    />
+                </div>
+            </div>
+
+            <!-- Solid Variant Colors -->
+            <div class="space-y-2">
+                <h3 class="text-sm font-medium text-neutral-600 dark:text-neutral-400">Solid Variant - All Colors</h3>
+                <div class="space-y-3">
+                    <Alert variant="solid" color="primary" icon="lucide:info" title="Primary Solid" />
+                    <Alert variant="solid" color="success" icon="lucide:check" title="Success Solid" />
+                    <Alert variant="solid" color="warning" icon="lucide:alert-triangle" title="Warning Solid" />
+                    <Alert variant="solid" color="error" icon="lucide:x-circle" title="Error Solid" />
+                    <Alert variant="solid" color="neutral" icon="lucide:bell" title="Neutral Solid" />
+                </div>
+            </div>
+
+            <!-- Alert in Card Context -->
+            <div class="space-y-2">
+                <h3 class="text-sm font-medium text-neutral-600 dark:text-neutral-400">In Card Context</h3>
+                {#snippet cardHeader()}
+                    <div class="flex items-center justify-between">
+                        <h3 class="font-semibold">System Status</h3>
+                        <Badge label="Live" color="success" variant="soft" size="sm" />
+                    </div>
+                {/snippet}
+                <Card header={cardHeader}>
+                    <div class="space-y-3">
+                        <Alert
+                            variant="soft"
+                            color="success"
+                            icon="lucide:check-circle"
+                            title="All Systems Operational"
+                            description="All services are running normally."
+                        />
+                        <Alert
+                            variant="soft"
+                            color="warning"
+                            icon="lucide:alert-triangle"
+                            title="Scheduled Maintenance"
+                            description="Server maintenance scheduled for Sunday 2:00 AM."
+                        />
+                    </div>
+                </Card>
+            </div>
+
+            <!-- Dismissible Alerts Demo -->
+            <div class="space-y-2">
+                <h3 class="text-sm font-medium text-neutral-600 dark:text-neutral-400">Dismissible Alert Demo</h3>
+                {#if showAlert3}
+                    <Alert
+                        icon="lucide:sparkles"
+                        title="Welcome!"
+                        description="Thanks for trying out our Alert component. Click X to dismiss this message."
+                        color="primary"
+                        variant="subtle"
+                        close
+                        onClose={() => showAlert3 = false}
+                    />
+                {:else}
+                    <div class="flex items-center gap-2">
+                        <span class="text-sm text-neutral-500">Alert dismissed.</span>
+                        <Button size="xs" variant="outline" onclick={() => showAlert3 = true}>Restore</Button>
+                    </div>
+                {/if}
             </div>
         </section>
     </div>

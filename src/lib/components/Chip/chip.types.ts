@@ -81,12 +81,6 @@ export type ChipProps = Omit<HTMLAttributes<HTMLElement>, 'class'> & {
     class?: ClassNameValue
 
     /**
-     * Content to wrap with the chip.
-     * The chip will be positioned relative to this content.
-     */
-    children?: Snippet
-
-    /**
      * Custom content to render inside the chip.
      * Takes precedence over text.
      */

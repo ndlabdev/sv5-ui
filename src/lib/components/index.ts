@@ -111,6 +111,19 @@ export {
     type TimelineUI
 } from './Timeline/index.js'
 
+// Alert
+export {
+    Alert,
+    alertVariants,
+    avatarSizeMap as alertAvatarSizeMap,
+    type AlertProps,
+    type AlertVariants,
+    type AlertSlots,
+    type AlertVariant,
+    type AlertOrientation,
+    type AlertUI
+} from './Alert/index.js'
+
 // Re-export mode-watcher utilities for convenience
 export {
     mode,
