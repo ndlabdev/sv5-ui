@@ -8,7 +8,6 @@
     import { userVariants, avatarSizeMap } from './user.variants.js'
     import Avatar from '../Avatar/Avatar.svelte'
     import Chip from '../Chip/Chip.svelte'
-    import type { AvatarSize } from '../Avatar/avatar.types.js'
 
     let {
         as = 'div',
@@ -20,7 +19,6 @@
         size = 'md',
         orientation = 'horizontal',
         href,
-        target,
         class: className,
         avatarSlot,
         nameSlot,
@@ -48,7 +46,7 @@
     const avatarClass = $derived(slots.avatar({ class: ui?.avatar }))
 
     // Get avatar size based on user size
-    const avatarSize = $derived(avatarSizeMap[size] as AvatarSize)
+    const avatarSize = $derived(avatarSizeMap[size])
 
     // Merge avatar props with size
     const mergedAvatarProps = $derived(
@@ -64,7 +62,6 @@
 </script>
 
 {#snippet userContent()}
-    <!-- Avatar with optional Chip -->
     {#if avatarSlot}
         {@render avatarSlot()}
     {:else if mergedAvatarProps}
@@ -77,7 +74,6 @@
         {/if}
     {/if}
 
-    <!-- Name and Description wrapper -->
     {#if name || description || nameSlot || descriptionSlot || children}
         <div class={wrapperClass}>
             {#if nameSlot}
@@ -100,7 +96,7 @@
 {/snippet}
 
 {#if href}
-    <a {href} {target} class={rootClass} {...restProps}>
+    <a {href} class={rootClass} {...restProps}>
         {@render userContent()}
     </a>
 {:else}

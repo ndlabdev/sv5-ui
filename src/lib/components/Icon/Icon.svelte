@@ -1,20 +1,7 @@
 <script lang="ts" module>
-    export interface Props {
-        /** Icon name in format "collection:icon" (e.g., "lucide:home", "mdi:account") */
-        name: string
-        /** Icon size (width and height) */
-        size?: number | string
-        /** Icon color */
-        color?: string
-        /** Horizontal flip */
-        flipH?: boolean
-        /** Vertical flip */
-        flipV?: boolean
-        /** Rotation in degrees (0, 90, 180, 270) */
-        rotate?: 0 | 90 | 180 | 270
-        /** Additional CSS classes */
-        class?: string
-    }
+    import type { IconProps } from './icon.types.js'
+
+    export type Props = IconProps
 </script>
 
 <script lang="ts">
@@ -27,20 +14,17 @@
         flipH = false,
         flipV = false,
         rotate = 0,
-        class: className = ''
+        class: className
     }: Props = $props()
 
-    const flip = $derived(
-        flipH && flipV
-            ? 'horizontal,vertical'
-            : flipH
-              ? 'horizontal'
-              : flipV
-                ? 'vertical'
-                : undefined
-    )
+    const flip = $derived.by(() => {
+        if (flipH && flipV) return 'horizontal,vertical'
+        if (flipH) return 'horizontal'
+        if (flipV) return 'vertical'
+        return undefined
+    })
 
-    const rotateValue = $derived(rotate === 0 ? undefined : rotate / 90)
+    const rotateValue = $derived(rotate ? rotate / 90 : undefined)
 </script>
 
 <Icon
@@ -50,5 +34,5 @@
     {color}
     {flip}
     rotate={rotateValue}
-    class="shrink-0 {className}"
+    class="shrink-0 {className ?? ''}"
 />

@@ -1,4 +1,6 @@
 import { tv } from 'tailwind-variants'
+import type { UserSize } from './user.types.js'
+import type { AvatarSize } from '../Avatar/avatar.types.js'
 
 export const userVariants = tv({
     slots: {
@@ -69,8 +71,8 @@ export const userVariants = tv({
     }
 })
 
-// Avatar size mapping based on User size
-export const avatarSizeMap: Record<string, string> = {
+/** Avatar size mapping based on User size */
+export const avatarSizeMap: Record<UserSize, AvatarSize> = {
     '3xs': '3xs',
     '2xs': '2xs',
     xs: 'xs',

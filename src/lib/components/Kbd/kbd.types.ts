@@ -1,5 +1,6 @@
-import type { Snippet } from 'svelte'
+import type { HTMLAttributes } from 'svelte/elements'
 import type { VariantProps } from 'tailwind-variants'
+import type { ClassNameValue } from 'tailwind-merge'
 import type { SemanticColor } from '../../config/types.js'
 import type { kbdVariants } from './kbd.variants.js'
 
@@ -8,21 +9,39 @@ export type KbdVariants = VariantProps<typeof kbdVariants>
 export type KbdSize = NonNullable<KbdVariants['size']>
 export type KbdVariant = NonNullable<KbdVariants['variant']>
 
-export interface KbdProps {
-    /** The element this component should render as. Default: 'kbd' */
+export interface KbdProps extends Omit<HTMLAttributes<HTMLElement>, 'class'> {
+    /**
+     * HTML element to render
+     * @default "kbd"
+     */
     as?: string
-    /** The key value to display (supports special keys like 'meta', 'shift', etc.) */
+
+    /**
+     * Key value to display. Supports special keys that auto-convert to symbols.
+     * On macOS: meta → ⌘, ctrl → ⌃, alt → ⌥, shift → ⇧
+     * On other OS: meta → Ctrl, ctrl → Ctrl, alt → Alt, shift → Shift
+     * @example "meta", "shift", "K", "enter", "escape"
+     */
     value?: string
-    /** Kbd color */
+
+    /**
+     * Color theme
+     * @default "neutral"
+     */
     color?: SemanticColor
-    /** Kbd size */
+
+    /**
+     * Size variant
+     * @default "md"
+     */
     size?: KbdSize
-    /** Kbd style variant */
+
+    /**
+     * Visual style variant
+     * @default "outline"
+     */
     variant?: KbdVariant
+
     /** Additional CSS classes */
-    class?: string
-    /** Content to display inside the kbd */
-    children?: Snippet
-    /** Allows any other HTML attributes */
-    [key: string]: unknown
+    class?: ClassNameValue
 }

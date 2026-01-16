@@ -1,6 +1,7 @@
-import type { HTMLAttributes } from 'svelte/elements'
+import type { Snippet } from 'svelte'
 import type { VariantProps } from 'tailwind-variants'
 import type { ClassNameValue } from 'tailwind-merge'
+import type { Avatar } from 'bits-ui'
 import type { avatarVariants } from './avatar.variants.js'
 
 // Variant-derived types
@@ -13,15 +14,9 @@ export type AvatarUI = Partial<Record<AvatarSlots, ClassNameValue>>
 
 /**
  * Avatar component props.
- * Extends standard HTML span attributes with additional styling and content options.
+ * Extends bits-ui Avatar.RootProps with additional styling and content options.
  */
-export type AvatarProps = HTMLAttributes<HTMLSpanElement> & {
-    /**
-     * The HTML element to render as.
-     * @default 'span'
-     */
-    as?: keyof HTMLElementTagNameMap
-
+export type AvatarProps = Omit<Avatar.RootProps, 'children'> & {
     /**
      * The size of the avatar.
      * @default 'md'
@@ -62,4 +57,10 @@ export type AvatarProps = HTMLAttributes<HTMLSpanElement> & {
      * Allows overriding styles for: root, image, fallback, icon.
      */
     ui?: AvatarUI
+
+    /**
+     * Custom content to render inside the avatar.
+     * Takes precedence over image, text, and icon.
+     */
+    children?: Snippet
 }

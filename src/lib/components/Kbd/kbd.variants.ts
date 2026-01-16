@@ -68,30 +68,32 @@ export const kbdVariants = tv({
     }
 })
 
-/** Map of special key names to their display symbols */
-export const kbdKeyMap: Record<string, { mac: string; other: string }> = {
+/** Static key symbols (same across all platforms) */
+export const kbdKeysMap: Record<string, string> = {
+    command: '⌘',
+    shift: '⇧',
+    control: '⌃',
+    option: '⌥',
+    enter: '↵',
+    delete: '⌦',
+    backspace: '⌫',
+    escape: 'Esc',
+    tab: '⇥',
+    capslock: '⇪',
+    arrowup: '↑',
+    arrowright: '→',
+    arrowdown: '↓',
+    arrowleft: '←',
+    pageup: '⇞',
+    pagedown: '⇟',
+    home: '↖',
+    end: '↘',
+    space: '␣'
+}
+
+/** Platform-specific key mappings */
+export const kbdKeysPlatformMap: Record<string, { mac: string; other: string }> = {
     meta: { mac: '⌘', other: 'Ctrl' },
-    command: { mac: '⌘', other: 'Ctrl' },
     ctrl: { mac: '⌃', other: 'Ctrl' },
-    control: { mac: '⌃', other: 'Ctrl' },
-    alt: { mac: '⌥', other: 'Alt' },
-    option: { mac: '⌥', other: 'Alt' },
-    shift: { mac: '⇧', other: 'Shift' },
-    enter: { mac: '↵', other: '↵' },
-    return: { mac: '↵', other: '↵' },
-    delete: { mac: '⌫', other: 'Del' },
-    backspace: { mac: '⌫', other: '⌫' },
-    escape: { mac: 'Esc', other: 'Esc' },
-    esc: { mac: 'Esc', other: 'Esc' },
-    tab: { mac: '⇥', other: 'Tab' },
-    capslock: { mac: '⇪', other: 'Caps' },
-    space: { mac: '␣', other: 'Space' },
-    up: { mac: '↑', other: '↑' },
-    down: { mac: '↓', other: '↓' },
-    left: { mac: '←', other: '←' },
-    right: { mac: '→', other: '→' },
-    pageup: { mac: '⇞', other: 'PgUp' },
-    pagedown: { mac: '⇟', other: 'PgDn' },
-    home: { mac: '↖', other: 'Home' },
-    end: { mac: '↘', other: 'End' }
+    alt: { mac: '⌥', other: 'Alt' }
 }

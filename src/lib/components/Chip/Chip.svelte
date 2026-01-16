@@ -23,17 +23,14 @@
         ...restProps
     }: Props = $props()
 
-    // Get slot classes from variants
     const slots = $derived(chipVariants({ color, size, position, inset, standalone }))
 
     const rootClass = $derived(slots.root({ class: [className, ui?.root] }))
     const baseClass = $derived(slots.base({ class: ui?.base }))
 
-    // Expand chip size when it has text content
     const hasContent = $derived(text !== undefined || content !== undefined)
     const chipSizeClass = $derived.by(() => {
         if (!hasContent) return ''
-        // When chip has text, expand to fit content
         switch (size) {
             case '3xs': return 'min-w-[10px] h-[10px] px-0.5'
             case '2xs': return 'min-w-3 h-3 px-0.5'
@@ -50,7 +47,6 @@
 </script>
 
 {#if standalone}
-    <!-- Standalone mode: just render the chip -->
     {#if show}
         <span class="{baseClass} {chipSizeClass}" {...restProps}>
             {#if content}
@@ -61,7 +57,6 @@
         </span>
     {/if}
 {:else}
-    <!-- Wrapper mode: wrap children with chip indicator -->
     <svelte:element this={as} class={rootClass} {...restProps}>
         {#if children}
             {@render children()}

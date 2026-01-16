@@ -4,5 +4,7 @@ export type {
     AvatarGroupProps,
     AvatarGroupVariants,
     AvatarGroupSlots,
-    AvatarGroupUI
+    AvatarGroupSize,
+    AvatarGroupUI,
+    AvatarGroupItem
 } from './avatar-group.types.js'

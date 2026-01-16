@@ -1,5 +1,5 @@
 export { default as Kbd } from './Kbd.svelte'
-export { kbdVariants, kbdKeyMap } from './kbd.variants.js'
+export { kbdVariants, kbdKeysMap, kbdKeysPlatformMap } from './kbd.variants.js'
 export type {
     KbdProps,
     KbdVariants,

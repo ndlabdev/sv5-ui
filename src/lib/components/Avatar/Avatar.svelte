@@ -5,31 +5,31 @@
 </script>
 
 <script lang="ts">
+    import { Avatar } from 'bits-ui'
     import { avatarVariants } from './avatar.variants.js'
     import { getContext } from 'svelte'
     import Icon from '../Icon/Icon.svelte'
+    import type { AvatarSize } from './avatar.types.js'
 
     let {
-        as = 'span',
+        ref = $bindable(null),
         ui,
         src,
         alt,
         size,
         icon,
         text,
+        delayMs = 0,
         class: className,
         children,
         ...restProps
     }: Props = $props()
 
     // Get context from AvatarGroup if available
-    const groupContext = getContext<{ size: string; baseClass: string } | undefined>('avatarGroup')
-
-    // Track image load error
-    let imageError = $state(false)
+    const groupContext = getContext<{ size: AvatarSize; baseClass: string } | undefined>('avatarGroup')
 
     // Use group size if available, otherwise use prop
-    const resolvedSize = $derived(size ?? groupContext?.size ?? 'md')
+    const resolvedSize = $derived<AvatarSize>(size ?? groupContext?.size ?? 'md')
 
     // Generate initials from alt text
     const initials = $derived.by(() => {
@@ -42,8 +42,7 @@
             .toUpperCase()
     })
 
-    // Determine what to show
-    const showImage = $derived(src && !imageError)
+    // Fallback text to display
     const fallbackText = $derived(text || initials)
 
     // Get slot classes from variants
@@ -54,55 +53,30 @@
     const imageClass = $derived(slots.image({ class: ui?.image }))
     const fallbackClass = $derived(slots.fallback({ class: ui?.fallback }))
     const iconClass = $derived(slots.icon({ class: ui?.icon }))
-
-    function handleImageError() {
-        imageError = true
-    }
-
-    // Reset error state when src changes
-    $effect(() => {
-        if (src) {
-            imageError = false
-        }
-    })
 </script>
 
-{#if as === 'span'}
-    <span class={rootClass} {...restProps}>
-        {#if showImage}
-            <img
+<Avatar.Root
+    bind:ref
+    class={rootClass}
+    {delayMs}
+    {...restProps}
+>
+    {#if children}
+        {@render children()}
+    {:else}
+        {#if src}
+            <Avatar.Image
                 {src}
                 alt={alt || ''}
                 class={imageClass}
-                onerror={handleImageError}
             />
-        {:else if children}
-            {@render children()}
-        {:else if icon}
-            <Icon name={icon} class={iconClass} />
-        {:else if fallbackText}
-            <span class={fallbackClass}>{fallbackText}</span>
         {/if}
-    </span>
-{:else}
-    <svelte:element
-        this={as}
-        class={rootClass}
-        {...restProps}
-    >
-        {#if showImage}
-            <img
-                {src}
-                alt={alt || ''}
-                class={imageClass}
-                onerror={handleImageError}
-            />
-        {:else if children}
-            {@render children()}
-        {:else if icon}
-            <Icon name={icon} class={iconClass} />
-        {:else if fallbackText}
-            <span class={fallbackClass}>{fallbackText}</span>
-        {/if}
-    </svelte:element>
-{/if}
+        <Avatar.Fallback class={fallbackClass}>
+            {#if icon}
+                <Icon name={icon} class={iconClass} />
+            {:else if fallbackText}
+                {fallbackText}
+            {/if}
+        </Avatar.Fallback>
+    {/if}
+</Avatar.Root>

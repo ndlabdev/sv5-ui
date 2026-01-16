@@ -1657,10 +1657,10 @@
             <div class="space-y-2">
                 <h3 class="text-sm font-medium text-neutral-600 dark:text-neutral-400">Arrow Keys</h3>
                 <div class="flex flex-wrap items-center gap-2">
-                    <Kbd value="up" />
-                    <Kbd value="down" />
-                    <Kbd value="left" />
-                    <Kbd value="right" />
+                    <Kbd value="arrowup" />
+                    <Kbd value="arrowdown" />
+                    <Kbd value="arrowleft" />
+                    <Kbd value="arrowright" />
                 </div>
             </div>
 
@@ -1801,7 +1801,7 @@
                 <Card variant="soft">
                     <div class="text-sm text-neutral-600 dark:text-neutral-400">
                         Press <Kbd value="meta" /> + <Kbd>K</Kbd> to open the command palette.
-                        Use <Kbd value="up" /> and <Kbd value="down" /> to navigate,
+                        Use <Kbd value="arrowup" /> and <Kbd value="arrowdown" /> to navigate,
                         and <Kbd value="enter" /> to select.
                     </div>
                 </Card>

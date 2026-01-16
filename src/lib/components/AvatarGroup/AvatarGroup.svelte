@@ -8,6 +8,7 @@
     import { avatarGroupVariants } from './avatar-group.variants.js'
     import { setContext } from 'svelte'
     import Avatar from '../Avatar/Avatar.svelte'
+    import type { AvatarSize } from '../Avatar/avatar.types.js'
 
     let {
         as = 'div',
@@ -26,13 +27,17 @@
     const rootClass = $derived(slots.root({ class: [className, ui?.root] }))
     const baseClass = $derived(slots.base({ class: ui?.base }))
 
-    // Provide context for child avatars
-    setContext('avatarGroup', {
-        get size() { return size },
-        get baseClass() { return baseClass }
+    // Provide context for child avatars to inherit size and base styles
+    setContext<{ size: AvatarSize; baseClass: string }>('avatarGroup', {
+        get size() {
+            return size
+        },
+        get baseClass() {
+            return baseClass
+        }
     })
 
-    // Calculate visible avatars and overflow count when using avatars prop
+    // Calculate visible avatars when using avatars prop with max limit
     const visibleAvatars = $derived.by(() => {
         if (!avatars) return []
         if (max === undefined || max <= 0 || avatars.length <= max) {
@@ -41,6 +46,7 @@
         return avatars.slice(0, max)
     })
 
+    // Calculate overflow count for "+N" indicator
     const overflowCount = $derived.by(() => {
         if (!avatars || max === undefined || max <= 0) return 0
         return Math.max(0, avatars.length - max)

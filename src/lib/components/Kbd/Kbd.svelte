@@ -5,7 +5,7 @@
 </script>
 
 <script lang="ts">
-    import { kbdVariants, kbdKeyMap } from './kbd.variants.js'
+    import { kbdVariants, kbdKeysMap, kbdKeysPlatformMap } from './kbd.variants.js'
 
     let {
         as = 'kbd',
@@ -18,34 +18,31 @@
         ...restProps
     }: Props = $props()
 
-    // Check if running on macOS (client-side only)
     const isMac = $derived(
-        typeof navigator !== 'undefined' && /Mac|iPod|iPhone|iPad/.test(navigator.platform)
+        typeof navigator !== 'undefined' && /Macintosh;/.test(navigator.userAgent)
     )
 
-    // Get display value for special keys
     const displayValue = $derived.by(() => {
         if (!value) return null
 
-        const lowerValue = value.toLowerCase()
-        const keyMapping = kbdKeyMap[lowerValue]
+        const key = value.toLowerCase()
 
-        if (keyMapping) {
-            return isMac ? keyMapping.mac : keyMapping.other
+        // Check platform-specific keys first (meta, ctrl, alt)
+        const platformKey = kbdKeysPlatformMap[key]
+        if (platformKey) {
+            return isMac ? platformKey.mac : platformKey.other
         }
 
+        // Check static key symbols
+        if (kbdKeysMap[key]) {
+            return kbdKeysMap[key]
+        }
+
+        // Return original value (e.g., letter keys like 'K', 'A', etc.)
         return value
     })
 
-    // Get kbd classes from variants
-    const kbdClass = $derived(
-        kbdVariants({
-            color,
-            size,
-            variant,
-            class: className
-        })
-    )
+    const kbdClass = $derived(kbdVariants({ color, size, variant, class: className }))
 </script>
 
 <svelte:element this={as} class={kbdClass} {...restProps}>

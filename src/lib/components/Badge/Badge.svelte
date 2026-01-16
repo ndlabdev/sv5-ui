@@ -48,7 +48,6 @@
 </script>
 
 <svelte:element this={as} class={baseClass} {...restProps}>
-    <!-- Leading section -->
     {#if leading}
         {@render leading()}
     {:else if avatar}
@@ -57,11 +56,9 @@
         <Icon name={leadingIcon} class={leadingIconClass} />
     {/if}
 
-    <!-- Icon-only mode -->
     {#if icon}
         <Icon name={icon} class={leadingIconClass} />
     {:else if !isIconOnly}
-        <!-- Label or children -->
         {#if label !== undefined}
             <span class={labelClass}>{label}</span>
         {:else if children}
@@ -69,7 +66,6 @@
         {/if}
     {/if}
 
-    <!-- Trailing section -->
     {#if trailing}
         {@render trailing()}
     {:else if trailingIcon}

@@ -87,7 +87,8 @@ export {
 export {
     Kbd,
     kbdVariants,
-    kbdKeyMap,
+    kbdKeysMap,
+    kbdKeysPlatformMap,
     type KbdProps,
     type KbdVariants,
     type KbdSize,
