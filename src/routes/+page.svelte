@@ -1,5 +1,5 @@
 <script lang="ts">
-    import { Button, Icon, ThemeToggle, Avatar, AvatarGroup, Chip, Card, Badge, User, Separator, Kbd, Timeline, Alert, Skeleton, mode, setMode } from '$lib/index.js'
+    import { Button, Icon, ThemeToggle, Avatar, AvatarGroup, Chip, Card, Badge, User, Separator, Kbd, Timeline, Alert, Skeleton, Empty, Container, mode, setMode } from '$lib/index.js'
     import type { TimelineItem } from '$lib/index.js'
 
     let showAlert1 = $state(true)
@@ -2451,6 +2451,216 @@
                     <Skeleton class="h-12 w-12 rounded-full" />
                     <Skeleton class="h-12 w-12 rounded-lg" />
                     <Skeleton class="h-12 w-32 rounded-full" />
+                </div>
+            </div>
+        </section>
+
+        <!-- Empty Component -->
+        <section class="space-y-4">
+            <h2 class="text-xl font-semibold text-neutral-800 dark:text-neutral-200">Empty</h2>
+            <p class="text-sm text-neutral-600 dark:text-neutral-400">
+                An empty state component to show when there's no content.
+            </p>
+
+            <!-- Basic Empty State -->
+            <div class="space-y-2">
+                <h3 class="text-sm font-medium text-neutral-600 dark:text-neutral-400">Basic</h3>
+                <Empty
+                    icon="lucide:inbox"
+                    title="No messages"
+                    description="You don't have any messages yet."
+                />
+            </div>
+
+            <!-- With Actions -->
+            <div class="space-y-2">
+                <h3 class="text-sm font-medium text-neutral-600 dark:text-neutral-400">With Actions</h3>
+                <Empty
+                    icon="lucide:file-x"
+                    title="No files found"
+                    description="Try adjusting your search or upload a new file."
+                    actions={[
+                        { label: 'Upload file', variant: 'solid', color: 'primary', leadingIcon: 'lucide:upload' },
+                        { label: 'Clear filters', variant: 'outline' }
+                    ]}
+                />
+            </div>
+
+            <!-- Variants -->
+            <div class="space-y-2">
+                <h3 class="text-sm font-medium text-neutral-600 dark:text-neutral-400">Variants</h3>
+                <div class="grid grid-cols-1 gap-4 md:grid-cols-2">
+                    <Empty
+                        variant="outline"
+                        icon="lucide:search"
+                        title="No results"
+                        description="Outline variant"
+                        size="sm"
+                    />
+                    <Empty
+                        variant="soft"
+                        icon="lucide:search"
+                        title="No results"
+                        description="Soft variant"
+                        size="sm"
+                    />
+                    <Empty
+                        variant="subtle"
+                        icon="lucide:search"
+                        title="No results"
+                        description="Subtle variant"
+                        size="sm"
+                    />
+                    <Empty
+                        variant="naked"
+                        icon="lucide:search"
+                        title="No results"
+                        description="Naked variant"
+                        size="sm"
+                    />
+                </div>
+            </div>
+
+            <!-- Solid Variant -->
+            <div class="space-y-2">
+                <h3 class="text-sm font-medium text-neutral-600 dark:text-neutral-400">Solid Variant</h3>
+                <Empty
+                    variant="solid"
+                    icon="lucide:users"
+                    title="No team members"
+                    description="Start by inviting your team to collaborate."
+                    actions={[{ label: 'Invite team', variant: 'outline' }]}
+                />
+            </div>
+
+            <!-- Sizes -->
+            <div class="space-y-2">
+                <h3 class="text-sm font-medium text-neutral-600 dark:text-neutral-400">Sizes</h3>
+                <div class="space-y-4">
+                    <Empty
+                        size="xs"
+                        icon="lucide:package"
+                        title="Extra Small"
+                        description="xs size"
+                    />
+                    <Empty
+                        size="sm"
+                        icon="lucide:package"
+                        title="Small"
+                        description="sm size"
+                    />
+                    <Empty
+                        size="md"
+                        icon="lucide:package"
+                        title="Medium"
+                        description="md size (default)"
+                    />
+                    <Empty
+                        size="lg"
+                        icon="lucide:package"
+                        title="Large"
+                        description="lg size"
+                    />
+                </div>
+            </div>
+
+            <!-- With Avatar -->
+            <div class="space-y-2">
+                <h3 class="text-sm font-medium text-neutral-600 dark:text-neutral-400">With Avatar</h3>
+                <Empty
+                    avatar={{ src: 'https://i.pravatar.cc/150?img=3', alt: 'User' }}
+                    title="Welcome back!"
+                    description="You have no pending tasks."
+                    actions={[{ label: 'Create task', variant: 'soft', color: 'primary' }]}
+                />
+            </div>
+
+            <!-- In Card Context -->
+            <div class="space-y-2">
+                <h3 class="text-sm font-medium text-neutral-600 dark:text-neutral-400">In Card Context</h3>
+                <Card>
+                    <Empty
+                        variant="naked"
+                        icon="lucide:calendar"
+                        title="No events scheduled"
+                        description="Your calendar is empty. Create an event to get started."
+                        actions={[{ label: 'Create event', variant: 'solid', color: 'primary', size: 'sm' }]}
+                    />
+                </Card>
+            </div>
+        </section>
+
+        <!-- Container Component -->
+        <section class="space-y-4">
+            <h2 class="text-xl font-semibold text-neutral-800 dark:text-neutral-200">Container</h2>
+            <p class="text-sm text-neutral-600 dark:text-neutral-400">
+                A layout component that centers and constrains content width with responsive padding.
+            </p>
+
+            <!-- Basic Container -->
+            <div class="space-y-2">
+                <h3 class="text-sm font-medium text-neutral-600 dark:text-neutral-400">Basic</h3>
+                <div class="bg-neutral-100 dark:bg-neutral-800 -mx-8 py-4">
+                    <Container>
+                        <div class="bg-primary-100 dark:bg-primary-900 rounded-lg p-4 text-center">
+                            <p class="text-primary-700 dark:text-primary-300">Content inside a Container</p>
+                        </div>
+                    </Container>
+                </div>
+            </div>
+
+            <!-- Container with Different Elements -->
+            <div class="space-y-2">
+                <h3 class="text-sm font-medium text-neutral-600 dark:text-neutral-400">Different HTML Elements</h3>
+                <div class="space-y-4 bg-neutral-100 dark:bg-neutral-800 -mx-8 py-4">
+                    <Container as="section">
+                        <div class="bg-success-100 dark:bg-success-900 rounded-lg p-4 text-center">
+                            <p class="text-success-700 dark:text-success-300">Rendered as &lt;section&gt;</p>
+                        </div>
+                    </Container>
+                    <Container as="main">
+                        <div class="bg-warning-100 dark:bg-warning-900 rounded-lg p-4 text-center">
+                            <p class="text-warning-700 dark:text-warning-300">Rendered as &lt;main&gt;</p>
+                        </div>
+                    </Container>
+                    <Container as="article">
+                        <div class="bg-info-100 dark:bg-info-900 rounded-lg p-4 text-center">
+                            <p class="text-info-700 dark:text-info-300">Rendered as &lt;article&gt;</p>
+                        </div>
+                    </Container>
+                </div>
+            </div>
+
+            <!-- Container with Custom Styles -->
+            <div class="space-y-2">
+                <h3 class="text-sm font-medium text-neutral-600 dark:text-neutral-400">Custom Styles</h3>
+                <div class="bg-neutral-100 dark:bg-neutral-800 -mx-8 py-4">
+                    <Container class="py-8" ui={{ root: 'max-w-2xl' }}>
+                        <div class="bg-secondary-100 dark:bg-secondary-900 rounded-lg p-4 text-center">
+                            <p class="text-secondary-700 dark:text-secondary-300">Container with max-w-2xl and py-8</p>
+                        </div>
+                    </Container>
+                </div>
+            </div>
+
+            <!-- Nested Content Example -->
+            <div class="space-y-2">
+                <h3 class="text-sm font-medium text-neutral-600 dark:text-neutral-400">Nested Content</h3>
+                <div class="bg-neutral-100 dark:bg-neutral-800 -mx-8 py-4">
+                    <Container>
+                        <Card>
+                            <div class="space-y-4">
+                                <h4 class="text-lg font-semibold text-neutral-900 dark:text-white">Card inside Container</h4>
+                                <p class="text-neutral-600 dark:text-neutral-400">
+                                    The Container component is perfect for wrapping page content and ensuring consistent width and padding across different screen sizes.
+                                </p>
+                                <div class="flex gap-2">
+                                    <Button size="sm" variant="solid" color="primary">Action</Button>
+                                    <Button size="sm" variant="outline">Cancel</Button>
+                                </div>
+                            </div>
+                        </Card>
+                    </Container>
                 </div>
             </div>
         </section>
