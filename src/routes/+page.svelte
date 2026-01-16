@@ -1,5 +1,16 @@
 <script lang="ts">
-    import { Button, Icon, ThemeToggle, Avatar, AvatarGroup, Chip, Card, Badge, User, Separator, Kbd, mode, setMode } from '$lib/index.js'
+    import { Button, Icon, ThemeToggle, Avatar, AvatarGroup, Chip, Card, Badge, User, Separator, Kbd, Timeline, mode, setMode } from '$lib/index.js'
+    import type { TimelineItem } from '$lib/index.js'
+
+    const timelineItems: TimelineItem[] = [
+        { value: 1, date: 'Jan 1, 2024', title: 'Project Started', description: 'Initial project setup and planning phase', icon: 'lucide:rocket' },
+        { value: 2, date: 'Feb 15, 2024', title: 'Design Complete', description: 'UI/UX design finalized and approved', icon: 'lucide:palette' },
+        { value: 3, date: 'Mar 20, 2024', title: 'Development', description: 'Core features implementation in progress', icon: 'lucide:code' },
+        { value: 4, date: 'Apr 10, 2024', title: 'Testing', description: 'QA testing and bug fixes', icon: 'lucide:bug' },
+        { value: 5, date: 'May 1, 2024', title: 'Launch', description: 'Product launch and go-live', icon: 'lucide:party-popper' }
+    ]
+
+    let activeTimelineValue = $state(3)
 
     let loading = $state(false)
 
@@ -1804,6 +1815,224 @@
                         Use <Kbd value="arrowup" /> and <Kbd value="arrowdown" /> to navigate,
                         and <Kbd value="enter" /> to select.
                     </div>
+                </Card>
+            </div>
+        </section>
+
+        <!-- Timeline Component -->
+        <section class="space-y-4">
+            <h2 class="text-xl font-semibold text-neutral-800 dark:text-neutral-200">
+                Timeline Component
+            </h2>
+            <p class="text-sm text-neutral-600 dark:text-neutral-400">
+                Display a sequence of events with dates, titles, icons or avatars
+            </p>
+
+            <!-- Basic Timeline -->
+            <div class="space-y-2">
+                <h3 class="text-sm font-medium text-neutral-600 dark:text-neutral-400">Basic (Vertical)</h3>
+                <Timeline items={timelineItems} value={activeTimelineValue} />
+            </div>
+
+            <!-- Timeline Controls -->
+            <div class="space-y-2">
+                <h3 class="text-sm font-medium text-neutral-600 dark:text-neutral-400">Interactive Controls</h3>
+                <div class="flex flex-wrap gap-2">
+                    {#each timelineItems as item}
+                        <Button
+                            size="sm"
+                            variant={activeTimelineValue === item.value ? 'solid' : 'outline'}
+                            onclick={() => activeTimelineValue = item.value as number}
+                        >
+                            Step {item.value}
+                        </Button>
+                    {/each}
+                </div>
+            </div>
+
+            <!-- Timeline Colors -->
+            <div class="space-y-2">
+                <h3 class="text-sm font-medium text-neutral-600 dark:text-neutral-400">Colors</h3>
+                <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+                    <div>
+                        <p class="text-xs text-neutral-500 mb-2">Primary</p>
+                        <Timeline
+                            items={timelineItems.slice(0, 3)}
+                            value={2}
+                            color="primary"
+                            size="sm"
+                        />
+                    </div>
+                    <div>
+                        <p class="text-xs text-neutral-500 mb-2">Success</p>
+                        <Timeline
+                            items={timelineItems.slice(0, 3)}
+                            value={2}
+                            color="success"
+                            size="sm"
+                        />
+                    </div>
+                    <div>
+                        <p class="text-xs text-neutral-500 mb-2">Error</p>
+                        <Timeline
+                            items={timelineItems.slice(0, 3)}
+                            value={2}
+                            color="error"
+                            size="sm"
+                        />
+                    </div>
+                    <div>
+                        <p class="text-xs text-neutral-500 mb-2">Warning</p>
+                        <Timeline
+                            items={timelineItems.slice(0, 3)}
+                            value={2}
+                            color="warning"
+                            size="sm"
+                        />
+                    </div>
+                    <div>
+                        <p class="text-xs text-neutral-500 mb-2">Info</p>
+                        <Timeline
+                            items={timelineItems.slice(0, 3)}
+                            value={2}
+                            color="info"
+                            size="sm"
+                        />
+                    </div>
+                    <div>
+                        <p class="text-xs text-neutral-500 mb-2">Neutral</p>
+                        <Timeline
+                            items={timelineItems.slice(0, 3)}
+                            value={2}
+                            color="neutral"
+                            size="sm"
+                        />
+                    </div>
+                </div>
+            </div>
+
+            <!-- Timeline Sizes -->
+            <div class="space-y-2">
+                <h3 class="text-sm font-medium text-neutral-600 dark:text-neutral-400">Sizes</h3>
+                <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+                    <div>
+                        <p class="text-xs text-neutral-500 mb-2">Small (sm)</p>
+                        <Timeline
+                            items={timelineItems.slice(0, 3)}
+                            value={2}
+                            size="sm"
+                        />
+                    </div>
+                    <div>
+                        <p class="text-xs text-neutral-500 mb-2">Medium (md)</p>
+                        <Timeline
+                            items={timelineItems.slice(0, 3)}
+                            value={2}
+                            size="md"
+                        />
+                    </div>
+                    <div>
+                        <p class="text-xs text-neutral-500 mb-2">Large (lg)</p>
+                        <Timeline
+                            items={timelineItems.slice(0, 3)}
+                            value={2}
+                            size="lg"
+                        />
+                    </div>
+                </div>
+            </div>
+
+            <!-- Horizontal Timeline -->
+            <div class="space-y-2">
+                <h3 class="text-sm font-medium text-neutral-600 dark:text-neutral-400">Horizontal Orientation</h3>
+                <Timeline
+                    items={timelineItems}
+                    value={activeTimelineValue}
+                    orientation="horizontal"
+                    size="sm"
+                />
+            </div>
+
+            <!-- Reverse Mode -->
+            <div class="space-y-2">
+                <h3 class="text-sm font-medium text-neutral-600 dark:text-neutral-400">Reverse Mode</h3>
+                <p class="text-xs text-neutral-500">Items after active are completed instead of before</p>
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                    <div>
+                        <p class="text-xs text-neutral-500 mb-2">Normal (reverse=false)</p>
+                        <Timeline
+                            items={timelineItems.slice(0, 4)}
+                            value={2}
+                            size="sm"
+                        />
+                    </div>
+                    <div>
+                        <p class="text-xs text-neutral-500 mb-2">Reverse (reverse=true)</p>
+                        <Timeline
+                            items={timelineItems.slice(0, 4)}
+                            value={2}
+                            reverse={true}
+                            size="sm"
+                        />
+                    </div>
+                </div>
+            </div>
+
+            <!-- Timeline with Avatars -->
+            <div class="space-y-2">
+                <h3 class="text-sm font-medium text-neutral-600 dark:text-neutral-400">With Avatars</h3>
+                <Timeline
+                    items={[
+                        { value: 1, title: 'John created the project', date: '2 hours ago', avatar: { src: 'https://i.pravatar.cc/150?img=1', alt: 'John' } },
+                        { value: 2, title: 'Jane added design files', date: '1 hour ago', avatar: { src: 'https://i.pravatar.cc/150?img=2', alt: 'Jane' } },
+                        { value: 3, title: 'Bob reviewed the code', date: '30 min ago', avatar: { src: 'https://i.pravatar.cc/150?img=3', alt: 'Bob' } },
+                        { value: 4, title: 'Alice deployed to staging', date: 'Just now', avatar: { src: 'https://i.pravatar.cc/150?img=4', alt: 'Alice' } }
+                    ]}
+                    value={3}
+                    color="success"
+                />
+            </div>
+
+            <!-- Timeline States -->
+            <div class="space-y-2">
+                <h3 class="text-sm font-medium text-neutral-600 dark:text-neutral-400">States Explained</h3>
+                <div class="flex flex-wrap gap-4 text-sm">
+                    <div class="flex items-center gap-2">
+                        <div class="size-4 rounded-full bg-primary-500"></div>
+                        <span class="text-neutral-600 dark:text-neutral-400">Completed</span>
+                    </div>
+                    <div class="flex items-center gap-2">
+                        <div class="size-4 rounded-full bg-primary-500"></div>
+                        <span class="text-neutral-600 dark:text-neutral-400">Active</span>
+                    </div>
+                    <div class="flex items-center gap-2">
+                        <div class="size-4 rounded-full bg-neutral-200 dark:bg-neutral-700"></div>
+                        <span class="text-neutral-600 dark:text-neutral-400">Pending</span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Timeline in Card -->
+            <div class="space-y-2">
+                <h3 class="text-sm font-medium text-neutral-600 dark:text-neutral-400">In Card Context</h3>
+                {#snippet orderHeader()}
+                    <div class="flex items-center justify-between">
+                        <h3 class="font-semibold">Order Status</h3>
+                        <Badge label="In Transit" color="info" variant="soft" size="sm" />
+                    </div>
+                {/snippet}
+                <Card header={orderHeader}>
+                    <Timeline
+                        items={[
+                            { value: 1, title: 'Order Placed', description: 'Your order has been confirmed', icon: 'lucide:shopping-cart' },
+                            { value: 2, title: 'Processing', description: 'We are preparing your order', icon: 'lucide:package' },
+                            { value: 3, title: 'Shipped', description: 'Your order is on the way', icon: 'lucide:truck' },
+                            { value: 4, title: 'Delivered', description: 'Package delivered successfully', icon: 'lucide:check-circle' }
+                        ]}
+                        value={3}
+                        color="success"
+                        size="sm"
+                    />
                 </Card>
             </div>
         </section>

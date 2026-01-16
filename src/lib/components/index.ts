@@ -95,6 +95,22 @@ export {
     type KbdVariant
 } from './Kbd/index.js'
 
+// Timeline
+export {
+    Timeline,
+    timelineVariants,
+    avatarSizeMap as timelineAvatarSizeMap,
+    iconSizeMap as timelineIconSizeMap,
+    type TimelineProps,
+    type TimelineItem,
+    type TimelineItemState,
+    type TimelineVariants,
+    type TimelineSlots,
+    type TimelineSize,
+    type TimelineOrientation,
+    type TimelineUI
+} from './Timeline/index.js'
+
 // Re-export mode-watcher utilities for convenience
 export {
     mode,
