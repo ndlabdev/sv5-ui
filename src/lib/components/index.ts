@@ -157,6 +157,20 @@ export {
     type ContainerUI
 } from './Container/index.js'
 
+// Progress
+export {
+    Progress,
+    progressVariants,
+    type ProgressProps,
+    type ProgressVariants,
+    type ProgressSlots,
+    type ProgressUI,
+    type ProgressColor,
+    type ProgressSize,
+    type ProgressOrientation,
+    type ProgressAnimation
+} from './Progress/index.js'
+
 // Re-export mode-watcher utilities for convenience
 export {
     mode,

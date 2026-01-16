@@ -1,5 +1,5 @@
 <script lang="ts">
-    import { Button, Icon, ThemeToggle, Avatar, AvatarGroup, Chip, Card, Badge, User, Separator, Kbd, Timeline, Alert, Skeleton, Empty, Container, mode, setMode } from '$lib/index.js'
+    import { Button, Icon, ThemeToggle, Avatar, AvatarGroup, Chip, Card, Badge, User, Separator, Kbd, Timeline, Alert, Skeleton, Empty, Container, Progress, mode, setMode } from '$lib/index.js'
     import type { TimelineItem } from '$lib/index.js'
 
     let showAlert1 = $state(true)
@@ -26,6 +26,8 @@
     }
 
     const currentMode = $derived(mode.current ?? 'light')
+
+    let progressValue = $state(50)
 </script>
 
 <div class="min-h-screen bg-neutral-50 p-8 dark:bg-neutral-900">
@@ -2661,6 +2663,123 @@
                             </div>
                         </Card>
                     </Container>
+                </div>
+            </div>
+        </section>
+
+        <!-- Progress Component -->
+        <section class="space-y-4">
+            <h2 class="text-xl font-semibold text-neutral-800 dark:text-neutral-200">
+                Progress Component
+            </h2>
+            <p class="text-sm text-neutral-600 dark:text-neutral-400">
+                A component to display progress status with customizable animations and styles
+            </p>
+
+            <!-- Basic Progress -->
+            <div class="space-y-2">
+                <h3 class="text-sm font-medium text-neutral-600 dark:text-neutral-400">Basic Progress</h3>
+                <div class="space-y-4">
+                    <Progress value={progressValue} />
+                    <div class="flex items-center gap-4">
+                        <Button size="sm" onclick={() => progressValue = Math.max(0, progressValue - 10)}>-10</Button>
+                        <span class="text-sm text-neutral-600 dark:text-neutral-400">{progressValue}%</span>
+                        <Button size="sm" onclick={() => progressValue = Math.min(100, progressValue + 10)}>+10</Button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Colors -->
+            <div class="space-y-2">
+                <h3 class="text-sm font-medium text-neutral-600 dark:text-neutral-400">Colors</h3>
+                <div class="space-y-3">
+                    <Progress value={70} color="primary" />
+                    <Progress value={60} color="secondary" />
+                    <Progress value={80} color="success" />
+                    <Progress value={50} color="warning" />
+                    <Progress value={40} color="error" />
+                    <Progress value={65} color="info" />
+                    <Progress value={55} color="neutral" />
+                </div>
+            </div>
+
+            <!-- Sizes -->
+            <div class="space-y-2">
+                <h3 class="text-sm font-medium text-neutral-600 dark:text-neutral-400">Sizes</h3>
+                <div class="space-y-3">
+                    <Progress value={60} size="2xs" />
+                    <Progress value={60} size="xs" />
+                    <Progress value={60} size="sm" />
+                    <Progress value={60} size="md" />
+                    <Progress value={60} size="lg" />
+                    <Progress value={60} size="xl" />
+                    <Progress value={60} size="2xl" />
+                </div>
+            </div>
+
+            <!-- With Status -->
+            <div class="space-y-2">
+                <h3 class="text-sm font-medium text-neutral-600 dark:text-neutral-400">With Status</h3>
+                <div class="space-y-4">
+                    <Progress value={progressValue} status />
+                    <Progress value={75} status color="success" />
+                    <Progress value={45} status color="warning" size="lg" />
+                </div>
+            </div>
+
+            <!-- Indeterminate (Animations) -->
+            <div class="space-y-2">
+                <h3 class="text-sm font-medium text-neutral-600 dark:text-neutral-400">Indeterminate (Animations)</h3>
+                <div class="space-y-3">
+                    <div class="flex items-center gap-4">
+                        <span class="text-xs text-neutral-500 w-28">Carousel</span>
+                        <Progress animation="carousel" class="flex-1" />
+                    </div>
+                    <div class="flex items-center gap-4">
+                        <span class="text-xs text-neutral-500 w-28">Carousel Inverse</span>
+                        <Progress animation="carousel-inverse" class="flex-1" />
+                    </div>
+                    <div class="flex items-center gap-4">
+                        <span class="text-xs text-neutral-500 w-28">Swing</span>
+                        <Progress animation="swing" class="flex-1" />
+                    </div>
+                    <div class="flex items-center gap-4">
+                        <span class="text-xs text-neutral-500 w-28">Elastic</span>
+                        <Progress animation="elastic" class="flex-1" />
+                    </div>
+                </div>
+            </div>
+
+            <!-- Steps -->
+            <div class="space-y-2">
+                <h3 class="text-sm font-medium text-neutral-600 dark:text-neutral-400">Steps</h3>
+                <div class="space-y-4">
+                    <Progress value={2} max={['Start', 'Processing', 'Review', 'Complete']} />
+                    <Progress value={1} max={['Step 1', 'Step 2', 'Step 3']} color="success" />
+                </div>
+            </div>
+
+            <!-- Vertical Orientation -->
+            <div class="space-y-2">
+                <h3 class="text-sm font-medium text-neutral-600 dark:text-neutral-400">Vertical Orientation</h3>
+                <div class="flex gap-6 h-40">
+                    <Progress value={70} orientation="vertical" color="primary" />
+                    <Progress value={50} orientation="vertical" color="success" />
+                    <Progress value={30} orientation="vertical" color="warning" />
+                    <Progress orientation="vertical" animation="carousel" color="info" />
+                    <Progress orientation="vertical" animation="swing" color="secondary" />
+                </div>
+            </div>
+
+            <!-- Inverted -->
+            <div class="space-y-2">
+                <h3 class="text-sm font-medium text-neutral-600 dark:text-neutral-400">Inverted</h3>
+                <div class="space-y-4">
+                    <Progress value={progressValue} status inverted />
+                    <div class="flex gap-6 h-32">
+                        <Progress value={60} orientation="vertical" inverted color="primary" />
+                        <Progress value={40} orientation="vertical" inverted color="success" />
+                    </div>
                 </div>
             </div>
         </section>
