@@ -124,6 +124,16 @@ export {
     type AlertUI
 } from './Alert/index.js'
 
+// Skeleton
+export {
+    Skeleton,
+    skeletonVariants,
+    type SkeletonProps,
+    type SkeletonVariants,
+    type SkeletonSlots,
+    type SkeletonUI
+} from './Skeleton/index.js'
+
 // Re-export mode-watcher utilities for convenience
 export {
     mode,

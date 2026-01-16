@@ -1,5 +1,5 @@
 <script lang="ts">
-    import { Button, Icon, ThemeToggle, Avatar, AvatarGroup, Chip, Card, Badge, User, Separator, Kbd, Timeline, Alert, mode, setMode } from '$lib/index.js'
+    import { Button, Icon, ThemeToggle, Avatar, AvatarGroup, Chip, Card, Badge, User, Separator, Kbd, Timeline, Alert, Skeleton, mode, setMode } from '$lib/index.js'
     import type { TimelineItem } from '$lib/index.js'
 
     let showAlert1 = $state(true)
@@ -2363,6 +2363,95 @@
                         <Button size="xs" variant="outline" onclick={() => showAlert3 = true}>Restore</Button>
                     </div>
                 {/if}
+            </div>
+        </section>
+
+        <!-- Skeleton Component -->
+        <section class="space-y-4">
+            <h2 class="text-xl font-semibold text-neutral-800 dark:text-neutral-200">Skeleton</h2>
+            <p class="text-sm text-neutral-600 dark:text-neutral-400">
+                A placeholder to show while content is loading.
+            </p>
+
+            <!-- Basic Skeletons -->
+            <div class="space-y-2">
+                <h3 class="text-sm font-medium text-neutral-600 dark:text-neutral-400">Basic Shapes</h3>
+                <div class="flex flex-wrap items-center gap-4">
+                    <Skeleton class="h-4 w-48" />
+                    <Skeleton class="h-4 w-32" />
+                    <Skeleton class="h-4 w-24" />
+                </div>
+            </div>
+
+            <!-- Circle Skeleton -->
+            <div class="space-y-2">
+                <h3 class="text-sm font-medium text-neutral-600 dark:text-neutral-400">Circle (Avatar Placeholder)</h3>
+                <div class="flex items-center gap-4">
+                    <Skeleton class="size-8 rounded-full" />
+                    <Skeleton class="size-10 rounded-full" />
+                    <Skeleton class="size-12 rounded-full" />
+                    <Skeleton class="size-16 rounded-full" />
+                </div>
+            </div>
+
+            <!-- Card Skeleton -->
+            <div class="space-y-2">
+                <h3 class="text-sm font-medium text-neutral-600 dark:text-neutral-400">Card Loading State</h3>
+                <div class="flex gap-4">
+                    <Skeleton class="size-12 shrink-0 rounded-full" />
+                    <div class="flex-1 space-y-2">
+                        <Skeleton class="h-4 w-3/4" />
+                        <Skeleton class="h-4 w-1/2" />
+                    </div>
+                </div>
+            </div>
+
+            <!-- Post/Article Skeleton -->
+            <div class="space-y-2">
+                <h3 class="text-sm font-medium text-neutral-600 dark:text-neutral-400">Article Placeholder</h3>
+                <div class="space-y-4 rounded-lg border border-neutral-200 p-4 dark:border-neutral-700">
+                    <div class="flex items-center gap-3">
+                        <Skeleton class="size-10 rounded-full" />
+                        <div class="flex-1 space-y-1.5">
+                            <Skeleton class="h-3 w-32" />
+                            <Skeleton class="h-2.5 w-24" />
+                        </div>
+                    </div>
+                    <Skeleton class="h-48 w-full rounded-lg" />
+                    <div class="space-y-2">
+                        <Skeleton class="h-4 w-full" />
+                        <Skeleton class="h-4 w-full" />
+                        <Skeleton class="h-4 w-2/3" />
+                    </div>
+                </div>
+            </div>
+
+            <!-- List Skeleton -->
+            <div class="space-y-2">
+                <h3 class="text-sm font-medium text-neutral-600 dark:text-neutral-400">List Placeholder</h3>
+                <div class="space-y-3">
+                    {#each Array(3) as _}
+                        <div class="flex items-center gap-3">
+                            <Skeleton class="size-10 rounded-lg" />
+                            <div class="flex-1 space-y-1.5">
+                                <Skeleton class="h-3.5 w-48" />
+                                <Skeleton class="h-3 w-32" />
+                            </div>
+                            <Skeleton class="h-8 w-16 rounded-md" />
+                        </div>
+                    {/each}
+                </div>
+            </div>
+
+            <!-- Custom Styling -->
+            <div class="space-y-2">
+                <h3 class="text-sm font-medium text-neutral-600 dark:text-neutral-400">Custom Styling</h3>
+                <div class="flex flex-wrap items-center gap-4">
+                    <Skeleton class="h-12 w-12 rounded-none" />
+                    <Skeleton class="h-12 w-12 rounded-full" />
+                    <Skeleton class="h-12 w-12 rounded-lg" />
+                    <Skeleton class="h-12 w-32 rounded-full" />
+                </div>
             </div>
         </section>
     </div>
