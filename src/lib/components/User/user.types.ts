@@ -22,7 +22,7 @@ type UserBaseProps = {
      * Ignored when href is provided (renders as anchor).
      * @default 'div'
      */
-    as?: string
+    as?: keyof HTMLElementTagNameMap
 
     /**
      * Custom styles for individual user slots.

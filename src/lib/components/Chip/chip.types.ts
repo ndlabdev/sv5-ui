@@ -23,7 +23,7 @@ export type ChipProps = Omit<HTMLAttributes<HTMLElement>, 'class'> & {
      * The element this component should render as.
      * @default 'div'
      */
-    as?: string
+    as?: keyof HTMLElementTagNameMap
 
     /**
      * Custom styles for individual chip slots.

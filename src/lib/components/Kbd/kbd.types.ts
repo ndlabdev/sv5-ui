@@ -14,7 +14,7 @@ export interface KbdProps extends Omit<HTMLAttributes<HTMLElement>, 'class'> {
      * HTML element to render
      * @default "kbd"
      */
-    as?: string
+    as?: keyof HTMLElementTagNameMap
 
     /**
      * Key value to display. Supports special keys that auto-convert to symbols.

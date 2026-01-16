@@ -77,7 +77,7 @@ export type TimelineProps = Omit<HTMLAttributes<HTMLElement>, 'class'> & {
      * The element this component should render as.
      * @default 'div'
      */
-    as?: string
+    as?: keyof HTMLElementTagNameMap
 
     /**
      * Array of timeline items to display.
