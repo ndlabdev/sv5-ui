@@ -24,7 +24,7 @@
         dateSlot,
         titleSlot,
         descriptionSlot,
-        children,
+        content,
         ...restProps
     }: Props = $props()
 
@@ -122,8 +122,8 @@
                     <div class={descriptionClass}>{item.description}</div>
                 {/if}
 
-                {#if children}
-                    {@render children({ item, index, state })}
+                {#if content}
+                    {@render content({ item, index, state })}
                 {/if}
             </div>
         </div>

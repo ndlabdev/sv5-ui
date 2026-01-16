@@ -153,5 +153,5 @@ export type TimelineProps = Omit<HTMLAttributes<HTMLElement>, 'class'> & {
      * Custom content slot for all items.
      * Receives the item and its state.
      */
-    children?: Snippet<[{ item: TimelineItem; index: number; state: TimelineItemState }]>
+    content?: Snippet<[{ item: TimelineItem; index: number; state: TimelineItemState }]>
 }

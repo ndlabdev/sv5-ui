@@ -25,7 +25,7 @@
 
     const slots = $derived(chipVariants({ color, size, position, inset, standalone }))
 
-    const rootClass = $derived(slots.root({ class: [className, ui?.root] }))
+    const rootClass = $derived(slots.root({ class: [ui?.root, className] }))
     const baseClass = $derived(slots.base({ class: ui?.base }))
 
     const hasContent = $derived(text !== undefined || content !== undefined)

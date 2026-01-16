@@ -2035,6 +2035,131 @@
                     />
                 </Card>
             </div>
+
+            <!-- Timeline with Custom Slots -->
+            <div class="space-y-4">
+                <h3 class="text-sm font-medium text-neutral-600 dark:text-neutral-400">With Custom Slots</h3>
+                <p class="text-xs text-neutral-500">Override indicator, title, description, or add custom content</p>
+
+                <!-- Custom Indicator Slot -->
+                <div class="space-y-2">
+                    <p class="text-xs font-medium text-neutral-600 dark:text-neutral-400">Custom Indicator</p>
+                    <Timeline
+                        items={[
+                            { value: 1, title: 'Step 1', description: 'First step completed' },
+                            { value: 2, title: 'Step 2', description: 'Second step in progress' },
+                            { value: 3, title: 'Step 3', description: 'Third step pending' }
+                        ]}
+                        value={2}
+                        size="md"
+                    >
+                        {#snippet indicator({ item, state })}
+                            <div class="size-8 rounded-full flex items-center justify-center text-sm font-bold {state === 'completed' ? 'bg-success-500 text-white' : state === 'active' ? 'bg-primary-500 text-white' : 'bg-neutral-200 dark:bg-neutral-700 text-neutral-500'}">
+                                {#if state === 'completed'}
+                                    <Icon name="lucide:check" size={16} />
+                                {:else}
+                                    {item.value}
+                                {/if}
+                            </div>
+                        {/snippet}
+                    </Timeline>
+                </div>
+
+                <!-- Custom Title Slot -->
+                <div class="space-y-2">
+                    <p class="text-xs font-medium text-neutral-600 dark:text-neutral-400">Custom Title with Badge</p>
+                    <Timeline
+                        items={[
+                            { value: 1, title: 'v1.0.0', description: 'Initial release', icon: 'lucide:rocket' },
+                            { value: 2, title: 'v1.1.0', description: 'Bug fixes and improvements', icon: 'lucide:bug' },
+                            { value: 3, title: 'v2.0.0', description: 'Major update with new features', icon: 'lucide:sparkles' }
+                        ]}
+                        value={2}
+                        color="info"
+                        size="sm"
+                    >
+                        {#snippet titleSlot({ item, state })}
+                            <div class="flex items-center gap-2">
+                                <span class="font-semibold text-neutral-900 dark:text-white">{item.title}</span>
+                                {#if state === 'active'}
+                                    <Badge label="Current" color="primary" size="xs" variant="soft" />
+                                {:else if state === 'completed'}
+                                    <Badge label="Released" color="success" size="xs" variant="outline" />
+                                {:else}
+                                    <Badge label="Upcoming" color="neutral" size="xs" variant="outline" />
+                                {/if}
+                            </div>
+                        {/snippet}
+                    </Timeline>
+                </div>
+
+                <!-- Custom Content Slot (Additional Content) -->
+                <div class="space-y-2">
+                    <p class="text-xs font-medium text-neutral-600 dark:text-neutral-400">Custom Content (content slot)</p>
+                    <Timeline
+                        items={[
+                            { value: 1, title: 'Design Review', date: 'Mon, Jan 15', icon: 'lucide:palette' },
+                            { value: 2, title: 'Development Sprint', date: 'Wed, Jan 17', icon: 'lucide:code' },
+                            { value: 3, title: 'QA Testing', date: 'Fri, Jan 19', icon: 'lucide:test-tube' }
+                        ]}
+                        value={2}
+                        size="sm"
+                    >
+                        {#snippet content({ item, state })}
+                            <div class="mt-2 p-3 rounded-lg bg-neutral-100 dark:bg-neutral-800">
+                                <div class="flex items-center gap-2 mb-2">
+                                    <AvatarGroup size="xs" max={3} avatars={[
+                                        { src: 'https://i.pravatar.cc/150?img=1', alt: 'User 1' },
+                                        { src: 'https://i.pravatar.cc/150?img=2', alt: 'User 2' },
+                                        { src: 'https://i.pravatar.cc/150?img=3', alt: 'User 3' }
+                                    ]} />
+                                    <span class="text-xs text-neutral-500">3 participants</span>
+                                </div>
+                                {#if state === 'active'}
+                                    <Button size="xs" variant="soft">Join Meeting</Button>
+                                {:else if state === 'completed'}
+                                    <Button size="xs" variant="outline" color="neutral">View Notes</Button>
+                                {:else}
+                                    <Button size="xs" variant="ghost" color="neutral" disabled>Scheduled</Button>
+                                {/if}
+                            </div>
+                        {/snippet}
+                    </Timeline>
+                </div>
+
+                <!-- Multiple Custom Slots Combined -->
+                <div class="space-y-2">
+                    <p class="text-xs font-medium text-neutral-600 dark:text-neutral-400">Combined Custom Slots (Activity Feed)</p>
+                    <Card>
+                        <Timeline
+                            items={[
+                                { value: 1, title: 'John Doe', description: 'Created pull request #123', date: '2 hours ago', avatar: { src: 'https://i.pravatar.cc/150?img=10', alt: 'John' } },
+                                { value: 2, title: 'Jane Smith', description: 'Approved the changes', date: '1 hour ago', avatar: { src: 'https://i.pravatar.cc/150?img=20', alt: 'Jane' } },
+                                { value: 3, title: 'Bot', description: 'Merged to main branch', date: '30 min ago', avatar: { icon: 'lucide:bot' } }
+                            ]}
+                            value={3}
+                            color="success"
+                            size="sm"
+                        >
+                            {#snippet indicator({ item })}
+                                <Avatar {...item.avatar} size="sm" />
+                            {/snippet}
+                            {#snippet titleSlot({ item })}
+                                <span class="font-medium text-neutral-900 dark:text-white">{item.title}</span>
+                            {/snippet}
+                            {#snippet descriptionSlot({ item })}
+                                <p class="text-sm text-neutral-600 dark:text-neutral-400">
+                                    {item.description}
+                                    <a href="#pr" class="text-primary-500 hover:underline ml-1">View PR</a>
+                                </p>
+                            {/snippet}
+                            {#snippet dateSlot({ item })}
+                                <span class="text-xs text-neutral-400">{item.date}</span>
+                            {/snippet}
+                        </Timeline>
+                    </Card>
+                </div>
+            </div>
         </section>
     </div>
 </div>

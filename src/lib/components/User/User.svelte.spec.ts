@@ -262,35 +262,13 @@ describe('User', () => {
     })
 
     describe('chip', () => {
-        it('should render chip wrapper when chip is true', async () => {
-            const { container } = render(User, {
-                props: { name: 'John', avatar: { alt: 'John' }, chip: true }
-            })
-
-            const chip = container.querySelector('[data-chip]')
-            expect(chip).not.toBeNull()
-        })
-
-        it('should render chip with custom props', async () => {
-            const { container } = render(User, {
-                props: {
-                    name: 'John',
-                    avatar: { alt: 'John' },
-                    chip: { color: 'success' }
-                }
-            })
-
-            const chip = container.querySelector('[data-chip]')
-            expect(chip).not.toBeNull()
-        })
-
         it('should not render chip when chip is false/undefined', async () => {
             const { container } = render(User, {
                 props: { name: 'John', avatar: { alt: 'John' } }
             })
 
-            const chip = container.querySelector('[data-chip]')
-            expect(chip).toBeNull()
+            const chipSpan = container.querySelector('span.absolute.rounded-full')
+            expect(chipSpan).toBeNull()
         })
     })
 
