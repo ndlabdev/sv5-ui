@@ -1,5 +1,6 @@
 <script lang="ts">
-    import { Button, Icon, ThemeToggle, Avatar, AvatarGroup, Chip, Card, Badge, User, Separator, Kbd, Timeline, Alert, Skeleton, Empty, Container, Progress, mode, setMode } from '$lib/index.js'
+    import { Button, Icon, ThemeToggle, Avatar, AvatarGroup, Chip, Card, Badge, User, Separator, Kbd, Timeline, Alert, Skeleton, Empty, Container, Progress, Breadcrumb, mode, setMode } from '$lib/index.js'
+    import type { BreadcrumbItem } from '$lib/index.js'
     import type { TimelineItem } from '$lib/index.js'
 
     let showAlert1 = $state(true)
@@ -1844,7 +1845,7 @@
             <div class="space-y-2">
                 <h3 class="text-sm font-medium text-neutral-600 dark:text-neutral-400">Interactive Controls</h3>
                 <div class="flex flex-wrap gap-2">
-                    {#each timelineItems as item}
+                    {#each timelineItems as item, index (index)}
                         <Button
                             size="sm"
                             variant={activeTimelineValue === item.value ? 'solid' : 'outline'}
@@ -2111,7 +2112,7 @@
                         value={2}
                         size="sm"
                     >
-                        {#snippet content({ item, state })}
+                        {#snippet content({ state })}
                             <div class="mt-2 p-3 rounded-lg bg-neutral-100 dark:bg-neutral-800">
                                 <div class="flex items-center gap-2 mb-2">
                                     <AvatarGroup size="xs" max={3} avatars={[
@@ -2432,7 +2433,7 @@
             <div class="space-y-2">
                 <h3 class="text-sm font-medium text-neutral-600 dark:text-neutral-400">List Placeholder</h3>
                 <div class="space-y-3">
-                    {#each Array(3) as _}
+                    {#each Array(3) as _, i (i)}
                         <div class="flex items-center gap-3">
                             <Skeleton class="size-10 rounded-lg" />
                             <div class="flex-1 space-y-1.5">
@@ -2781,6 +2782,180 @@
                         <Progress value={40} orientation="vertical" inverted color="success" />
                     </div>
                 </div>
+            </div>
+        </section>
+
+        <!-- Breadcrumb Component -->
+        <section class="space-y-4">
+            <h2 class="text-xl font-semibold text-neutral-800 dark:text-neutral-200">
+                Breadcrumb Component
+            </h2>
+            <p class="text-sm text-neutral-600 dark:text-neutral-400">
+                A hierarchy of links to navigate through a website
+            </p>
+
+            <!-- Basic Breadcrumb -->
+            <div class="space-y-2">
+                <h3 class="text-sm font-medium text-neutral-600 dark:text-neutral-400">Basic</h3>
+                <Breadcrumb
+                    items={[
+                        { label: 'Home', to: '/' },
+                        { label: 'Products', to: '/products' },
+                        { label: 'Electronics', to: '/products/electronics' },
+                        { label: 'Smartphones' }
+                    ]}
+                />
+            </div>
+
+            <!-- With Icons -->
+            <div class="space-y-2">
+                <h3 class="text-sm font-medium text-neutral-600 dark:text-neutral-400">With Icons</h3>
+                <Breadcrumb
+                    items={[
+                        { label: 'Home', to: '/', icon: 'lucide:home' },
+                        { label: 'Settings', to: '/settings', icon: 'lucide:settings' },
+                        { label: 'Profile', icon: 'lucide:user' }
+                    ]}
+                />
+            </div>
+
+            <!-- With Avatars -->
+            <div class="space-y-2">
+                <h3 class="text-sm font-medium text-neutral-600 dark:text-neutral-400">With Avatars</h3>
+                <Breadcrumb
+                    items={[
+                        { label: 'Team', to: '/team', avatar: { src: 'https://i.pravatar.cc/150?img=1', alt: 'Team' } },
+                        { label: 'Engineering', to: '/team/engineering', avatar: { src: 'https://i.pravatar.cc/150?img=2', alt: 'Engineering' } },
+                        { label: 'John Doe', avatar: { src: 'https://i.pravatar.cc/150?img=3', alt: 'John' } }
+                    ]}
+                />
+            </div>
+
+            <!-- Custom Separator -->
+            <div class="space-y-2">
+                <h3 class="text-sm font-medium text-neutral-600 dark:text-neutral-400">Custom Separator Icon</h3>
+                <div class="space-y-3">
+                    <Breadcrumb
+                        items={[
+                            { label: 'Home', to: '/' },
+                            { label: 'Category', to: '/category' },
+                            { label: 'Item' }
+                        ]}
+                        separatorIcon="lucide:arrow-right"
+                    />
+                    <Breadcrumb
+                        items={[
+                            { label: 'Root', to: '/' },
+                            { label: 'Folder', to: '/folder' },
+                            { label: 'File' }
+                        ]}
+                        separatorIcon="lucide:slash"
+                    />
+                    <Breadcrumb
+                        items={[
+                            { label: 'Start', to: '/' },
+                            { label: 'Middle', to: '/middle' },
+                            { label: 'End' }
+                        ]}
+                        separatorIcon="lucide:dot"
+                    />
+                </div>
+            </div>
+
+            <!-- Disabled Items -->
+            <div class="space-y-2">
+                <h3 class="text-sm font-medium text-neutral-600 dark:text-neutral-400">Disabled Items</h3>
+                <Breadcrumb
+                    items={[
+                        { label: 'Home', to: '/' },
+                        { label: 'Archived', to: '/archived', disabled: true },
+                        { label: 'Old Project', disabled: true }
+                    ]}
+                />
+            </div>
+
+            <!-- Only Labels (No Links) -->
+            <div class="space-y-2">
+                <h3 class="text-sm font-medium text-neutral-600 dark:text-neutral-400">Labels Only (No Links)</h3>
+                <Breadcrumb
+                    items={[
+                        { label: 'Step 1: Select' },
+                        { label: 'Step 2: Configure' },
+                        { label: 'Step 3: Review' },
+                        { label: 'Step 4: Submit' }
+                    ]}
+                />
+            </div>
+
+            <!-- Custom labelKey -->
+            <div class="space-y-2">
+                <h3 class="text-sm font-medium text-neutral-600 dark:text-neutral-400">Custom Label Key</h3>
+                <Breadcrumb
+                    items={[
+                        { label: 'Dashboard', to: '/' },
+                        { label: 'Users', to: '/users' },
+                        { label: 'Details' }
+                    ] as BreadcrumbItem[]}
+                    labelKey="label"
+                />
+            </div>
+
+            <!-- Mixed Content -->
+            <div class="space-y-2">
+                <h3 class="text-sm font-medium text-neutral-600 dark:text-neutral-400">Mixed Content</h3>
+                <Breadcrumb
+                    items={[
+                        { label: 'Home', to: '/', icon: 'lucide:home' },
+                        { label: 'Projects', to: '/projects' },
+                        { label: 'My Project', to: '/projects/my-project', avatar: { src: 'https://i.pravatar.cc/150?img=5', alt: 'Project' } },
+                        { label: 'Settings', icon: 'lucide:settings' }
+                    ]}
+                />
+            </div>
+
+            <!-- Custom UI Styling -->
+            <div class="space-y-2">
+                <h3 class="text-sm font-medium text-neutral-600 dark:text-neutral-400">Custom UI Styling</h3>
+                <Breadcrumb
+                    items={[
+                        { label: 'Home', to: '/' },
+                        { label: 'Products', to: '/products' },
+                        { label: 'Details' }
+                    ]}
+                    ui={{
+                        root: 'bg-neutral-100 dark:bg-neutral-800 p-3 rounded-lg',
+                        link: 'text-base',
+                        separatorIcon: 'text-primary-500'
+                    }}
+                />
+            </div>
+
+            <!-- Long Breadcrumb Trail -->
+            <div class="space-y-2">
+                <h3 class="text-sm font-medium text-neutral-600 dark:text-neutral-400">Long Trail (Truncation)</h3>
+                <div class="max-w-md">
+                    <Breadcrumb
+                        items={[
+                            { label: 'Home', to: '/' },
+                            { label: 'Very Long Category Name', to: '/category' },
+                            { label: 'Another Long Subcategory', to: '/subcategory' },
+                            { label: 'This Is A Very Long Product Name That Should Truncate' }
+                        ]}
+                    />
+                </div>
+            </div>
+
+            <!-- As Different Element -->
+            <div class="space-y-2">
+                <h3 class="text-sm font-medium text-neutral-600 dark:text-neutral-400">As Different Element (div)</h3>
+                <Breadcrumb
+                    as="div"
+                    items={[
+                        { label: 'Section 1', to: '#section1' },
+                        { label: 'Section 2', to: '#section2' },
+                        { label: 'Current Section' }
+                    ]}
+                />
             </div>
         </section>
     </div>

@@ -171,6 +171,17 @@ export {
     type ProgressAnimation
 } from './Progress/index.js'
 
+// Breadcrumb
+export {
+    Breadcrumb,
+    breadcrumbVariants,
+    type BreadcrumbProps,
+    type BreadcrumbItem,
+    type BreadcrumbVariants,
+    type BreadcrumbSlots,
+    type BreadcrumbUI
+} from './Breadcrumb/index.js'
+
 // Re-export mode-watcher utilities for convenience
 export {
     mode,
