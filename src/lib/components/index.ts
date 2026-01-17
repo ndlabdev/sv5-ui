@@ -182,6 +182,17 @@ export {
     type BreadcrumbUI
 } from './Breadcrumb/index.js'
 
+// Marquee
+export {
+    Marquee,
+    marqueeVariants,
+    type MarqueeProps,
+    type MarqueeVariants,
+    type MarqueeSlots,
+    type MarqueeOrientation,
+    type MarqueeUI
+} from './Marquee/index.js'
+
 // Re-export mode-watcher utilities for convenience
 export {
     mode,

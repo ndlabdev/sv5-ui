@@ -1,5 +1,5 @@
 <script lang="ts">
-    import { Button, Icon, ThemeToggle, Avatar, AvatarGroup, Chip, Card, Badge, User, Separator, Kbd, Timeline, Alert, Skeleton, Empty, Container, Progress, Breadcrumb, mode, setMode } from '$lib/index.js'
+    import { Button, Icon, ThemeToggle, Avatar, AvatarGroup, Chip, Card, Badge, User, Separator, Kbd, Timeline, Alert, Skeleton, Empty, Container, Progress, Breadcrumb, Marquee, mode, setMode } from '$lib/index.js'
     import type { BreadcrumbItem } from '$lib/index.js'
     import type { TimelineItem } from '$lib/index.js'
 
@@ -2956,6 +2956,120 @@
                         { label: 'Current Section' }
                     ]}
                 />
+            </div>
+        </section>
+
+        <!-- Marquee Component -->
+        <section class="space-y-4">
+            <h2 class="text-xl font-semibold text-neutral-800 dark:text-neutral-200">
+                Marquee Component
+            </h2>
+            <p class="text-sm text-neutral-600 dark:text-neutral-400">
+                Infinite scrolling animation for content like logos, testimonials, or any repeating elements
+            </p>
+
+            <!-- Basic Horizontal Marquee -->
+            <div class="space-y-2">
+                <h3 class="text-sm font-medium text-neutral-600 dark:text-neutral-400">Basic Horizontal</h3>
+                <Marquee class="py-4">
+                    {#each Array(6) as _, i (i)}
+                        <div class="flex items-center justify-center rounded-lg border border-neutral-200 bg-white px-6 py-3 dark:border-neutral-700 dark:bg-neutral-800">
+                            <Icon name="logos:svelte-icon" class="size-8" />
+                            <span class="ml-2 font-medium text-neutral-700 dark:text-neutral-300">Svelte</span>
+                        </div>
+                    {/each}
+                </Marquee>
+            </div>
+
+            <!-- Reverse Direction -->
+            <div class="space-y-2">
+                <h3 class="text-sm font-medium text-neutral-600 dark:text-neutral-400">Reverse Direction</h3>
+                <Marquee reverse class="py-4">
+                    {#each ['Vue', 'React', 'Angular', 'Solid', 'Svelte', 'Nuxt'] as framework (framework)}
+                        <div class="rounded-full bg-primary-100 px-4 py-2 text-primary-700 dark:bg-primary-900 dark:text-primary-300">
+                            {framework}
+                        </div>
+                    {/each}
+                </Marquee>
+            </div>
+
+            <!-- Pause on Hover -->
+            <div class="space-y-2">
+                <h3 class="text-sm font-medium text-neutral-600 dark:text-neutral-400">Pause on Hover</h3>
+                <Marquee pauseOnHover class="py-4">
+                    {#each Array(5) as _, i (i)}
+                        <Card class="w-64 shrink-0">
+                            <div class="p-4">
+                                <User
+                                    name="User {i + 1}"
+                                    description="Developer"
+                                    avatar={{ src: `https://i.pravatar.cc/150?img=${i + 10}` }}
+                                />
+                                <p class="mt-2 text-sm text-neutral-600 dark:text-neutral-400">
+                                    "This is an amazing product! Highly recommended."
+                                </p>
+                            </div>
+                        </Card>
+                    {/each}
+                </Marquee>
+            </div>
+
+            <!-- Vertical Marquee -->
+            <div class="space-y-2">
+                <h3 class="text-sm font-medium text-neutral-600 dark:text-neutral-400">Vertical Orientation</h3>
+                <div class="h-64 overflow-hidden">
+                    <Marquee orientation="vertical" class="h-full">
+                        {#each Array(6) as _, i (i)}
+                            <div class="rounded-lg border border-neutral-200 bg-white p-4 dark:border-neutral-700 dark:bg-neutral-800">
+                                <div class="flex items-center gap-2">
+                                    <Avatar src="https://i.pravatar.cc/150?img={i + 20}" alt="User" size="sm" />
+                                    <span class="font-medium text-neutral-700 dark:text-neutral-300">Notification {i + 1}</span>
+                                </div>
+                            </div>
+                        {/each}
+                    </Marquee>
+                </div>
+            </div>
+
+            <!-- Without Overlay -->
+            <div class="space-y-2">
+                <h3 class="text-sm font-medium text-neutral-600 dark:text-neutral-400">Without Overlay</h3>
+                <Marquee overlay={false} class="py-4">
+                    {#each Array(8) as _, i (i)}
+                        <Badge variant="soft" color={(['primary', 'secondary', 'success', 'warning', 'error', 'info'])[i % 6]}>
+                            Badge {i + 1}
+                        </Badge>
+                    {/each}
+                </Marquee>
+            </div>
+
+            <!-- Different Repeat Count -->
+            <div class="space-y-2">
+                <h3 class="text-sm font-medium text-neutral-600 dark:text-neutral-400">Custom Repeat (2)</h3>
+                <Marquee repeat={2} class="py-4">
+                    {#each Array(4) as _, i (i)}
+                        <div class="flex size-16 items-center justify-center rounded-lg bg-gradient-to-br from-primary-400 to-primary-600 text-white shadow-lg">
+                            <Icon name="lucide:star" class="size-8" />
+                        </div>
+                    {/each}
+                </Marquee>
+            </div>
+
+            <!-- Combined: Two Rows with Different Directions -->
+            <div class="space-y-2">
+                <h3 class="text-sm font-medium text-neutral-600 dark:text-neutral-400">Bidirectional Rows</h3>
+                <div class="space-y-2">
+                    <Marquee class="py-2">
+                        {#each Array(6) as _, i (i)}
+                            <Skeleton class="h-12 w-32 rounded-lg" />
+                        {/each}
+                    </Marquee>
+                    <Marquee reverse class="py-2">
+                        {#each Array(6) as _, i (i)}
+                            <Skeleton class="h-12 w-32 rounded-lg" />
+                        {/each}
+                    </Marquee>
+                </div>
             </div>
         </section>
     </div>
