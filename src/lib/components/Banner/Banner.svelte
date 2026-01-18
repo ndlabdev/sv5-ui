@@ -8,9 +8,9 @@
     import { bannerVariants } from './banner.variants.js'
     import Icon from '../Icon/Icon.svelte'
     import Button from '../Button/Button.svelte'
-	import { resolve } from '$app/paths'
 
     let {
+        as = 'div',
         id,
         ui,
         icon,
@@ -131,14 +131,14 @@
     </div>
 {/snippet}
 
-<div class={rootClass} role="banner" {id}>
+<svelte:element this={as} class={rootClass} role="banner" {id}>
     {#if !isDismissed}
         {#if href}
-            <a href={resolve(href)} {target}>
+            <a href={href} {target}>
                 {@render bannerContent()}
             </a>
         {:else}
             {@render bannerContent()}
         {/if}
     {/if}
-</div>
+</svelte:element>

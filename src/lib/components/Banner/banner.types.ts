@@ -1,11 +1,10 @@
 import type { Snippet } from 'svelte'
-import type { HTMLAnchorAttributes } from 'svelte/elements'
+import type { HTMLAnchorAttributes, HTMLAttributes } from 'svelte/elements'
 import type { VariantProps } from 'tailwind-variants'
 import type { ClassNameValue } from 'tailwind-merge'
 import type { SemanticColor } from '../../config/types.js'
 import type { bannerVariants } from './banner.variants.js'
 import type { ButtonProps } from '../Button/button.types.js'
-import type { Pathname } from '$app/types'
 
 // Variant-derived types
 export type BannerVariants = VariantProps<typeof bannerVariants>
@@ -19,7 +18,13 @@ export type BannerUI = Partial<Record<BannerSlots, ClassNameValue>>
  * Banner component props.
  * A component to display important information at the top of a website.
  */
-export type BannerProps = {
+export type BannerProps = Omit<HTMLAttributes<HTMLDivElement>, 'class' | 'title'> & {
+    /**
+     * The element this component should render as.
+     * @default 'div'
+     */
+    as?: keyof HTMLElementTagNameMap
+
     /**
      * Unique identifier for persisting banner dismissal in local storage.
      * When provided, the banner will remember if it was closed.
@@ -70,7 +75,7 @@ export type BannerProps = {
      * Navigation target URL.
      * When provided, the banner becomes a clickable link.
      */
-    href?: Pathname
+    href?: string
 
     /**
      * Link target attribute.
