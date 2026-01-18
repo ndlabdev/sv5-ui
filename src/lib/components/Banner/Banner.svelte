@@ -5,10 +5,10 @@
 </script>
 
 <script lang="ts">
-    import { base } from '$app/paths'
     import { bannerVariants } from './banner.variants.js'
     import Icon from '../Icon/Icon.svelte'
     import Button from '../Button/Button.svelte'
+	import { resolve } from '$app/paths'
 
     let {
         id,
@@ -28,14 +28,6 @@
         closeSlot,
         onClose
     }: Props = $props()
-
-    // Resolve URL with base path
-    function resolveUrl(url: string): string {
-        if (url.startsWith('http://') || url.startsWith('https://') || url.startsWith('#')) {
-            return url
-        }
-        return `${base}${url}`
-    }
 
     // Track whether the banner is dismissed
     let isDismissed = $state(false)
@@ -142,8 +134,7 @@
 <div class={rootClass} role="banner" {id}>
     {#if !isDismissed}
         {#if href}
-            <!-- eslint-disable-next-line svelte/no-navigation-without-resolve -- dynamic URLs from props -->
-            <a href={resolveUrl(href)} {target}>
+            <a href={resolve(href)} {target}>
                 {@render bannerContent()}
             </a>
         {:else}

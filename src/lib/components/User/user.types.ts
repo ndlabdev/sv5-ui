@@ -5,6 +5,7 @@ import type { HTMLAnchorAttributes, HTMLAttributes } from 'svelte/elements'
 import type { userVariants } from './user.variants.js'
 import type { AvatarProps } from '../Avatar/avatar.types.js'
 import type { ChipProps } from '../Chip/chip.types.js'
+import type { Pathname } from '$app/types'
 
 // Variant-derived types
 export type UserVariants = VariantProps<typeof userVariants>
@@ -99,13 +100,13 @@ type UserAsAnchorProps = UserBaseProps &
          * Link destination URL.
          * When provided, component renders as an anchor element.
          */
-        href: string
+        href: Pathname
     }
 
 /** Props when User is rendered as a generic element (no href) */
 type UserAsElementProps = UserBaseProps &
     Omit<HTMLAttributes<HTMLElement>, 'class'> & {
-        href?: never
+        href?: Pathname
     }
 
 /**

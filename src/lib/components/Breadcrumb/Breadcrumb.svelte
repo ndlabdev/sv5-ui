@@ -5,7 +5,7 @@
 </script>
 
 <script lang="ts">
-    import { base } from '$app/paths'
+    import { resolve } from '$app/paths'
     import { breadcrumbVariants } from './breadcrumb.variants.js'
     import Icon from '../Icon/Icon.svelte'
     import Avatar from '../Avatar/Avatar.svelte'
@@ -58,16 +58,6 @@
     function getLabel(item: (typeof items)[number]): string {
         return ((item as Record<string, unknown>)[labelKey] as string) ?? ''
     }
-
-    // Resolve URL with base path
-    function resolveUrl(url: string): string {
-        // If URL is absolute or external, return as-is
-        if (url.startsWith('http://') || url.startsWith('https://') || url.startsWith('#')) {
-            return url
-        }
-        // Prepend base path for relative URLs
-        return `${base}${url}`
-    }
 </script>
 
 <svelte:element this={as} class={rootClass} aria-label="Breadcrumb" {...restProps}>
@@ -82,9 +72,8 @@
                     {@render itemSlot({ item, index, active: isActive })}
                 {:else}
                     {#if item.href && !isDisabled}
-                        <!-- eslint-disable-next-line svelte/no-navigation-without-resolve -- dynamic URLs from props -->
                         <a
-                            href={resolveUrl(item.href)}
+                            href={resolve(item.href)}
                             class={classes.link}
                             aria-current={isActive ? 'page' : undefined}
                         >

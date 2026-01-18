@@ -8,6 +8,7 @@
     import { userVariants, avatarSizeMap } from './user.variants.js'
     import Avatar from '../Avatar/Avatar.svelte'
     import Chip from '../Chip/Chip.svelte'
+	import { resolve } from '$app/paths'
 
     let {
         as = 'div',
@@ -96,7 +97,7 @@
 {/snippet}
 
 {#if href}
-    <a {href} class={rootClass} {...restProps}>
+    <a href={resolve(href)} class={rootClass} {...restProps}>
         {@render userContent()}
     </a>
 {:else}

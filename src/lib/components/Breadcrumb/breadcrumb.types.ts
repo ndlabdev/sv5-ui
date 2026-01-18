@@ -1,9 +1,10 @@
 import type { Snippet } from 'svelte'
 import type { VariantProps } from 'tailwind-variants'
 import type { ClassNameValue } from 'tailwind-merge'
-import type { HTMLAttributes, HTMLAnchorAttributes } from 'svelte/elements'
+import type { HTMLAttributes } from 'svelte/elements'
 import type { breadcrumbVariants } from './breadcrumb.variants.js'
 import type { AvatarProps } from '../Avatar/avatar.types.js'
+import type { Pathname } from '$app/types'
 
 // Variant-derived types
 export type BreadcrumbVariants = VariantProps<typeof breadcrumbVariants>
@@ -39,7 +40,7 @@ export type BreadcrumbItem = {
      * When provided, renders as an anchor element.
      * When not provided, renders as a span.
      */
-    href?: string
+    href?: Pathname
 
     /**
      * Whether the item is disabled.

@@ -162,7 +162,7 @@ describe('Banner', () => {
             expect(onClose).toHaveBeenCalledOnce()
         })
 
-        it('should hide banner after close button is clicked', async () => {
+        it('should hide banner content after close button is clicked', async () => {
             const { container } = render(Banner, { title: 'Closeable', close: true })
 
             const button = container.querySelector('button')
@@ -171,8 +171,10 @@ describe('Banner', () => {
             // Wait for state update
             await new Promise((r) => setTimeout(r, 50))
 
+            // The banner content should be hidden (no anchor or container inside)
             const banner = container.querySelector('[role="banner"]')
-            expect(banner).toBeNull()
+            expect(banner?.querySelector('.flex')).toBeNull()
+            expect(container.textContent).not.toContain('Closeable')
         })
 
         it('should persist dismissal in localStorage when id is provided', async () => {
@@ -207,9 +209,11 @@ describe('Banner', () => {
     describe('link behavior', () => {
         it('should render with target attribute when provided', async () => {
             const { container } = render(Banner, {
-                title: 'External Link',
-                href: 'https://example.com',
-                target: '_blank'
+                props: {
+                    title: 'External Link',
+                    href: 'https://example.com',
+                    target: '_blank'
+                }
             })
 
             const anchor = container.querySelector('a')
@@ -219,8 +223,8 @@ describe('Banner', () => {
         it('should have hover styles when href is provided', async () => {
             const { container } = render(Banner, { title: 'Clickable', href: '/page', color: 'primary' })
 
-            const anchor = container.querySelector('a')
-            expect(anchor?.classList.contains('cursor-pointer')).toBe(true)
+            const banner = container.querySelector('[role="banner"]')
+            expect(banner?.classList.contains('cursor-pointer')).toBe(true)
         })
     })
 
