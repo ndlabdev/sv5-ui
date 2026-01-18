@@ -55,7 +55,7 @@ describe('Badge', () => {
             const { container } = render(Badge, { props: { label: 'Solid' } })
 
             const badge = container.querySelector('span')
-            expect(badge?.classList.contains('bg-primary-500')).toBe(true)
+            expect(badge?.classList.contains('bg-primary')).toBe(true)
         })
 
         it('should render outline variant', async () => {
@@ -65,7 +65,7 @@ describe('Badge', () => {
 
             const badge = container.querySelector('span')
             expect(badge?.className).toContain('ring-1')
-            expect(badge?.className).toContain('ring-primary-500/50')
+            expect(badge?.className).toContain('ring-primary/50')
         })
 
         it('should render soft variant', async () => {
@@ -74,7 +74,7 @@ describe('Badge', () => {
             })
 
             const badge = container.querySelector('span')
-            expect(badge?.className).toContain('bg-primary-500/15')
+            expect(badge?.className).toContain('bg-primary/15')
         })
 
         it('should render subtle variant', async () => {
@@ -84,7 +84,7 @@ describe('Badge', () => {
 
             const badge = container.querySelector('span')
             expect(badge?.className).toContain('ring-1')
-            expect(badge?.className).toContain('bg-primary-500/10')
+            expect(badge?.className).toContain('bg-primary/10')
         })
     })
 
@@ -93,7 +93,7 @@ describe('Badge', () => {
             const { container } = render(Badge, { props: { label: 'Primary' } })
 
             const badge = container.querySelector('span')
-            expect(badge?.classList.contains('bg-primary-500')).toBe(true)
+            expect(badge?.classList.contains('bg-primary')).toBe(true)
         })
 
         it('should render secondary color', async () => {
@@ -102,7 +102,7 @@ describe('Badge', () => {
             })
 
             const badge = container.querySelector('span')
-            expect(badge?.classList.contains('bg-secondary-500')).toBe(true)
+            expect(badge?.classList.contains('bg-secondary')).toBe(true)
         })
 
         it('should render success color', async () => {
@@ -111,7 +111,7 @@ describe('Badge', () => {
             })
 
             const badge = container.querySelector('span')
-            expect(badge?.classList.contains('bg-success-500')).toBe(true)
+            expect(badge?.classList.contains('bg-success')).toBe(true)
         })
 
         it('should render warning color', async () => {
@@ -120,7 +120,7 @@ describe('Badge', () => {
             })
 
             const badge = container.querySelector('span')
-            expect(badge?.classList.contains('bg-warning-500')).toBe(true)
+            expect(badge?.classList.contains('bg-warning')).toBe(true)
         })
 
         it('should render error color', async () => {
@@ -129,7 +129,7 @@ describe('Badge', () => {
             })
 
             const badge = container.querySelector('span')
-            expect(badge?.classList.contains('bg-error-500')).toBe(true)
+            expect(badge?.classList.contains('bg-error')).toBe(true)
         })
 
         it('should render info color', async () => {
@@ -138,7 +138,7 @@ describe('Badge', () => {
             })
 
             const badge = container.querySelector('span')
-            expect(badge?.classList.contains('bg-info-500')).toBe(true)
+            expect(badge?.classList.contains('bg-info')).toBe(true)
         })
 
         it('should render neutral color', async () => {
@@ -307,8 +307,8 @@ describe('Badge', () => {
             })
 
             const badge = container.querySelector('span')
-            expect(badge?.className).toContain('ring-success-500/50')
-            expect(badge?.classList.contains('text-success-500')).toBe(true)
+            expect(badge?.className).toContain('ring-success/50')
+            expect(badge?.classList.contains('text-success')).toBe(true)
         })
 
         it('should render soft with error color', async () => {
@@ -317,7 +317,7 @@ describe('Badge', () => {
             })
 
             const badge = container.querySelector('span')
-            expect(badge?.className).toContain('bg-error-500/15')
+            expect(badge?.className).toContain('bg-error/15')
             expect(badge?.classList.contains('text-error-700')).toBe(true)
         })
 
@@ -327,8 +327,8 @@ describe('Badge', () => {
             })
 
             const badge = container.querySelector('span')
-            expect(badge?.className).toContain('ring-warning-500/25')
-            expect(badge?.className).toContain('bg-warning-500/10')
+            expect(badge?.className).toContain('ring-warning/25')
+            expect(badge?.className).toContain('bg-warning/10')
         })
 
         it('should render outline with neutral color', async () => {

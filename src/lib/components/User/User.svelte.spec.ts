@@ -103,7 +103,7 @@ describe('User', () => {
 
             const wrapper = container.querySelector('.min-w-0')
             const descEl = wrapper?.lastElementChild
-            expect(descEl?.classList.contains('text-neutral-500')).toBe(true)
+            expect(descEl?.classList.contains('text-neutral')).toBe(true)
             expect(descEl?.classList.contains('truncate')).toBe(true)
         })
 

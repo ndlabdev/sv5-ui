@@ -17,22 +17,22 @@ export const progressVariants = tv({
         },
         color: {
             primary: {
-                indicator: 'bg-primary-500'
+                indicator: 'bg-primary'
             },
             secondary: {
-                indicator: 'bg-secondary-500'
+                indicator: 'bg-secondary'
             },
             success: {
-                indicator: 'bg-success-500'
+                indicator: 'bg-success'
             },
             warning: {
-                indicator: 'bg-warning-500'
+                indicator: 'bg-warning'
             },
             error: {
-                indicator: 'bg-error-500'
+                indicator: 'bg-error'
             },
             info: {
-                indicator: 'bg-info-500'
+                indicator: 'bg-info'
             },
             neutral: {
                 indicator: 'bg-neutral-900 dark:bg-white'
@@ -74,7 +74,7 @@ export const progressVariants = tv({
             },
             first: '',
             other: {
-                steps: 'text-neutral-400 dark:text-neutral-500'
+                steps: 'text-neutral-400 dark:text-neutral'
             },
             last: ''
         },

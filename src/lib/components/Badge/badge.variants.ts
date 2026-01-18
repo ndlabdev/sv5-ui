@@ -65,32 +65,32 @@ export const badgeVariants = tv({
         {
             variant: 'solid',
             color: 'primary',
-            class: { base: 'bg-primary-500 text-white' }
+            class: { base: 'bg-primary text-white' }
         },
         {
             variant: 'solid',
             color: 'secondary',
-            class: { base: 'bg-secondary-500 text-white' }
+            class: { base: 'bg-secondary text-white' }
         },
         {
             variant: 'solid',
             color: 'success',
-            class: { base: 'bg-success-500 text-white' }
+            class: { base: 'bg-success text-white' }
         },
         {
             variant: 'solid',
             color: 'warning',
-            class: { base: 'bg-warning-500 text-white' }
+            class: { base: 'bg-warning text-white' }
         },
         {
             variant: 'solid',
             color: 'error',
-            class: { base: 'bg-error-500 text-white' }
+            class: { base: 'bg-error text-white' }
         },
         {
             variant: 'solid',
             color: 'info',
-            class: { base: 'bg-info-500 text-white' }
+            class: { base: 'bg-info text-white' }
         },
         {
             variant: 'solid',
@@ -105,42 +105,42 @@ export const badgeVariants = tv({
             variant: 'outline',
             color: 'primary',
             class: {
-                base: 'ring-1 ring-inset ring-primary-500/50 text-primary-500 bg-transparent'
+                base: 'ring-1 ring-inset ring-primary/50 text-primary bg-transparent'
             }
         },
         {
             variant: 'outline',
             color: 'secondary',
             class: {
-                base: 'ring-1 ring-inset ring-secondary-500/50 text-secondary-500 bg-transparent'
+                base: 'ring-1 ring-inset ring-secondary/50 text-secondary bg-transparent'
             }
         },
         {
             variant: 'outline',
             color: 'success',
             class: {
-                base: 'ring-1 ring-inset ring-success-500/50 text-success-500 bg-transparent'
+                base: 'ring-1 ring-inset ring-success/50 text-success bg-transparent'
             }
         },
         {
             variant: 'outline',
             color: 'warning',
             class: {
-                base: 'ring-1 ring-inset ring-warning-500/50 text-warning-600 bg-transparent'
+                base: 'ring-1 ring-inset ring-warning/50 text-warning-600 bg-transparent'
             }
         },
         {
             variant: 'outline',
             color: 'error',
             class: {
-                base: 'ring-1 ring-inset ring-error-500/50 text-error-500 bg-transparent'
+                base: 'ring-1 ring-inset ring-error/50 text-error bg-transparent'
             }
         },
         {
             variant: 'outline',
             color: 'info',
             class: {
-                base: 'ring-1 ring-inset ring-info-500/50 text-info-500 bg-transparent'
+                base: 'ring-1 ring-inset ring-info/50 text-info bg-transparent'
             }
         },
         {
@@ -155,37 +155,37 @@ export const badgeVariants = tv({
         {
             variant: 'soft',
             color: 'primary',
-            class: { base: 'bg-primary-500/15 text-primary-700 dark:text-primary-300' }
+            class: { base: 'bg-primary/15 text-primary-700 dark:text-primary-300' }
         },
         {
             variant: 'soft',
             color: 'secondary',
-            class: { base: 'bg-secondary-500/15 text-secondary-700 dark:text-secondary-300' }
+            class: { base: 'bg-secondary/15 text-secondary-700 dark:text-secondary-300' }
         },
         {
             variant: 'soft',
             color: 'success',
-            class: { base: 'bg-success-500/15 text-success-700 dark:text-success-300' }
+            class: { base: 'bg-success/15 text-success-700 dark:text-success-300' }
         },
         {
             variant: 'soft',
             color: 'warning',
-            class: { base: 'bg-warning-500/15 text-warning-700 dark:text-warning-300' }
+            class: { base: 'bg-warning/15 text-warning-700 dark:text-warning-300' }
         },
         {
             variant: 'soft',
             color: 'error',
-            class: { base: 'bg-error-500/15 text-error-700 dark:text-error-300' }
+            class: { base: 'bg-error/15 text-error-700 dark:text-error-300' }
         },
         {
             variant: 'soft',
             color: 'info',
-            class: { base: 'bg-info-500/15 text-info-700 dark:text-info-300' }
+            class: { base: 'bg-info/15 text-info-700 dark:text-info-300' }
         },
         {
             variant: 'soft',
             color: 'neutral',
-            class: { base: 'bg-neutral-500/10 text-neutral-700 dark:text-neutral-300' }
+            class: { base: 'bg-neutral/10 text-neutral-700 dark:text-neutral-300' }
         },
 
         // ========== SUBTLE VARIANTS ==========
@@ -193,49 +193,49 @@ export const badgeVariants = tv({
             variant: 'subtle',
             color: 'primary',
             class: {
-                base: 'ring-1 ring-inset ring-primary-500/25 bg-primary-500/10 text-primary-700 dark:text-primary-300'
+                base: 'ring-1 ring-inset ring-primary/25 bg-primary/10 text-primary-700 dark:text-primary-300'
             }
         },
         {
             variant: 'subtle',
             color: 'secondary',
             class: {
-                base: 'ring-1 ring-inset ring-secondary-500/25 bg-secondary-500/10 text-secondary-700 dark:text-secondary-300'
+                base: 'ring-1 ring-inset ring-secondary/25 bg-secondary/10 text-secondary-700 dark:text-secondary-300'
             }
         },
         {
             variant: 'subtle',
             color: 'success',
             class: {
-                base: 'ring-1 ring-inset ring-success-500/25 bg-success-500/10 text-success-700 dark:text-success-300'
+                base: 'ring-1 ring-inset ring-success/25 bg-success/10 text-success-700 dark:text-success-300'
             }
         },
         {
             variant: 'subtle',
             color: 'warning',
             class: {
-                base: 'ring-1 ring-inset ring-warning-500/25 bg-warning-500/10 text-warning-700 dark:text-warning-300'
+                base: 'ring-1 ring-inset ring-warning/25 bg-warning/10 text-warning-700 dark:text-warning-300'
             }
         },
         {
             variant: 'subtle',
             color: 'error',
             class: {
-                base: 'ring-1 ring-inset ring-error-500/25 bg-error-500/10 text-error-700 dark:text-error-300'
+                base: 'ring-1 ring-inset ring-error/25 bg-error/10 text-error-700 dark:text-error-300'
             }
         },
         {
             variant: 'subtle',
             color: 'info',
             class: {
-                base: 'ring-1 ring-inset ring-info-500/25 bg-info-500/10 text-info-700 dark:text-info-300'
+                base: 'ring-1 ring-inset ring-info/25 bg-info/10 text-info-700 dark:text-info-300'
             }
         },
         {
             variant: 'subtle',
             color: 'neutral',
             class: {
-                base: 'ring-1 ring-inset ring-neutral-500/20 bg-neutral-500/5 text-neutral-700 dark:text-neutral-300'
+                base: 'ring-1 ring-inset ring-neutral/20 bg-neutral/5 text-neutral-700 dark:text-neutral-300'
             }
         },
 

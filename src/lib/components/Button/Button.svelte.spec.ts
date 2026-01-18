@@ -62,7 +62,7 @@ describe('Button', () => {
             })
 
             const button = container.querySelector('button')
-            expect(button?.className).toContain('bg-primary-500/15')
+            expect(button?.className).toContain('bg-primary/15')
         })
 
         it('should render ghost variant', async () => {
@@ -117,7 +117,7 @@ describe('Button', () => {
             })
 
             const button = container.querySelector('button')
-            expect(button?.classList.contains('bg-warning-500')).toBe(true)
+            expect(button?.classList.contains('bg-warning')).toBe(true)
         })
 
         it('should render neutral color', async () => {

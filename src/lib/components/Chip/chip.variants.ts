@@ -7,13 +7,13 @@ export const chipVariants = tv({
     },
     variants: {
         color: {
-            primary: { base: 'bg-primary-500 text-white' },
-            secondary: { base: 'bg-secondary-500 text-white' },
-            success: { base: 'bg-success-500 text-white' },
-            warning: { base: 'bg-warning-500 text-white' },
-            error: { base: 'bg-error-500 text-white' },
-            info: { base: 'bg-info-500 text-white' },
-            neutral: { base: 'bg-neutral-500 text-white' }
+            primary: { base: 'bg-primary text-white' },
+            secondary: { base: 'bg-secondary text-white' },
+            success: { base: 'bg-success text-white' },
+            warning: { base: 'bg-warning text-white' },
+            error: { base: 'bg-error text-white' },
+            info: { base: 'bg-info text-white' },
+            neutral: { base: 'bg-neutral text-white' }
         },
         size: {
             '3xs': { base: 'size-[4px] text-[4px] ring-[0.5px]' },

@@ -45,7 +45,7 @@ describe('Chip', () => {
             const { container } = render(Chip, { props: { text: '1' } })
 
             const chipBase = container.querySelector('span')
-            expect(chipBase?.classList.contains('bg-primary-500')).toBe(true)
+            expect(chipBase?.classList.contains('bg-primary')).toBe(true)
         })
 
         it('should render secondary color', async () => {
@@ -54,7 +54,7 @@ describe('Chip', () => {
             })
 
             const chipBase = container.querySelector('span')
-            expect(chipBase?.classList.contains('bg-secondary-500')).toBe(true)
+            expect(chipBase?.classList.contains('bg-secondary')).toBe(true)
         })
 
         it('should render success color', async () => {
@@ -63,7 +63,7 @@ describe('Chip', () => {
             })
 
             const chipBase = container.querySelector('span')
-            expect(chipBase?.classList.contains('bg-success-500')).toBe(true)
+            expect(chipBase?.classList.contains('bg-success')).toBe(true)
         })
 
         it('should render warning color', async () => {
@@ -72,7 +72,7 @@ describe('Chip', () => {
             })
 
             const chipBase = container.querySelector('span')
-            expect(chipBase?.classList.contains('bg-warning-500')).toBe(true)
+            expect(chipBase?.classList.contains('bg-warning')).toBe(true)
         })
 
         it('should render error color', async () => {
@@ -81,7 +81,7 @@ describe('Chip', () => {
             })
 
             const chipBase = container.querySelector('span')
-            expect(chipBase?.classList.contains('bg-error-500')).toBe(true)
+            expect(chipBase?.classList.contains('bg-error')).toBe(true)
         })
 
         it('should render info color', async () => {
@@ -90,7 +90,7 @@ describe('Chip', () => {
             })
 
             const chipBase = container.querySelector('span')
-            expect(chipBase?.classList.contains('bg-info-500')).toBe(true)
+            expect(chipBase?.classList.contains('bg-info')).toBe(true)
         })
 
         it('should render neutral color', async () => {
@@ -99,7 +99,7 @@ describe('Chip', () => {
             })
 
             const chipBase = container.querySelector('span')
-            expect(chipBase?.classList.contains('bg-neutral-500')).toBe(true)
+            expect(chipBase?.classList.contains('bg-neutral')).toBe(true)
         })
     })
 

@@ -81,42 +81,42 @@ describe('Banner', () => {
             const { container } = render(Banner, { title: 'Primary' })
 
             const banner = container.querySelector('[role="banner"]')
-            expect(banner?.classList.contains('bg-primary-500')).toBe(true)
+            expect(banner?.classList.contains('bg-primary')).toBe(true)
         })
 
         it('should render secondary color', async () => {
             const { container } = render(Banner, { title: 'Secondary', color: 'secondary' })
 
             const banner = container.querySelector('[role="banner"]')
-            expect(banner?.classList.contains('bg-secondary-500')).toBe(true)
+            expect(banner?.classList.contains('bg-secondary')).toBe(true)
         })
 
         it('should render success color', async () => {
             const { container } = render(Banner, { title: 'Success', color: 'success' })
 
             const banner = container.querySelector('[role="banner"]')
-            expect(banner?.classList.contains('bg-success-500')).toBe(true)
+            expect(banner?.classList.contains('bg-success')).toBe(true)
         })
 
         it('should render warning color', async () => {
             const { container } = render(Banner, { title: 'Warning', color: 'warning' })
 
             const banner = container.querySelector('[role="banner"]')
-            expect(banner?.classList.contains('bg-warning-500')).toBe(true)
+            expect(banner?.classList.contains('bg-warning')).toBe(true)
         })
 
         it('should render error color', async () => {
             const { container } = render(Banner, { title: 'Error', color: 'error' })
 
             const banner = container.querySelector('[role="banner"]')
-            expect(banner?.classList.contains('bg-error-500')).toBe(true)
+            expect(banner?.classList.contains('bg-error')).toBe(true)
         })
 
         it('should render info color', async () => {
             const { container } = render(Banner, { title: 'Info', color: 'info' })
 
             const banner = container.querySelector('[role="banner"]')
-            expect(banner?.classList.contains('bg-info-500')).toBe(true)
+            expect(banner?.classList.contains('bg-info')).toBe(true)
         })
 
         it('should render neutral color', async () => {

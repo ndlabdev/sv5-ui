@@ -12,38 +12,38 @@ export const separatorVariants = tv({
         color: {
             primary: {
                 border: 'border-primary-200 dark:border-primary-800',
-                label: 'text-primary-500',
-                icon: 'text-primary-500'
+                label: 'text-primary',
+                icon: 'text-primary'
             },
             secondary: {
                 border: 'border-secondary-200 dark:border-secondary-800',
-                label: 'text-secondary-500',
-                icon: 'text-secondary-500'
+                label: 'text-secondary',
+                icon: 'text-secondary'
             },
             success: {
                 border: 'border-success-200 dark:border-success-800',
-                label: 'text-success-500',
-                icon: 'text-success-500'
+                label: 'text-success',
+                icon: 'text-success'
             },
             warning: {
                 border: 'border-warning-200 dark:border-warning-800',
-                label: 'text-warning-500',
-                icon: 'text-warning-500'
+                label: 'text-warning',
+                icon: 'text-warning'
             },
             error: {
                 border: 'border-error-200 dark:border-error-800',
-                label: 'text-error-500',
-                icon: 'text-error-500'
+                label: 'text-error',
+                icon: 'text-error'
             },
             info: {
                 border: 'border-info-200 dark:border-info-800',
-                label: 'text-info-500',
-                icon: 'text-info-500'
+                label: 'text-info',
+                icon: 'text-info'
             },
             neutral: {
                 border: 'border-neutral-200 dark:border-neutral-800',
-                label: 'text-neutral-500',
-                icon: 'text-neutral-500'
+                label: 'text-neutral',
+                icon: 'text-neutral'
             }
         },
         size: {

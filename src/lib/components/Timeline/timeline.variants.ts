@@ -9,13 +9,13 @@ export const timelineVariants = tv({
             'inline-flex items-center justify-center shrink-0 rounded-full',
             'bg-neutral-200 dark:bg-neutral-700',
             'group-data-[state=completed]:text-white group-data-[state=active]:text-white',
-            'text-neutral-500 dark:text-neutral-400'
+            'text-neutral dark:text-neutral-400'
         ],
         separator: 'flex-1 rounded-full bg-neutral-200 dark:bg-neutral-700',
         wrapper: 'w-full',
-        date: 'text-neutral-500 dark:text-neutral-400 text-xs',
+        date: 'text-neutral dark:text-neutral-400 text-xs',
         title: 'font-medium text-neutral-900 dark:text-white text-sm',
-        description: 'text-neutral-500 dark:text-neutral-400 text-wrap text-sm'
+        description: 'text-neutral dark:text-neutral-400 text-wrap text-sm'
     },
     variants: {
         orientation: {
@@ -33,27 +33,27 @@ export const timelineVariants = tv({
         color: {
             primary: {
                 indicator:
-                    'group-data-[state=completed]:bg-primary-500 group-data-[state=active]:bg-primary-500'
+                    'group-data-[state=completed]:bg-primary group-data-[state=active]:bg-primary'
             },
             secondary: {
                 indicator:
-                    'group-data-[state=completed]:bg-secondary-500 group-data-[state=active]:bg-secondary-500'
+                    'group-data-[state=completed]:bg-secondary group-data-[state=active]:bg-secondary'
             },
             success: {
                 indicator:
-                    'group-data-[state=completed]:bg-success-500 group-data-[state=active]:bg-success-500'
+                    'group-data-[state=completed]:bg-success group-data-[state=active]:bg-success'
             },
             warning: {
                 indicator:
-                    'group-data-[state=completed]:bg-warning-500 group-data-[state=active]:bg-warning-500'
+                    'group-data-[state=completed]:bg-warning group-data-[state=active]:bg-warning'
             },
             error: {
                 indicator:
-                    'group-data-[state=completed]:bg-error-500 group-data-[state=active]:bg-error-500'
+                    'group-data-[state=completed]:bg-error group-data-[state=active]:bg-error'
             },
             info: {
                 indicator:
-                    'group-data-[state=completed]:bg-info-500 group-data-[state=active]:bg-info-500'
+                    'group-data-[state=completed]:bg-info group-data-[state=active]:bg-info'
             },
             neutral: {
                 indicator:
@@ -108,32 +108,32 @@ export const timelineVariants = tv({
         {
             color: 'primary',
             reverse: false,
-            class: { separator: 'group-data-[state=completed]:bg-primary-500' }
+            class: { separator: 'group-data-[state=completed]:bg-primary' }
         },
         {
             color: 'secondary',
             reverse: false,
-            class: { separator: 'group-data-[state=completed]:bg-secondary-500' }
+            class: { separator: 'group-data-[state=completed]:bg-secondary' }
         },
         {
             color: 'success',
             reverse: false,
-            class: { separator: 'group-data-[state=completed]:bg-success-500' }
+            class: { separator: 'group-data-[state=completed]:bg-success' }
         },
         {
             color: 'warning',
             reverse: false,
-            class: { separator: 'group-data-[state=completed]:bg-warning-500' }
+            class: { separator: 'group-data-[state=completed]:bg-warning' }
         },
         {
             color: 'error',
             reverse: false,
-            class: { separator: 'group-data-[state=completed]:bg-error-500' }
+            class: { separator: 'group-data-[state=completed]:bg-error' }
         },
         {
             color: 'info',
             reverse: false,
-            class: { separator: 'group-data-[state=completed]:bg-info-500' }
+            class: { separator: 'group-data-[state=completed]:bg-info' }
         },
         {
             color: 'neutral',
@@ -150,7 +150,7 @@ export const timelineVariants = tv({
             reverse: true,
             class: {
                 separator:
-                    'group-data-[state=active]:bg-primary-500 group-data-[state=completed]:bg-primary-500'
+                    'group-data-[state=active]:bg-primary group-data-[state=completed]:bg-primary'
             }
         },
         {
@@ -158,7 +158,7 @@ export const timelineVariants = tv({
             reverse: true,
             class: {
                 separator:
-                    'group-data-[state=active]:bg-secondary-500 group-data-[state=completed]:bg-secondary-500'
+                    'group-data-[state=active]:bg-secondary group-data-[state=completed]:bg-secondary'
             }
         },
         {
@@ -166,7 +166,7 @@ export const timelineVariants = tv({
             reverse: true,
             class: {
                 separator:
-                    'group-data-[state=active]:bg-success-500 group-data-[state=completed]:bg-success-500'
+                    'group-data-[state=active]:bg-success group-data-[state=completed]:bg-success'
             }
         },
         {
@@ -174,7 +174,7 @@ export const timelineVariants = tv({
             reverse: true,
             class: {
                 separator:
-                    'group-data-[state=active]:bg-warning-500 group-data-[state=completed]:bg-warning-500'
+                    'group-data-[state=active]:bg-warning group-data-[state=completed]:bg-warning'
             }
         },
         {
@@ -182,7 +182,7 @@ export const timelineVariants = tv({
             reverse: true,
             class: {
                 separator:
-                    'group-data-[state=active]:bg-error-500 group-data-[state=completed]:bg-error-500'
+                    'group-data-[state=active]:bg-error group-data-[state=completed]:bg-error'
             }
         },
         {
@@ -190,7 +190,7 @@ export const timelineVariants = tv({
             reverse: true,
             class: {
                 separator:
-                    'group-data-[state=active]:bg-info-500 group-data-[state=completed]:bg-info-500'
+                    'group-data-[state=active]:bg-info group-data-[state=completed]:bg-info'
             }
         },
         {

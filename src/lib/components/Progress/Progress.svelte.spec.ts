@@ -93,7 +93,7 @@ describe('Progress', () => {
                 props: { value: 50 }
             })
 
-            const indicator = container.querySelector('.bg-primary-500')
+            const indicator = container.querySelector('.bg-primary')
             expect(indicator).not.toBeNull()
         })
 
@@ -102,7 +102,7 @@ describe('Progress', () => {
                 props: { value: 50, color: 'secondary' }
             })
 
-            const indicator = container.querySelector('.bg-secondary-500')
+            const indicator = container.querySelector('.bg-secondary')
             expect(indicator).not.toBeNull()
         })
 
@@ -111,7 +111,7 @@ describe('Progress', () => {
                 props: { value: 50, color: 'success' }
             })
 
-            const indicator = container.querySelector('.bg-success-500')
+            const indicator = container.querySelector('.bg-success')
             expect(indicator).not.toBeNull()
         })
 
@@ -120,7 +120,7 @@ describe('Progress', () => {
                 props: { value: 50, color: 'warning' }
             })
 
-            const indicator = container.querySelector('.bg-warning-500')
+            const indicator = container.querySelector('.bg-warning')
             expect(indicator).not.toBeNull()
         })
 
@@ -129,7 +129,7 @@ describe('Progress', () => {
                 props: { value: 50, color: 'error' }
             })
 
-            const indicator = container.querySelector('.bg-error-500')
+            const indicator = container.querySelector('.bg-error')
             expect(indicator).not.toBeNull()
         })
 
@@ -138,7 +138,7 @@ describe('Progress', () => {
                 props: { value: 50, color: 'info' }
             })
 
-            const indicator = container.querySelector('.bg-info-500')
+            const indicator = container.querySelector('.bg-info')
             expect(indicator).not.toBeNull()
         })
 

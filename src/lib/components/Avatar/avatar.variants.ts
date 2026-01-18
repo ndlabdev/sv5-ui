@@ -11,7 +11,7 @@ export const avatarVariants = tv({
         ],
         image: 'h-full w-full rounded-[inherit] object-cover',
         fallback: 'font-medium leading-none text-neutral-600 dark:text-neutral-400 truncate',
-        icon: 'text-neutral-500 dark:text-neutral-400 shrink-0'
+        icon: 'text-neutral dark:text-neutral-400 shrink-0'
     },
     variants: {
         size: {

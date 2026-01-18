@@ -15,37 +15,37 @@ export const bannerVariants = tv({
     variants: {
         color: {
             primary: {
-                root: 'bg-primary-500',
+                root: 'bg-primary',
                 icon: 'text-white',
                 title: 'text-white',
                 close: 'text-white hover:bg-white/10 focus-visible:ring-white/50'
             },
             secondary: {
-                root: 'bg-secondary-500',
+                root: 'bg-secondary',
                 icon: 'text-white',
                 title: 'text-white',
                 close: 'text-white hover:bg-white/10 focus-visible:ring-white/50'
             },
             success: {
-                root: 'bg-success-500',
+                root: 'bg-success',
                 icon: 'text-white',
                 title: 'text-white',
                 close: 'text-white hover:bg-white/10 focus-visible:ring-white/50'
             },
             warning: {
-                root: 'bg-warning-500',
+                root: 'bg-warning',
                 icon: 'text-white',
                 title: 'text-white',
                 close: 'text-white hover:bg-white/10 focus-visible:ring-white/50'
             },
             error: {
-                root: 'bg-error-500',
+                root: 'bg-error',
                 icon: 'text-white',
                 title: 'text-white',
                 close: 'text-white hover:bg-white/10 focus-visible:ring-white/50'
             },
             info: {
-                root: 'bg-info-500',
+                root: 'bg-info',
                 icon: 'text-white',
                 title: 'text-white',
                 close: 'text-white hover:bg-white/10 focus-visible:ring-white/50'
@@ -69,42 +69,42 @@ export const bannerVariants = tv({
             color: 'primary',
             href: true,
             class: {
-                root: 'hover:bg-primary-500/90'
+                root: 'hover:bg-primary/90'
             }
         },
         {
             color: 'secondary',
             href: true,
             class: {
-                root: 'hover:bg-secondary-500/90'
+                root: 'hover:bg-secondary/90'
             }
         },
         {
             color: 'success',
             href: true,
             class: {
-                root: 'hover:bg-success-500/90'
+                root: 'hover:bg-success/90'
             }
         },
         {
             color: 'warning',
             href: true,
             class: {
-                root: 'hover:bg-warning-500/90'
+                root: 'hover:bg-warning/90'
             }
         },
         {
             color: 'error',
             href: true,
             class: {
-                root: 'hover:bg-error-500/90'
+                root: 'hover:bg-error/90'
             }
         },
         {
             color: 'info',
             href: true,
             class: {
-                root: 'hover:bg-info-500/90'
+                root: 'hover:bg-info/90'
             }
         },
         {

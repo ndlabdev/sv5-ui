@@ -39,11 +39,11 @@ describe('Icon', () => {
 
         it('should apply custom class', async () => {
             const { container } = render(Icon, {
-                props: { name: 'lucide:home', class: 'text-red-500' }
+                props: { name: 'lucide:home', class: 'text-red' }
             })
 
             const svg = await waitForSvg(container)
-            expect(svg?.classList.contains('text-red-500')).toBe(true)
+            expect(svg?.classList.contains('text-red')).toBe(true)
             expect(svg?.classList.contains('shrink-0')).toBe(true)
         })
     })

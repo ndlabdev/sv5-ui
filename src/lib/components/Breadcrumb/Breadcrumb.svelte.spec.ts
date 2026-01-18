@@ -147,7 +147,7 @@ describe('Breadcrumb', () => {
             })
 
             const lastItem = container.querySelector('[aria-current="page"]')
-            expect(lastItem?.classList.contains('text-primary-500')).toBe(true)
+            expect(lastItem?.classList.contains('text-primary')).toBe(true)
             expect(lastItem?.classList.contains('font-semibold')).toBe(true)
         })
 
@@ -159,7 +159,7 @@ describe('Breadcrumb', () => {
             })
 
             const firstLink = container.querySelector('a')
-            expect(firstLink?.classList.contains('text-neutral-500')).toBe(true)
+            expect(firstLink?.classList.contains('text-neutral')).toBe(true)
             expect(firstLink?.classList.contains('font-medium')).toBe(true)
         })
     })

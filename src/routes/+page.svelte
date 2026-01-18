@@ -295,7 +295,7 @@
                     leadingIcon="lucide:rocket"
                     color="neutral"
                     variant="outline"
-                    ui={{ leadingIcon: 'text-primary-500' }}
+                    ui={{ leadingIcon: 'text-primary' }}
                 >
                     Custom Icon Color
                 </Button>
@@ -313,8 +313,8 @@
                     trailingIcon="lucide:arrow-right"
                     ui={{
                         base: 'rounded-full',
-                        leadingIcon: 'text-yellow-500',
-                        trailingIcon: 'text-green-500'
+                        leadingIcon: 'text-yellow',
+                        trailingIcon: 'text-green'
                     }}
                 >
                     Multi-slot Override
@@ -323,7 +323,7 @@
                     icon="lucide:heart"
                     variant="ghost"
                     color="neutral"
-                    ui={{ base: 'hover:bg-error-100 dark:hover:bg-error-900', leadingIcon: 'text-error-500' }}
+                    ui={{ base: 'hover:bg-error-100 dark:hover:bg-error-900', leadingIcon: 'text-error' }}
                 />
             </div>
         </section>
@@ -549,7 +549,7 @@
                         src="https://i.pravatar.cc/150?img=5"
                         alt="Bordered"
                         size="lg"
-                        ui={{ root: 'ring-2 ring-primary-500' }}
+                        ui={{ root: 'ring-2 ring-primary' }}
                     />
                     <Avatar
                         alt="Square"
@@ -587,7 +587,7 @@
                             <Avatar src="https://i.pravatar.cc/150?img=11" alt="User" />
                             <Avatar src="https://i.pravatar.cc/150?img=12" alt="User" />
                         </AvatarGroup>
-                        <p class="text-xs text-neutral-500 mt-1">xs</p>
+                        <p class="text-xs text-neutral mt-1">xs</p>
                     </div>
                     <div class="text-center">
                         <AvatarGroup size="sm">
@@ -595,7 +595,7 @@
                             <Avatar src="https://i.pravatar.cc/150?img=11" alt="User" />
                             <Avatar src="https://i.pravatar.cc/150?img=12" alt="User" />
                         </AvatarGroup>
-                        <p class="text-xs text-neutral-500 mt-1">sm</p>
+                        <p class="text-xs text-neutral mt-1">sm</p>
                     </div>
                     <div class="text-center">
                         <AvatarGroup size="md">
@@ -603,7 +603,7 @@
                             <Avatar src="https://i.pravatar.cc/150?img=11" alt="User" />
                             <Avatar src="https://i.pravatar.cc/150?img=12" alt="User" />
                         </AvatarGroup>
-                        <p class="text-xs text-neutral-500 mt-1">md</p>
+                        <p class="text-xs text-neutral mt-1">md</p>
                     </div>
                     <div class="text-center">
                         <AvatarGroup size="lg">
@@ -611,7 +611,7 @@
                             <Avatar src="https://i.pravatar.cc/150?img=11" alt="User" />
                             <Avatar src="https://i.pravatar.cc/150?img=12" alt="User" />
                         </AvatarGroup>
-                        <p class="text-xs text-neutral-500 mt-1">lg</p>
+                        <p class="text-xs text-neutral mt-1">lg</p>
                     </div>
                     <div class="text-center">
                         <AvatarGroup size="xl">
@@ -619,7 +619,7 @@
                             <Avatar src="https://i.pravatar.cc/150?img=11" alt="User" />
                             <Avatar src="https://i.pravatar.cc/150?img=12" alt="User" />
                         </AvatarGroup>
-                        <p class="text-xs text-neutral-500 mt-1">xl</p>
+                        <p class="text-xs text-neutral mt-1">xl</p>
                     </div>
                     <div class="text-center">
                         <AvatarGroup size="2xl">
@@ -627,7 +627,7 @@
                             <Avatar src="https://i.pravatar.cc/150?img=11" alt="User" />
                             <Avatar src="https://i.pravatar.cc/150?img=12" alt="User" />
                         </AvatarGroup>
-                        <p class="text-xs text-neutral-500 mt-1">2xl</p>
+                        <p class="text-xs text-neutral mt-1">2xl</p>
                     </div>
                     <div class="text-center">
                         <AvatarGroup size="3xl">
@@ -635,7 +635,7 @@
                             <Avatar src="https://i.pravatar.cc/150?img=11" alt="User" />
                             <Avatar src="https://i.pravatar.cc/150?img=12" alt="User" />
                         </AvatarGroup>
-                        <p class="text-xs text-neutral-500 mt-1">3xl</p>
+                        <p class="text-xs text-neutral mt-1">3xl</p>
                     </div>
                 </div>
             </div>
@@ -667,7 +667,7 @@
             <!-- AvatarGroup with Custom Styles -->
             <div class="space-y-2">
                 <h3 class="text-sm font-medium text-neutral-600 dark:text-neutral-400">Custom Styles (ui prop)</h3>
-                <AvatarGroup size="lg" ui={{ base: 'ring-primary-500' }}>
+                <AvatarGroup size="lg" ui={{ base: 'ring-primary' }}>
                     <Avatar src="https://i.pravatar.cc/150?img=30" alt="User 1" />
                     <Avatar src="https://i.pravatar.cc/150?img=31" alt="User 2" />
                     <Avatar src="https://i.pravatar.cc/150?img=32" alt="User 3" />
@@ -678,7 +678,7 @@
             <!-- AvatarGroup with Max -->
             <div class="space-y-2">
                 <h3 class="text-sm font-medium text-neutral-600 dark:text-neutral-400">With Max (avatars prop)</h3>
-                <p class="text-xs text-neutral-500 dark:text-neutral-500">max=3 (showing 3 of 7 avatars)</p>
+                <p class="text-xs text-neutral dark:text-neutral">max=3 (showing 3 of 7 avatars)</p>
                 <AvatarGroup
                     size="lg"
                     max={3}
@@ -710,7 +710,7 @@
                                 { src: 'https://i.pravatar.cc/150?img=54', alt: 'User 5' }
                             ]}
                         />
-                        <p class="text-xs text-neutral-500 mt-1">sm, max=2</p>
+                        <p class="text-xs text-neutral mt-1">sm, max=2</p>
                     </div>
                     <div class="text-center">
                         <AvatarGroup
@@ -724,7 +724,7 @@
                                 { src: 'https://i.pravatar.cc/150?img=54', alt: 'User 5' }
                             ]}
                         />
-                        <p class="text-xs text-neutral-500 mt-1">md, max=3</p>
+                        <p class="text-xs text-neutral mt-1">md, max=3</p>
                     </div>
                     <div class="text-center">
                         <AvatarGroup
@@ -738,7 +738,7 @@
                                 { src: 'https://i.pravatar.cc/150?img=54', alt: 'User 5' }
                             ]}
                         />
-                        <p class="text-xs text-neutral-500 mt-1">xl, max=4</p>
+                        <p class="text-xs text-neutral mt-1">xl, max=4</p>
                     </div>
                 </div>
             </div>
@@ -856,25 +856,25 @@
                         <Chip position="top-right">
                             <Avatar alt="TR" size="xl" />
                         </Chip>
-                        <p class="text-xs text-neutral-500 mt-2">top-right</p>
+                        <p class="text-xs text-neutral mt-2">top-right</p>
                     </div>
                     <div class="text-center">
                         <Chip position="top-left">
                             <Avatar alt="TL" size="xl" />
                         </Chip>
-                        <p class="text-xs text-neutral-500 mt-2">top-left</p>
+                        <p class="text-xs text-neutral mt-2">top-left</p>
                     </div>
                     <div class="text-center">
                         <Chip position="bottom-right">
                             <Avatar alt="BR" size="xl" />
                         </Chip>
-                        <p class="text-xs text-neutral-500 mt-2">bottom-right</p>
+                        <p class="text-xs text-neutral mt-2">bottom-right</p>
                     </div>
                     <div class="text-center">
                         <Chip position="bottom-left">
                             <Avatar alt="BL" size="xl" />
                         </Chip>
-                        <p class="text-xs text-neutral-500 mt-2">bottom-left</p>
+                        <p class="text-xs text-neutral mt-2">bottom-left</p>
                     </div>
                 </div>
             </div>
@@ -906,13 +906,13 @@
                         <Chip inset={false}>
                             <Avatar alt="N" size="xl" />
                         </Chip>
-                        <p class="text-xs text-neutral-500 mt-2">inset=false</p>
+                        <p class="text-xs text-neutral mt-2">inset=false</p>
                     </div>
                     <div class="text-center">
                         <Chip inset={true}>
                             <Avatar alt="I" size="xl" />
                         </Chip>
-                        <p class="text-xs text-neutral-500 mt-2">inset=true</p>
+                        <p class="text-xs text-neutral mt-2">inset=true</p>
                     </div>
                 </div>
             </div>
@@ -1048,7 +1048,7 @@
                             <Avatar src="https://i.pravatar.cc/150?img=10" alt="User" size="lg" />
                             <div>
                                 <p class="font-medium text-neutral-900 dark:text-white">John Doe</p>
-                                <p class="text-sm text-neutral-500">Software Engineer</p>
+                                <p class="text-sm text-neutral">Software Engineer</p>
                             </div>
                         </div>
                     </Card>
@@ -1068,15 +1068,15 @@
                     <div class="grid grid-cols-3 gap-4 text-center">
                         <div>
                             <p class="text-2xl font-bold text-primary-600">1,234</p>
-                            <p class="text-xs text-neutral-500">Users</p>
+                            <p class="text-xs text-neutral">Users</p>
                         </div>
                         <div>
                             <p class="text-2xl font-bold text-success-600">567</p>
-                            <p class="text-xs text-neutral-500">Orders</p>
+                            <p class="text-xs text-neutral">Orders</p>
                         </div>
                         <div>
                             <p class="text-2xl font-bold text-warning-600">89%</p>
-                            <p class="text-xs text-neutral-500">Growth</p>
+                            <p class="text-xs text-neutral">Growth</p>
                         </div>
                     </div>
                 </Card>
@@ -1591,7 +1591,7 @@
                         <Button size="xs" variant="soft">Load More</Button>
                     </Separator>
                     <Separator color="success">
-                        <span class="flex items-center gap-1 text-success-500 text-sm">
+                        <span class="flex items-center gap-1 text-success text-sm">
                             <Icon name="lucide:check-circle" size={16} />
                             Completed
                         </span>
@@ -1607,7 +1607,7 @@
                         <div class="flex items-center justify-between">
                             <span class="font-medium">Login with email</span>
                         </div>
-                        <div class="h-10 bg-neutral-100 dark:bg-neutral-800 rounded flex items-center px-3 text-sm text-neutral-500">
+                        <div class="h-10 bg-neutral-100 dark:bg-neutral-800 rounded flex items-center px-3 text-sm text-neutral">
                             email@example.com
                         </div>
                         <Separator label="OR" />
@@ -1657,7 +1657,7 @@
             <!-- Special Keys (Platform Aware) -->
             <div class="space-y-2">
                 <h3 class="text-sm font-medium text-neutral-600 dark:text-neutral-400">Special Keys (Platform Aware)</h3>
-                <p class="text-xs text-neutral-500 dark:text-neutral-500">These keys display differently on Mac vs Windows/Linux</p>
+                <p class="text-xs text-neutral dark:text-neutral">These keys display differently on Mac vs Windows/Linux</p>
                 <div class="flex flex-wrap items-center gap-2">
                     <Kbd value="meta" />
                     <Kbd value="ctrl" />
@@ -1688,15 +1688,15 @@
                 <div class="flex flex-wrap items-center gap-3">
                     <div class="text-center">
                         <Kbd size="sm">K</Kbd>
-                        <p class="text-xs text-neutral-500 mt-1">sm</p>
+                        <p class="text-xs text-neutral mt-1">sm</p>
                     </div>
                     <div class="text-center">
                         <Kbd size="md">K</Kbd>
-                        <p class="text-xs text-neutral-500 mt-1">md</p>
+                        <p class="text-xs text-neutral mt-1">md</p>
                     </div>
                     <div class="text-center">
                         <Kbd size="lg">K</Kbd>
-                        <p class="text-xs text-neutral-500 mt-1">lg</p>
+                        <p class="text-xs text-neutral mt-1">lg</p>
                     </div>
                 </div>
             </div>
@@ -1707,19 +1707,19 @@
                 <div class="flex flex-wrap items-center gap-3">
                     <div class="text-center">
                         <Kbd variant="outline">K</Kbd>
-                        <p class="text-xs text-neutral-500 mt-1">outline</p>
+                        <p class="text-xs text-neutral mt-1">outline</p>
                     </div>
                     <div class="text-center">
                         <Kbd variant="solid">K</Kbd>
-                        <p class="text-xs text-neutral-500 mt-1">solid</p>
+                        <p class="text-xs text-neutral mt-1">solid</p>
                     </div>
                     <div class="text-center">
                         <Kbd variant="soft">K</Kbd>
-                        <p class="text-xs text-neutral-500 mt-1">soft</p>
+                        <p class="text-xs text-neutral mt-1">soft</p>
                     </div>
                     <div class="text-center">
                         <Kbd variant="subtle">K</Kbd>
-                        <p class="text-xs text-neutral-500 mt-1">subtle</p>
+                        <p class="text-xs text-neutral mt-1">subtle</p>
                     </div>
                 </div>
             </div>
@@ -1862,7 +1862,7 @@
                 <h3 class="text-sm font-medium text-neutral-600 dark:text-neutral-400">Colors</h3>
                 <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
                     <div>
-                        <p class="text-xs text-neutral-500 mb-2">Primary</p>
+                        <p class="text-xs text-neutral mb-2">Primary</p>
                         <Timeline
                             items={timelineItems.slice(0, 3)}
                             value={2}
@@ -1871,7 +1871,7 @@
                         />
                     </div>
                     <div>
-                        <p class="text-xs text-neutral-500 mb-2">Success</p>
+                        <p class="text-xs text-neutral mb-2">Success</p>
                         <Timeline
                             items={timelineItems.slice(0, 3)}
                             value={2}
@@ -1880,7 +1880,7 @@
                         />
                     </div>
                     <div>
-                        <p class="text-xs text-neutral-500 mb-2">Error</p>
+                        <p class="text-xs text-neutral mb-2">Error</p>
                         <Timeline
                             items={timelineItems.slice(0, 3)}
                             value={2}
@@ -1889,7 +1889,7 @@
                         />
                     </div>
                     <div>
-                        <p class="text-xs text-neutral-500 mb-2">Warning</p>
+                        <p class="text-xs text-neutral mb-2">Warning</p>
                         <Timeline
                             items={timelineItems.slice(0, 3)}
                             value={2}
@@ -1898,7 +1898,7 @@
                         />
                     </div>
                     <div>
-                        <p class="text-xs text-neutral-500 mb-2">Info</p>
+                        <p class="text-xs text-neutral mb-2">Info</p>
                         <Timeline
                             items={timelineItems.slice(0, 3)}
                             value={2}
@@ -1907,7 +1907,7 @@
                         />
                     </div>
                     <div>
-                        <p class="text-xs text-neutral-500 mb-2">Neutral</p>
+                        <p class="text-xs text-neutral mb-2">Neutral</p>
                         <Timeline
                             items={timelineItems.slice(0, 3)}
                             value={2}
@@ -1923,7 +1923,7 @@
                 <h3 class="text-sm font-medium text-neutral-600 dark:text-neutral-400">Sizes</h3>
                 <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
                     <div>
-                        <p class="text-xs text-neutral-500 mb-2">Small (sm)</p>
+                        <p class="text-xs text-neutral mb-2">Small (sm)</p>
                         <Timeline
                             items={timelineItems.slice(0, 3)}
                             value={2}
@@ -1931,7 +1931,7 @@
                         />
                     </div>
                     <div>
-                        <p class="text-xs text-neutral-500 mb-2">Medium (md)</p>
+                        <p class="text-xs text-neutral mb-2">Medium (md)</p>
                         <Timeline
                             items={timelineItems.slice(0, 3)}
                             value={2}
@@ -1939,7 +1939,7 @@
                         />
                     </div>
                     <div>
-                        <p class="text-xs text-neutral-500 mb-2">Large (lg)</p>
+                        <p class="text-xs text-neutral mb-2">Large (lg)</p>
                         <Timeline
                             items={timelineItems.slice(0, 3)}
                             value={2}
@@ -1963,10 +1963,10 @@
             <!-- Reverse Mode -->
             <div class="space-y-2">
                 <h3 class="text-sm font-medium text-neutral-600 dark:text-neutral-400">Reverse Mode</h3>
-                <p class="text-xs text-neutral-500">Items after active are completed instead of before</p>
+                <p class="text-xs text-neutral">Items after active are completed instead of before</p>
                 <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
                     <div>
-                        <p class="text-xs text-neutral-500 mb-2">Normal (reverse=false)</p>
+                        <p class="text-xs text-neutral mb-2">Normal (reverse=false)</p>
                         <Timeline
                             items={timelineItems.slice(0, 4)}
                             value={2}
@@ -1974,7 +1974,7 @@
                         />
                     </div>
                     <div>
-                        <p class="text-xs text-neutral-500 mb-2">Reverse (reverse=true)</p>
+                        <p class="text-xs text-neutral mb-2">Reverse (reverse=true)</p>
                         <Timeline
                             items={timelineItems.slice(0, 4)}
                             value={2}
@@ -2005,11 +2005,11 @@
                 <h3 class="text-sm font-medium text-neutral-600 dark:text-neutral-400">States Explained</h3>
                 <div class="flex flex-wrap gap-4 text-sm">
                     <div class="flex items-center gap-2">
-                        <div class="size-4 rounded-full bg-primary-500"></div>
+                        <div class="size-4 rounded-full bg-primary"></div>
                         <span class="text-neutral-600 dark:text-neutral-400">Completed</span>
                     </div>
                     <div class="flex items-center gap-2">
-                        <div class="size-4 rounded-full bg-primary-500"></div>
+                        <div class="size-4 rounded-full bg-primary"></div>
                         <span class="text-neutral-600 dark:text-neutral-400">Active</span>
                     </div>
                     <div class="flex items-center gap-2">
@@ -2046,7 +2046,7 @@
             <!-- Timeline with Custom Slots -->
             <div class="space-y-4">
                 <h3 class="text-sm font-medium text-neutral-600 dark:text-neutral-400">With Custom Slots</h3>
-                <p class="text-xs text-neutral-500">Override indicator, title, description, or add custom content</p>
+                <p class="text-xs text-neutral">Override indicator, title, description, or add custom content</p>
 
                 <!-- Custom Indicator Slot -->
                 <div class="space-y-2">
@@ -2061,7 +2061,7 @@
                         size="md"
                     >
                         {#snippet indicator({ item, state })}
-                            <div class="size-8 rounded-full flex items-center justify-center text-sm font-bold {state === 'completed' ? 'bg-success-500 text-white' : state === 'active' ? 'bg-primary-500 text-white' : 'bg-neutral-200 dark:bg-neutral-700 text-neutral-500'}">
+                            <div class="size-8 rounded-full flex items-center justify-center text-sm font-bold {state === 'completed' ? 'bg-success text-white' : state === 'active' ? 'bg-primary text-white' : 'bg-neutral-200 dark:bg-neutral-700 text-neutral'}">
                                 {#if state === 'completed'}
                                     <Icon name="lucide:check" size={16} />
                                 {:else}
@@ -2120,7 +2120,7 @@
                                         { src: 'https://i.pravatar.cc/150?img=2', alt: 'User 2' },
                                         { src: 'https://i.pravatar.cc/150?img=3', alt: 'User 3' }
                                     ]} />
-                                    <span class="text-xs text-neutral-500">3 participants</span>
+                                    <span class="text-xs text-neutral">3 participants</span>
                                 </div>
                                 {#if state === 'active'}
                                     <Button size="xs" variant="soft">Join Meeting</Button>
@@ -2157,7 +2157,7 @@
                             {#snippet descriptionSlot({ item })}
                                 <p class="text-sm text-neutral-600 dark:text-neutral-400">
                                     {item.description}
-                                    <a href="#pr" class="text-primary-500 hover:underline ml-1">View PR</a>
+                                    <a href="#pr" class="text-primary hover:underline ml-1">View PR</a>
                                 </p>
                             {/snippet}
                             {#snippet dateSlot({ item })}
@@ -2362,7 +2362,7 @@
                     />
                 {:else}
                     <div class="flex items-center gap-2">
-                        <span class="text-sm text-neutral-500">Alert dismissed.</span>
+                        <span class="text-sm text-neutral">Alert dismissed.</span>
                         <Button size="xs" variant="outline" onclick={() => showAlert3 = true}>Restore</Button>
                     </div>
                 {/if}
@@ -2733,19 +2733,19 @@
                 <h3 class="text-sm font-medium text-neutral-600 dark:text-neutral-400">Indeterminate (Animations)</h3>
                 <div class="space-y-3">
                     <div class="flex items-center gap-4">
-                        <span class="text-xs text-neutral-500 w-28">Carousel</span>
+                        <span class="text-xs text-neutral w-28">Carousel</span>
                         <Progress animation="carousel" class="flex-1" />
                     </div>
                     <div class="flex items-center gap-4">
-                        <span class="text-xs text-neutral-500 w-28">Carousel Inverse</span>
+                        <span class="text-xs text-neutral w-28">Carousel Inverse</span>
                         <Progress animation="carousel-inverse" class="flex-1" />
                     </div>
                     <div class="flex items-center gap-4">
-                        <span class="text-xs text-neutral-500 w-28">Swing</span>
+                        <span class="text-xs text-neutral w-28">Swing</span>
                         <Progress animation="swing" class="flex-1" />
                     </div>
                     <div class="flex items-center gap-4">
-                        <span class="text-xs text-neutral-500 w-28">Elastic</span>
+                        <span class="text-xs text-neutral w-28">Elastic</span>
                         <Progress animation="elastic" class="flex-1" />
                     </div>
                 </div>
@@ -2925,7 +2925,7 @@
                     ui={{
                         root: 'bg-neutral-100 dark:bg-neutral-800 p-3 rounded-lg',
                         link: 'text-base',
-                        separatorIcon: 'text-primary-500'
+                        separatorIcon: 'text-primary'
                     }}
                 />
             </div>

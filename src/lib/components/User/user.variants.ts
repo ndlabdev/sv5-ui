@@ -7,7 +7,7 @@ export const userVariants = tv({
         root: 'inline-flex items-center gap-2',
         wrapper: 'min-w-0',
         name: 'font-medium text-neutral-900 dark:text-white truncate',
-        description: 'text-neutral-500 dark:text-neutral-400 truncate',
+        description: 'text-neutral dark:text-neutral-400 truncate',
         avatar: 'shrink-0'
     },
     variants: {

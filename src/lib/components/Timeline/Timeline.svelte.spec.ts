@@ -218,7 +218,7 @@ describe('Timeline', () => {
             const activeItem = container.querySelector('[data-state="active"]')
             const indicator = activeItem?.querySelector('.inline-flex')
             expect(
-                indicator?.className.includes('group-data-[state=active]:bg-primary-500')
+                indicator?.className.includes('group-data-[state=active]:bg-primary')
             ).toBe(true)
         })
 
@@ -230,7 +230,7 @@ describe('Timeline', () => {
             const activeItem = container.querySelector('[data-state="active"]')
             const indicator = activeItem?.querySelector('.inline-flex')
             expect(
-                indicator?.className.includes('group-data-[state=active]:bg-success-500')
+                indicator?.className.includes('group-data-[state=active]:bg-success')
             ).toBe(true)
         })
 
@@ -242,7 +242,7 @@ describe('Timeline', () => {
             const activeItem = container.querySelector('[data-state="active"]')
             const indicator = activeItem?.querySelector('.inline-flex')
             expect(
-                indicator?.className.includes('group-data-[state=active]:bg-error-500')
+                indicator?.className.includes('group-data-[state=active]:bg-error')
             ).toBe(true)
         })
     })

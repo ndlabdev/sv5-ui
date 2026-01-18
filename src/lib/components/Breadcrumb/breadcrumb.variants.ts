@@ -11,15 +11,15 @@ export const breadcrumbVariants = tv({
         linkLeadingAvatarSize: '2xs',
         linkLabel: 'truncate',
         separator: 'flex',
-        separatorIcon: 'shrink-0 size-5 text-neutral-400 dark:text-neutral-500'
+        separatorIcon: 'shrink-0 size-5 text-neutral-400 dark:text-neutral'
     },
     variants: {
         active: {
             true: {
-                link: 'text-primary-500 font-semibold'
+                link: 'text-primary font-semibold'
             },
             false: {
-                link: 'text-neutral-500 dark:text-neutral-400 font-medium'
+                link: 'text-neutral dark:text-neutral-400 font-medium'
             }
         },
         disabled: {
