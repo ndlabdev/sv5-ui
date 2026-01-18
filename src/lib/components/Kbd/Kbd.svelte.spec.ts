@@ -239,7 +239,7 @@ describe('Kbd', () => {
             })
 
             const kbd = container.querySelector('kbd')
-            expect(kbd?.className).toContain('bg-neutral-500/10')
+            expect(kbd?.className).toContain('bg-neutral/10')
         })
 
         it('should render subtle variant', async () => {
@@ -249,7 +249,7 @@ describe('Kbd', () => {
 
             const kbd = container.querySelector('kbd')
             expect(kbd?.className).toContain('ring')
-            expect(kbd?.className).toContain('bg-neutral-500/10')
+            expect(kbd?.className).toContain('bg-neutral/10')
         })
     })
 
@@ -435,7 +435,7 @@ describe('Kbd', () => {
             })
 
             const kbd = container.querySelector('kbd')
-            expect(kbd?.classList.contains('bg-primary-500')).toBe(true)
+            expect(kbd?.classList.contains('bg-primary')).toBe(true)
             expect(kbd?.classList.contains('text-white')).toBe(true)
         })
 
@@ -445,8 +445,8 @@ describe('Kbd', () => {
             })
 
             const kbd = container.querySelector('kbd')
-            expect(kbd?.className).toContain('bg-success-500/10')
-            expect(kbd?.classList.contains('text-success-500')).toBe(true)
+            expect(kbd?.className).toContain('bg-success/10')
+            expect(kbd?.classList.contains('text-success')).toBe(true)
         })
 
         it('should render error outline', async () => {
@@ -455,8 +455,8 @@ describe('Kbd', () => {
             })
 
             const kbd = container.querySelector('kbd')
-            expect(kbd?.className).toContain('ring-error-500/50')
-            expect(kbd?.classList.contains('text-error-500')).toBe(true)
+            expect(kbd?.className).toContain('ring-error/50')
+            expect(kbd?.classList.contains('text-error')).toBe(true)
         })
     })
 })

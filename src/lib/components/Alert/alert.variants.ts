@@ -45,7 +45,7 @@ export const alertVariants = tv({
             variant: 'solid',
             color: 'primary',
             class: {
-                root: 'bg-primary-500 text-white',
+                root: 'bg-primary text-white',
                 title: 'text-white',
                 description: 'text-white/90'
             }
@@ -54,7 +54,7 @@ export const alertVariants = tv({
             variant: 'solid',
             color: 'secondary',
             class: {
-                root: 'bg-secondary-500 text-white',
+                root: 'bg-secondary text-white',
                 title: 'text-white',
                 description: 'text-white/90'
             }
@@ -63,7 +63,7 @@ export const alertVariants = tv({
             variant: 'solid',
             color: 'success',
             class: {
-                root: 'bg-success-500 text-white',
+                root: 'bg-success text-white',
                 title: 'text-white',
                 description: 'text-white/90'
             }
@@ -72,7 +72,7 @@ export const alertVariants = tv({
             variant: 'solid',
             color: 'warning',
             class: {
-                root: 'bg-warning-500 text-white',
+                root: 'bg-warning text-white',
                 title: 'text-white',
                 description: 'text-white/90'
             }
@@ -81,7 +81,7 @@ export const alertVariants = tv({
             variant: 'solid',
             color: 'error',
             class: {
-                root: 'bg-error-500 text-white',
+                root: 'bg-error text-white',
                 title: 'text-white',
                 description: 'text-white/90'
             }
@@ -90,7 +90,7 @@ export const alertVariants = tv({
             variant: 'solid',
             color: 'info',
             class: {
-                root: 'bg-info-500 text-white',
+                root: 'bg-info text-white',
                 title: 'text-white',
                 description: 'text-white/90'
             }
@@ -110,60 +110,60 @@ export const alertVariants = tv({
             variant: 'outline',
             color: 'primary',
             class: {
-                root: 'ring-1 ring-inset ring-primary-500/50 bg-transparent',
+                root: 'ring-1 ring-inset ring-primary/50 bg-transparent',
                 title: 'text-primary-600 dark:text-primary-400',
                 description: 'text-primary-600/90 dark:text-primary-400/90',
-                icon: 'text-primary-500'
+                icon: 'text-primary'
             }
         },
         {
             variant: 'outline',
             color: 'secondary',
             class: {
-                root: 'ring-1 ring-inset ring-secondary-500/50 bg-transparent',
+                root: 'ring-1 ring-inset ring-secondary/50 bg-transparent',
                 title: 'text-secondary-600 dark:text-secondary-400',
                 description: 'text-secondary-600/90 dark:text-secondary-400/90',
-                icon: 'text-secondary-500'
+                icon: 'text-secondary'
             }
         },
         {
             variant: 'outline',
             color: 'success',
             class: {
-                root: 'ring-1 ring-inset ring-success-500/50 bg-transparent',
+                root: 'ring-1 ring-inset ring-success/50 bg-transparent',
                 title: 'text-success-600 dark:text-success-400',
                 description: 'text-success-600/90 dark:text-success-400/90',
-                icon: 'text-success-500'
+                icon: 'text-success'
             }
         },
         {
             variant: 'outline',
             color: 'warning',
             class: {
-                root: 'ring-1 ring-inset ring-warning-500/50 bg-transparent',
+                root: 'ring-1 ring-inset ring-warning/50 bg-transparent',
                 title: 'text-warning-600 dark:text-warning-400',
                 description: 'text-warning-600/90 dark:text-warning-400/90',
-                icon: 'text-warning-500'
+                icon: 'text-warning'
             }
         },
         {
             variant: 'outline',
             color: 'error',
             class: {
-                root: 'ring-1 ring-inset ring-error-500/50 bg-transparent',
+                root: 'ring-1 ring-inset ring-error/50 bg-transparent',
                 title: 'text-error-600 dark:text-error-400',
                 description: 'text-error-600/90 dark:text-error-400/90',
-                icon: 'text-error-500'
+                icon: 'text-error'
             }
         },
         {
             variant: 'outline',
             color: 'info',
             class: {
-                root: 'ring-1 ring-inset ring-info-500/50 bg-transparent',
+                root: 'ring-1 ring-inset ring-info/50 bg-transparent',
                 title: 'text-info-600 dark:text-info-400',
                 description: 'text-info-600/90 dark:text-info-400/90',
-                icon: 'text-info-500'
+                icon: 'text-info'
             }
         },
         {
@@ -173,7 +173,7 @@ export const alertVariants = tv({
                 root: 'ring-1 ring-inset ring-neutral-300 dark:ring-neutral-700 bg-transparent',
                 title: 'text-neutral-900 dark:text-neutral-100',
                 description: 'text-neutral-700 dark:text-neutral-300',
-                icon: 'text-neutral-500'
+                icon: 'text-neutral'
             }
         },
 
@@ -182,70 +182,70 @@ export const alertVariants = tv({
             variant: 'soft',
             color: 'primary',
             class: {
-                root: 'bg-primary-500/15',
+                root: 'bg-primary/15',
                 title: 'text-primary-700 dark:text-primary-300',
                 description: 'text-primary-700/90 dark:text-primary-300/90',
-                icon: 'text-primary-500'
+                icon: 'text-primary'
             }
         },
         {
             variant: 'soft',
             color: 'secondary',
             class: {
-                root: 'bg-secondary-500/15',
+                root: 'bg-secondary/15',
                 title: 'text-secondary-700 dark:text-secondary-300',
                 description: 'text-secondary-700/90 dark:text-secondary-300/90',
-                icon: 'text-secondary-500'
+                icon: 'text-secondary'
             }
         },
         {
             variant: 'soft',
             color: 'success',
             class: {
-                root: 'bg-success-500/15',
+                root: 'bg-success/15',
                 title: 'text-success-700 dark:text-success-300',
                 description: 'text-success-700/90 dark:text-success-300/90',
-                icon: 'text-success-500'
+                icon: 'text-success'
             }
         },
         {
             variant: 'soft',
             color: 'warning',
             class: {
-                root: 'bg-warning-500/15',
+                root: 'bg-warning/15',
                 title: 'text-warning-700 dark:text-warning-300',
                 description: 'text-warning-700/90 dark:text-warning-300/90',
-                icon: 'text-warning-500'
+                icon: 'text-warning'
             }
         },
         {
             variant: 'soft',
             color: 'error',
             class: {
-                root: 'bg-error-500/15',
+                root: 'bg-error/15',
                 title: 'text-error-700 dark:text-error-300',
                 description: 'text-error-700/90 dark:text-error-300/90',
-                icon: 'text-error-500'
+                icon: 'text-error'
             }
         },
         {
             variant: 'soft',
             color: 'info',
             class: {
-                root: 'bg-info-500/15',
+                root: 'bg-info/15',
                 title: 'text-info-700 dark:text-info-300',
                 description: 'text-info-700/90 dark:text-info-300/90',
-                icon: 'text-info-500'
+                icon: 'text-info'
             }
         },
         {
             variant: 'soft',
             color: 'neutral',
             class: {
-                root: 'bg-neutral-500/10',
+                root: 'bg-neutral/10',
                 title: 'text-neutral-900 dark:text-neutral-100',
                 description: 'text-neutral-700 dark:text-neutral-300',
-                icon: 'text-neutral-500'
+                icon: 'text-neutral'
             }
         },
 
@@ -254,70 +254,70 @@ export const alertVariants = tv({
             variant: 'subtle',
             color: 'primary',
             class: {
-                root: 'ring-1 ring-inset ring-primary-500/25 bg-primary-500/10',
+                root: 'ring-1 ring-inset ring-primary/25 bg-primary/10',
                 title: 'text-primary-700 dark:text-primary-300',
                 description: 'text-primary-700/90 dark:text-primary-300/90',
-                icon: 'text-primary-500'
+                icon: 'text-primary'
             }
         },
         {
             variant: 'subtle',
             color: 'secondary',
             class: {
-                root: 'ring-1 ring-inset ring-secondary-500/25 bg-secondary-500/10',
+                root: 'ring-1 ring-inset ring-secondary/25 bg-secondary/10',
                 title: 'text-secondary-700 dark:text-secondary-300',
                 description: 'text-secondary-700/90 dark:text-secondary-300/90',
-                icon: 'text-secondary-500'
+                icon: 'text-secondary'
             }
         },
         {
             variant: 'subtle',
             color: 'success',
             class: {
-                root: 'ring-1 ring-inset ring-success-500/25 bg-success-500/10',
+                root: 'ring-1 ring-inset ring-success/25 bg-success/10',
                 title: 'text-success-700 dark:text-success-300',
                 description: 'text-success-700/90 dark:text-success-300/90',
-                icon: 'text-success-500'
+                icon: 'text-success'
             }
         },
         {
             variant: 'subtle',
             color: 'warning',
             class: {
-                root: 'ring-1 ring-inset ring-warning-500/25 bg-warning-500/10',
+                root: 'ring-1 ring-inset ring-warning/25 bg-warning/10',
                 title: 'text-warning-700 dark:text-warning-300',
                 description: 'text-warning-700/90 dark:text-warning-300/90',
-                icon: 'text-warning-500'
+                icon: 'text-warning'
             }
         },
         {
             variant: 'subtle',
             color: 'error',
             class: {
-                root: 'ring-1 ring-inset ring-error-500/25 bg-error-500/10',
+                root: 'ring-1 ring-inset ring-error/25 bg-error/10',
                 title: 'text-error-700 dark:text-error-300',
                 description: 'text-error-700/90 dark:text-error-300/90',
-                icon: 'text-error-500'
+                icon: 'text-error'
             }
         },
         {
             variant: 'subtle',
             color: 'info',
             class: {
-                root: 'ring-1 ring-inset ring-info-500/25 bg-info-500/10',
+                root: 'ring-1 ring-inset ring-info/25 bg-info/10',
                 title: 'text-info-700 dark:text-info-300',
                 description: 'text-info-700/90 dark:text-info-300/90',
-                icon: 'text-info-500'
+                icon: 'text-info'
             }
         },
         {
             variant: 'subtle',
             color: 'neutral',
             class: {
-                root: 'ring-1 ring-inset ring-neutral-500/20 bg-neutral-500/5',
+                root: 'ring-1 ring-inset ring-neutral/20 bg-neutral/5',
                 title: 'text-neutral-900 dark:text-neutral-100',
                 description: 'text-neutral-700 dark:text-neutral-300',
-                icon: 'text-neutral-500'
+                icon: 'text-neutral'
             }
         }
     ],

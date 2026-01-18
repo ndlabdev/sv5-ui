@@ -3,17 +3,17 @@ import { tv } from 'tailwind-variants'
 export const emptyVariants = tv({
     slots: {
         root: 'flex flex-col items-center justify-center rounded-lg p-6 text-center',
-        icon: 'shrink-0 text-neutral-400 dark:text-neutral-500',
+        icon: 'shrink-0 text-neutral-400 dark:text-neutral',
         avatar: 'shrink-0',
         title: 'font-medium text-neutral-900 dark:text-neutral-100',
-        description: 'text-neutral-500 dark:text-neutral-400',
+        description: 'text-neutral dark:text-neutral-400',
         actions: 'flex flex-wrap items-center justify-center gap-2'
     },
     variants: {
         variant: {
             solid: {
                 root: 'bg-neutral-900 dark:bg-white',
-                icon: 'text-neutral-400 dark:text-neutral-500',
+                icon: 'text-neutral-400 dark:text-neutral',
                 title: 'text-white dark:text-neutral-900',
                 description: 'text-neutral-300 dark:text-neutral-600'
             },
@@ -28,7 +28,7 @@ export const emptyVariants = tv({
             },
             naked: {
                 root: 'bg-transparent',
-                description: 'text-neutral-400 dark:text-neutral-500'
+                description: 'text-neutral-400 dark:text-neutral'
             }
         },
         size: {

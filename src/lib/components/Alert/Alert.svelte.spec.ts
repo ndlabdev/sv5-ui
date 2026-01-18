@@ -91,7 +91,7 @@ describe('Alert', () => {
             const { container } = render(Alert, { props: { title: 'Soft' } })
 
             const alert = container.querySelector('[role="alert"]')
-            expect(alert?.className).toContain('bg-primary-500/15')
+            expect(alert?.className).toContain('bg-primary/15')
         })
 
         it('should render solid variant', async () => {
@@ -100,7 +100,7 @@ describe('Alert', () => {
             })
 
             const alert = container.querySelector('[role="alert"]')
-            expect(alert?.classList.contains('bg-primary-500')).toBe(true)
+            expect(alert?.classList.contains('bg-primary')).toBe(true)
             expect(alert?.classList.contains('text-white')).toBe(true)
         })
 
@@ -111,7 +111,7 @@ describe('Alert', () => {
 
             const alert = container.querySelector('[role="alert"]')
             expect(alert?.className).toContain('ring-1')
-            expect(alert?.className).toContain('ring-primary-500/50')
+            expect(alert?.className).toContain('ring-primary/50')
         })
 
         it('should render subtle variant', async () => {
@@ -121,7 +121,7 @@ describe('Alert', () => {
 
             const alert = container.querySelector('[role="alert"]')
             expect(alert?.className).toContain('ring-1')
-            expect(alert?.className).toContain('bg-primary-500/10')
+            expect(alert?.className).toContain('bg-primary/10')
         })
     })
 
@@ -130,7 +130,7 @@ describe('Alert', () => {
             const { container } = render(Alert, { props: { title: 'Primary' } })
 
             const alert = container.querySelector('[role="alert"]')
-            expect(alert?.className).toContain('bg-primary-500/15')
+            expect(alert?.className).toContain('bg-primary/15')
         })
 
         it('should render secondary color', async () => {
@@ -139,7 +139,7 @@ describe('Alert', () => {
             })
 
             const alert = container.querySelector('[role="alert"]')
-            expect(alert?.className).toContain('bg-secondary-500/15')
+            expect(alert?.className).toContain('bg-secondary/15')
         })
 
         it('should render success color', async () => {
@@ -148,7 +148,7 @@ describe('Alert', () => {
             })
 
             const alert = container.querySelector('[role="alert"]')
-            expect(alert?.className).toContain('bg-success-500/15')
+            expect(alert?.className).toContain('bg-success/15')
         })
 
         it('should render warning color', async () => {
@@ -157,7 +157,7 @@ describe('Alert', () => {
             })
 
             const alert = container.querySelector('[role="alert"]')
-            expect(alert?.className).toContain('bg-warning-500/15')
+            expect(alert?.className).toContain('bg-warning/15')
         })
 
         it('should render error color', async () => {
@@ -166,7 +166,7 @@ describe('Alert', () => {
             })
 
             const alert = container.querySelector('[role="alert"]')
-            expect(alert?.className).toContain('bg-error-500/15')
+            expect(alert?.className).toContain('bg-error/15')
         })
 
         it('should render info color', async () => {
@@ -175,7 +175,7 @@ describe('Alert', () => {
             })
 
             const alert = container.querySelector('[role="alert"]')
-            expect(alert?.className).toContain('bg-info-500/15')
+            expect(alert?.className).toContain('bg-info/15')
         })
 
         it('should render neutral color', async () => {
@@ -184,7 +184,7 @@ describe('Alert', () => {
             })
 
             const alert = container.querySelector('[role="alert"]')
-            expect(alert?.className).toContain('bg-neutral-500/10')
+            expect(alert?.className).toContain('bg-neutral/10')
         })
     })
 
@@ -308,7 +308,7 @@ describe('Alert', () => {
             })
 
             const alert = container.querySelector('[role="alert"]')
-            expect(alert?.classList.contains('bg-success-500')).toBe(true)
+            expect(alert?.classList.contains('bg-success')).toBe(true)
             expect(alert?.classList.contains('text-white')).toBe(true)
         })
 
@@ -318,7 +318,7 @@ describe('Alert', () => {
             })
 
             const alert = container.querySelector('[role="alert"]')
-            expect(alert?.className).toContain('ring-error-500/50')
+            expect(alert?.className).toContain('ring-error/50')
         })
 
         it('should render subtle with warning color', async () => {
@@ -327,8 +327,8 @@ describe('Alert', () => {
             })
 
             const alert = container.querySelector('[role="alert"]')
-            expect(alert?.className).toContain('ring-warning-500/25')
-            expect(alert?.className).toContain('bg-warning-500/10')
+            expect(alert?.className).toContain('ring-warning/25')
+            expect(alert?.className).toContain('bg-warning/10')
         })
 
         it('should render soft with info color', async () => {
@@ -337,7 +337,7 @@ describe('Alert', () => {
             })
 
             const alert = container.querySelector('[role="alert"]')
-            expect(alert?.className).toContain('bg-info-500/15')
+            expect(alert?.className).toContain('bg-info/15')
         })
     })
 
