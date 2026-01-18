@@ -92,12 +92,12 @@ describe('Breadcrumb', () => {
             expect(container.textContent).toContain('Details')
         })
 
-        it('should render items as links when to is provided', async () => {
+        it('should render items as links when href is provided', async () => {
             const { container } = render(Breadcrumb, {
                 props: {
                     items: [
-                        { label: 'Home', to: '/' },
-                        { label: 'Products', to: '/products' },
+                        { label: 'Home', href: '/' },
+                        { label: 'Products', href: '/products' },
                         { label: 'Details' }
                     ]
                 }
@@ -109,7 +109,7 @@ describe('Breadcrumb', () => {
             expect(links[1]?.getAttribute('href')).toBe('/products')
         })
 
-        it('should render items as spans when to is not provided', async () => {
+        it('should render items as spans when href is not provided', async () => {
             const { container } = render(Breadcrumb, {
                 props: {
                     items: [{ label: 'Home' }, { label: 'Products' }]
@@ -127,8 +127,8 @@ describe('Breadcrumb', () => {
             const { container } = render(Breadcrumb, {
                 props: {
                     items: [
-                        { label: 'Home', to: '/' },
-                        { label: 'Products', to: '/products' },
+                        { label: 'Home', href: '/' },
+                        { label: 'Products', href: '/products' },
                         { label: 'Details' }
                     ]
                 }
@@ -142,7 +142,7 @@ describe('Breadcrumb', () => {
         it('should apply active styles to last item', async () => {
             const { container } = render(Breadcrumb, {
                 props: {
-                    items: [{ label: 'Home', to: '/' }, { label: 'Details' }]
+                    items: [{ label: 'Home', href: '/' }, { label: 'Details' }]
                 }
             })
 
@@ -154,7 +154,7 @@ describe('Breadcrumb', () => {
         it('should apply inactive styles to non-active items', async () => {
             const { container } = render(Breadcrumb, {
                 props: {
-                    items: [{ label: 'Home', to: '/' }, { label: 'Details' }]
+                    items: [{ label: 'Home', href: '/' }, { label: 'Details' }]
                 }
             })
 
@@ -304,11 +304,11 @@ describe('Breadcrumb', () => {
     })
 
     describe('disabled', () => {
-        it('should render disabled item as span even with to', async () => {
+        it('should render disabled item as span even with href', async () => {
             const { container } = render(Breadcrumb, {
                 props: {
                     items: [
-                        { label: 'Home', to: '/', disabled: true },
+                        { label: 'Home', href: '/', disabled: true },
                         { label: 'Products' }
                     ]
                 }
@@ -413,7 +413,7 @@ describe('Breadcrumb', () => {
         it('should apply custom link class via ui prop', async () => {
             const { container } = render(Breadcrumb, {
                 props: {
-                    items: [{ label: 'Home', to: '/' }],
+                    items: [{ label: 'Home', href: '/' }],
                     ui: { link: 'custom-link-class' }
                 }
             })
@@ -493,7 +493,7 @@ describe('Breadcrumb', () => {
         it('should have hover styles for non-active links', async () => {
             const { container } = render(Breadcrumb, {
                 props: {
-                    items: [{ label: 'Home', to: '/' }, { label: 'Products' }]
+                    items: [{ label: 'Home', href: '/' }, { label: 'Products' }]
                 }
             })
 
@@ -504,7 +504,7 @@ describe('Breadcrumb', () => {
         it('should have transition-colors class for hover effect', async () => {
             const { container } = render(Breadcrumb, {
                 props: {
-                    items: [{ label: 'Home', to: '/' }, { label: 'Products' }]
+                    items: [{ label: 'Home', href: '/' }, { label: 'Products' }]
                 }
             })
 
@@ -556,7 +556,7 @@ describe('Breadcrumb', () => {
         it('should have flex and items-center on links', async () => {
             const { container } = render(Breadcrumb, {
                 props: {
-                    items: [{ label: 'Home', to: '/' }]
+                    items: [{ label: 'Home', href: '/' }]
                 }
             })
 
@@ -568,7 +568,7 @@ describe('Breadcrumb', () => {
         it('should have text-sm on links', async () => {
             const { container } = render(Breadcrumb, {
                 props: {
-                    items: [{ label: 'Home', to: '/' }]
+                    items: [{ label: 'Home', href: '/' }]
                 }
             })
 
@@ -579,7 +579,7 @@ describe('Breadcrumb', () => {
         it('should have gap-1.5 on links', async () => {
             const { container } = render(Breadcrumb, {
                 props: {
-                    items: [{ label: 'Home', to: '/' }]
+                    items: [{ label: 'Home', href: '/' }]
                 }
             })
 

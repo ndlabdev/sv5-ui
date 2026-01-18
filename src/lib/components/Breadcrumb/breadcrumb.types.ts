@@ -39,7 +39,7 @@ export type BreadcrumbItem = {
      * When provided, renders as an anchor element.
      * When not provided, renders as a span.
      */
-    to?: string
+    href?: string
 
     /**
      * Whether the item is disabled.

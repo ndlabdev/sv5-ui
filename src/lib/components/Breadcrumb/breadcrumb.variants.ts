@@ -27,7 +27,7 @@ export const breadcrumbVariants = tv({
                 link: 'cursor-not-allowed opacity-75'
             }
         },
-        to: {
+        href: {
             true: ''
         }
     },
@@ -35,7 +35,7 @@ export const breadcrumbVariants = tv({
         {
             disabled: false,
             active: false,
-            to: true,
+            href: true,
             class: {
                 link: 'hover:text-neutral-900 dark:hover:text-white transition-colors'
             }
@@ -44,6 +44,6 @@ export const breadcrumbVariants = tv({
     defaultVariants: {
         active: false,
         disabled: false,
-        to: false
+        href: false
     }
 })

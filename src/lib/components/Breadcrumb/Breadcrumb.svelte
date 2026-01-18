@@ -37,12 +37,12 @@
     function getItemClasses(index: number, item: (typeof items)[number]) {
         const isActive = index === items.length - 1
         const isDisabled = item.disabled ?? false
-        const hasTo = !!item.to
+        const hasHref = !!item.href
 
         const slots = breadcrumbVariants({
             active: isActive,
             disabled: isDisabled,
-            to: hasTo
+            href: hasHref
         })
 
         return {
@@ -81,10 +81,10 @@
                 {#if itemSlot}
                     {@render itemSlot({ item, index, active: isActive })}
                 {:else}
-                    {#if item.to && !isDisabled}
+                    {#if item.href && !isDisabled}
                         <!-- eslint-disable-next-line svelte/no-navigation-without-resolve -- dynamic URLs from props -->
                         <a
-                            href={resolveUrl(item.to)}
+                            href={resolveUrl(item.href)}
                             class={classes.link}
                             aria-current={isActive ? 'page' : undefined}
                         >

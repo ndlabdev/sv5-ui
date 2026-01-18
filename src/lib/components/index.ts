@@ -193,6 +193,17 @@ export {
     type MarqueeUI
 } from './Marquee/index.js'
 
+// Banner
+export {
+    Banner,
+    bannerVariants,
+    type BannerProps,
+    type BannerVariants,
+    type BannerSlots,
+    type BannerColor,
+    type BannerUI
+} from './Banner/index.js'
+
 // Re-export mode-watcher utilities for convenience
 export {
     mode,

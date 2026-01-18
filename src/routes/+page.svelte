@@ -1,5 +1,5 @@
 <script lang="ts">
-    import { Button, Icon, ThemeToggle, Avatar, AvatarGroup, Chip, Card, Badge, User, Separator, Kbd, Timeline, Alert, Skeleton, Empty, Container, Progress, Breadcrumb, Marquee, mode, setMode } from '$lib/index.js'
+    import { Button, Icon, ThemeToggle, Avatar, AvatarGroup, Chip, Card, Badge, User, Separator, Kbd, Timeline, Alert, Skeleton, Empty, Container, Progress, Breadcrumb, Marquee, Banner, mode, setMode } from '$lib/index.js'
     import type { BreadcrumbItem } from '$lib/index.js'
     import type { TimelineItem } from '$lib/index.js'
 
@@ -2799,9 +2799,9 @@
                 <h3 class="text-sm font-medium text-neutral-600 dark:text-neutral-400">Basic</h3>
                 <Breadcrumb
                     items={[
-                        { label: 'Home', to: '/' },
-                        { label: 'Products', to: '/products' },
-                        { label: 'Electronics', to: '/products/electronics' },
+                        { label: 'Home', href: '/' },
+                        { label: 'Products', href: '/products' },
+                        { label: 'Electronics', href: '/products/electronics' },
                         { label: 'Smartphones' }
                     ]}
                 />
@@ -2812,8 +2812,8 @@
                 <h3 class="text-sm font-medium text-neutral-600 dark:text-neutral-400">With Icons</h3>
                 <Breadcrumb
                     items={[
-                        { label: 'Home', to: '/', icon: 'lucide:home' },
-                        { label: 'Settings', to: '/settings', icon: 'lucide:settings' },
+                        { label: 'Home', href: '/', icon: 'lucide:home' },
+                        { label: 'Settings', href: '/settings', icon: 'lucide:settings' },
                         { label: 'Profile', icon: 'lucide:user' }
                     ]}
                 />
@@ -2824,8 +2824,8 @@
                 <h3 class="text-sm font-medium text-neutral-600 dark:text-neutral-400">With Avatars</h3>
                 <Breadcrumb
                     items={[
-                        { label: 'Team', to: '/team', avatar: { src: 'https://i.pravatar.cc/150?img=1', alt: 'Team' } },
-                        { label: 'Engineering', to: '/team/engineering', avatar: { src: 'https://i.pravatar.cc/150?img=2', alt: 'Engineering' } },
+                        { label: 'Team', href: '/team', avatar: { src: 'https://i.pravatar.cc/150?img=1', alt: 'Team' } },
+                        { label: 'Engineering', href: '/team/engineering', avatar: { src: 'https://i.pravatar.cc/150?img=2', alt: 'Engineering' } },
                         { label: 'John Doe', avatar: { src: 'https://i.pravatar.cc/150?img=3', alt: 'John' } }
                     ]}
                 />
@@ -2837,24 +2837,24 @@
                 <div class="space-y-3">
                     <Breadcrumb
                         items={[
-                            { label: 'Home', to: '/' },
-                            { label: 'Category', to: '/category' },
+                            { label: 'Home', href: '/' },
+                            { label: 'Category', href: '/category' },
                             { label: 'Item' }
                         ]}
                         separatorIcon="lucide:arrow-right"
                     />
                     <Breadcrumb
                         items={[
-                            { label: 'Root', to: '/' },
-                            { label: 'Folder', to: '/folder' },
+                            { label: 'Root', href: '/' },
+                            { label: 'Folder', href: '/folder' },
                             { label: 'File' }
                         ]}
                         separatorIcon="lucide:slash"
                     />
                     <Breadcrumb
                         items={[
-                            { label: 'Start', to: '/' },
-                            { label: 'Middle', to: '/middle' },
+                            { label: 'Start', href: '/' },
+                            { label: 'Middle', href: '/middle' },
                             { label: 'End' }
                         ]}
                         separatorIcon="lucide:dot"
@@ -2867,8 +2867,8 @@
                 <h3 class="text-sm font-medium text-neutral-600 dark:text-neutral-400">Disabled Items</h3>
                 <Breadcrumb
                     items={[
-                        { label: 'Home', to: '/' },
-                        { label: 'Archived', to: '/archived', disabled: true },
+                        { label: 'Home', href: '/' },
+                        { label: 'Archived', href: '/archived', disabled: true },
                         { label: 'Old Project', disabled: true }
                     ]}
                 />
@@ -2892,8 +2892,8 @@
                 <h3 class="text-sm font-medium text-neutral-600 dark:text-neutral-400">Custom Label Key</h3>
                 <Breadcrumb
                     items={[
-                        { label: 'Dashboard', to: '/' },
-                        { label: 'Users', to: '/users' },
+                        { label: 'Dashboard', href: '/' },
+                        { label: 'Users', href: '/users' },
                         { label: 'Details' }
                     ] as BreadcrumbItem[]}
                     labelKey="label"
@@ -2905,9 +2905,9 @@
                 <h3 class="text-sm font-medium text-neutral-600 dark:text-neutral-400">Mixed Content</h3>
                 <Breadcrumb
                     items={[
-                        { label: 'Home', to: '/', icon: 'lucide:home' },
-                        { label: 'Projects', to: '/projects' },
-                        { label: 'My Project', to: '/projects/my-project', avatar: { src: 'https://i.pravatar.cc/150?img=5', alt: 'Project' } },
+                        { label: 'Home', href: '/', icon: 'lucide:home' },
+                        { label: 'Projects', href: '/projects' },
+                        { label: 'My Project', href: '/projects/my-project', avatar: { src: 'https://i.pravatar.cc/150?img=5', alt: 'Project' } },
                         { label: 'Settings', icon: 'lucide:settings' }
                     ]}
                 />
@@ -2918,8 +2918,8 @@
                 <h3 class="text-sm font-medium text-neutral-600 dark:text-neutral-400">Custom UI Styling</h3>
                 <Breadcrumb
                     items={[
-                        { label: 'Home', to: '/' },
-                        { label: 'Products', to: '/products' },
+                        { label: 'Home', href: '/' },
+                        { label: 'Products', href: '/products' },
                         { label: 'Details' }
                     ]}
                     ui={{
@@ -2936,9 +2936,9 @@
                 <div class="max-w-md">
                     <Breadcrumb
                         items={[
-                            { label: 'Home', to: '/' },
-                            { label: 'Very Long Category Name', to: '/category' },
-                            { label: 'Another Long Subcategory', to: '/subcategory' },
+                            { label: 'Home', href: '/' },
+                            { label: 'Very Long Category Name', href: '/category' },
+                            { label: 'Another Long Subcategory', href: '/subcategory' },
                             { label: 'This Is A Very Long Product Name That Should Truncate' }
                         ]}
                     />
@@ -2951,8 +2951,8 @@
                 <Breadcrumb
                     as="div"
                     items={[
-                        { label: 'Section 1', to: '#section1' },
-                        { label: 'Section 2', to: '#section2' },
+                        { label: 'Section 1', href: '#section1' },
+                        { label: 'Section 2', href: '#section2' },
                         { label: 'Current Section' }
                     ]}
                 />
@@ -3070,6 +3070,85 @@
                         {/each}
                     </Marquee>
                 </div>
+            </div>
+        </section>
+
+        <!-- Banner Component -->
+        <section class="space-y-4">
+            <h2 class="text-xl font-semibold text-neutral-800 dark:text-neutral-200">
+                Banner Component
+            </h2>
+
+            <!-- Basic Banner -->
+            <div class="space-y-3">
+                <h3 class="text-lg font-medium text-neutral-700 dark:text-neutral-300">Basic Banners</h3>
+                <Banner title="Welcome to our new feature! Check it out today." />
+                <Banner title="Important announcement" icon="lucide:megaphone" />
+            </div>
+
+            <!-- Color Variants -->
+            <div class="space-y-3">
+                <h3 class="text-lg font-medium text-neutral-700 dark:text-neutral-300">Color Variants</h3>
+                <Banner color="primary" title="Primary banner message" />
+                <Banner color="secondary" title="Secondary banner message" />
+                <Banner color="success" title="Success! Your changes have been saved." icon="lucide:check-circle" />
+                <Banner color="warning" title="Warning: This action cannot be undone." icon="lucide:alert-triangle" />
+                <Banner color="error" title="Error: Something went wrong." icon="lucide:x-circle" />
+                <Banner color="info" title="Info: New updates are available." icon="lucide:info" />
+                <Banner color="neutral" title="Neutral banner message" />
+            </div>
+
+            <!-- With Close Button -->
+            <div class="space-y-3">
+                <h3 class="text-lg font-medium text-neutral-700 dark:text-neutral-300">Closeable Banners</h3>
+                <Banner
+                    title="This banner can be dismissed"
+                    close
+                    id="demo-banner-1"
+                />
+                <Banner
+                    title="Click the X to close this banner"
+                    icon="lucide:bell"
+                    color="info"
+                    close
+                    id="demo-banner-2"
+                />
+            </div>
+
+            <!-- With Actions -->
+            <div class="space-y-3">
+                <h3 class="text-lg font-medium text-neutral-700 dark:text-neutral-300">With Actions</h3>
+                <Banner
+                    title="New version available"
+                    icon="lucide:download"
+                    color="primary"
+                    actions={[{ label: 'Update now' }, { label: 'Learn more' }]}
+                />
+                <Banner
+                    title="Your trial expires in 3 days"
+                    color="warning"
+                    icon="lucide:clock"
+                    actions={[{ label: 'Upgrade' }]}
+                    close
+                />
+            </div>
+
+            <!-- As Link -->
+            <div class="space-y-3">
+                <h3 class="text-lg font-medium text-neutral-700 dark:text-neutral-300">Clickable Banner (Link)</h3>
+                <Banner
+                    title="Click here to learn more about our new features"
+                    icon="lucide:external-link"
+                    href="https://example.com"
+                    target="_blank"
+                    color="primary"
+                />
+                <Banner
+                    title="Visit our documentation"
+                    href="/docs"
+                    color="neutral"
+                    icon="lucide:book-open"
+                />
             </div>
         </section>
     </div>
